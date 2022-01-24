@@ -31,7 +31,7 @@
                         <a href="/packages">Package</a>
                     </li>
                     <li>
-                        <a>Membership</a>
+                        <a href="/membership">Membership</a>
                     </li>
                 </ul>
             </div>

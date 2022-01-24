@@ -28,3 +28,7 @@ Route::get('/outlet', function(){
 Route::get('/packages', function(){
     return view('dashboard.packages');
 });
+
+Route::get('/membership', function(){
+    return view('dashboard.membership');
+});

@@ -15,5 +15,7 @@
     <script src="{{ asset("js/outlet.js") }}"></script>
 
     <script src="{{ asset("js/packages.js") }}"></script>
+
+    <script src="{{ asset("js/membership.js") }}"></script>
 </body>
 </html>
