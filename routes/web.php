@@ -24,3 +24,7 @@ Route::get('/home', function(){
 Route::get('/outlet', function(){
     return view('dashboard.outlet');
 });
+
+Route::get('/packages', function(){
+    return view('dashboard.packages');
+});

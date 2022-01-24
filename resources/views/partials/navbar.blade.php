@@ -28,7 +28,7 @@
                         <a href="/outlet">Outlet</a>
                     </li>
                     <li>
-                        <a>Package</a>
+                        <a href="/packages">Package</a>
                     </li>
                     <li>
                         <a>Membership</a>
