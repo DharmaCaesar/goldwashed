@@ -28,14 +28,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($outletdata as $outlet)
                 <tr class="active">
-                    <th>7</th>
-                    <td>Meghann Durtnal</td>
-                    <td>Staff Accountant IV</td>
-                    <td>Yellow</td>
-                    <td></td>
+                    <th>{{ $outlet -> id }}</th>
+                    <td>{{ $outlet -> outlet_name }}</td>
+                    <td>{{ $outlet -> outlet_address }}</td>
+                    <td>{{ $outlet -> outlet_phone }}</td>
+                    <td>{{ $outlet -> status }}</td>
                     <td></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -44,7 +46,8 @@
 
 {{-- BAGIAN AWAL CREATE --}}
 <div id="outlet-create" class="hidden">
-    <form action="" method="post" class="text-center">
+    <form action="/createoutlet" method="post" class="text-center">
+        @csrf
             <div class="flex flex-row">
                 <div class="flex-1 w-full mx-5">
                     <div class="form-control">

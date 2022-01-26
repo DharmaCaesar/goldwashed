@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BordilController;
+use App\Models\Outlets;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,8 @@ Route::get('/home', function(){
 });
 
 Route::get('/outlet', function(){
-    return view('dashboard.outlet');
+    $outletdata = Outlets::all();
+    return view('dashboard.outlet', ['outletdata' => $outletdata]);
 });
 
 Route::get('/packages', function(){
@@ -32,3 +35,5 @@ Route::get('/packages', function(){
 Route::get('/membership', function(){
     return view('dashboard.membership');
 });
+
+Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
