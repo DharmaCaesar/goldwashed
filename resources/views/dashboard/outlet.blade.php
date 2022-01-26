@@ -52,7 +52,7 @@
                             <span class="label-text">Outlet Status</span>
                         </label>
                         <div class="flex-row">
-                            <select class="select select-bordered w-full">
+                            <select name="status" class="select select-bordered w-full">
                                 <option disabled="disabled" selected="selected">Choose Outlet Status</option>
                                 <option value="ACTIVE">Active</option>
                                 <option value="CLOSED">Closed</option>
@@ -67,13 +67,13 @@
                         <label class="label">
                             <span class="label-text">Outlet Name</span>
                         </label>
-                        <input type="text" placeholder="Outlet name" class="input input-primary input-bordered w-full">
+                        <input type="text" name="outlet_name" placeholder="Outlet name" class="input input-primary input-bordered w-full">
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Outlet Location</span>
                         </label>
-                        <input type="text" placeholder="Location name" class="input input-secondary input-bordered w-full">
+                        <input type="text" name="outlet_address" placeholder="Location name" class="input input-secondary input-bordered w-full">
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -81,7 +81,7 @@
                         </label>
                         <div class="input-group">
                             <span>+62</span>
-                            <input type="text" placeholder="Number" class="input input-accent input-bordered w-full">
+                            <input type="text" name="outlet_phone" placeholder="Number" class="input input-accent input-bordered w-full">
                         </div>
                     </div>
                 </div>

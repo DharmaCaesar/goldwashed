@@ -57,6 +57,23 @@
                             <button class="btn btn-primary">Washearch</button>
                         </div>
                     </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Packages Type</span>
+                        </label>
+                        <div class="flex-row">
+                            <select name="package_type" class="select select-bordered w-full">
+                                <option disabled="disabled" selected="selected">Choose Outlet Status</option>
+                                <option value="HEAVY">HEAVY</option>
+                                <option value="BLANKET">BLANKET</option>
+                                <option value="BED_COVER">BED COVER</option>
+                                <option value="SHIRTS">SHIRTS</option>
+                                <option value="SUIT">SUIT</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex-1 w-full mx-5">
@@ -64,13 +81,7 @@
                         <label class="label">
                             <span class="label-text">Packages Name</span>
                         </label>
-                        <input type="text" placeholder="packages name" class="input input-primary input-bordered w-full">
-                    </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Packages Type</span>
-                        </label>
-                        <input type="text" placeholder="packages type" class="input input-secondary input-bordered w-full">
+                        <input type="text" name="package_name" placeholder="packages name" class="input input-primary input-bordered w-full">
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -78,7 +89,7 @@
                         </label>
                         <div class="input-group">
                             <span>$</span>
-                            <input type="number" placeholder="Number" class="input input-accent input-bordered w-full">
+                            <input type="number" name="package_price" placeholder="Number" class="input input-accent input-bordered w-full">
                         </div>
                     </div>
                 </div>

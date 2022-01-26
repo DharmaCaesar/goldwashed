@@ -18,7 +18,7 @@ class Members extends Migration
             $table->string('member_name', 100);
             $table->text('member_address');
             $table->string('member_phone', 16);
-            $table->enum('member_gender', ['MALE', 'FEMALE']);
+            $table->enum('member_gender', ['MALE', 'FEMALE', 'SHEMALE']);
             $table->timestamps();
         });
     }

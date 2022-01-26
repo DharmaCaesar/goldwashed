@@ -16,7 +16,7 @@ class Packages extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('outlet_id');
-            $table->enum('package_type', ['HEAVY', 'BLANKET', 'BED_COVER', 'SHIRTS', 'OTHERS']);
+            $table->enum('package_type', ['HEAVY', 'BLANKET', 'BED_COVER', 'SHIRTS', 'OTHERS', 'SUIT']);
             $table->string('package_name', 100);
             $table->double('package_price');
             $table->timestamps();

@@ -52,11 +52,11 @@
                             <span class="label-text">Gender</span>
                         </label>
                         <div class="flex-row">
-                            <select class="select select-bordered w-full">
+                            <select name="member_gender" class="select select-bordered w-full">
                                 <option disabled="disabled" selected="selected">Member Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Shemale">Shemale</option>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                <option value="SHEMALE">Shemale</option>
                             </select>
                         </div>
                     </div>
@@ -67,13 +67,13 @@
                         <label class="label">
                             <span class="label-text">Member Name</span>
                         </label>
-                        <input type="text" placeholder="member name" class="input input-primary input-bordered w-full">
+                        <input type="text" name="member_name" placeholder="member name" class="input input-primary input-bordered w-full">
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Member Address</span>
                         </label>
-                        <input type="text" placeholder="member address" class="input input-secondary input-bordered w-full">
+                        <input type="text" name="member_address" placeholder="member address" class="input input-secondary input-bordered w-full">
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -81,7 +81,7 @@
                         </label>
                         <div class="input-group">
                             <span>+62</span>
-                            <input type="number" placeholder="Number" class="input input-accent input-bordered w-full">
+                            <input type="number" name="member_phone" placeholder="Number" class="input input-accent input-bordered w-full">
                         </div>
                     </div>
                 </div>
