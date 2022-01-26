@@ -16,4 +16,12 @@ class Outlets extends Model
     public function user (){
         return $this -> hasMany(User::class, 'outlet_id');
     }
+
+    public function packages (){
+        return $this -> hasMany(Packages::class, 'outlet_id');
+    }
+
+    public function transactions(){
+        return $this -> hasMany(Transactions::class, 'outlet_id');
+    }
 }

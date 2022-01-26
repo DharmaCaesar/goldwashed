@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Members extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $table = 'members';
+
+    public function transactions(){
+        return $this -> hasMany(Transactions::class, 'member_id');
+    }
+    
 }

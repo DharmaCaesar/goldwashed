@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function outlets (){
         return $this -> belongsTo(User::class, 'outlet_id');
     }
+
+    public function transactions(){
+        return $this -> hasMany(Transactions::class, 'user_id');
+    }
 }
