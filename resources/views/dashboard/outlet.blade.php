@@ -35,7 +35,7 @@
                     <td>{{ $outlet -> outlet_address }}</td>
                     <td>{{ $outlet -> outlet_phone }}</td>
                     <td>{{ $outlet -> status }}</td>
-                    <td></td>
+                    <td><button class="btn btn-ghost">Edit</button></td>
                 </tr>
                 @endforeach
             </tbody>
