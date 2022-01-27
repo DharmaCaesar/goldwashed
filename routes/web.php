@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
 use App\Models\Outlets;
+use App\Models\Packages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +31,8 @@ Route::get('/outlet', function(){
 });
 
 Route::get('/packages', function(){
-    return view('dashboard.packages');
+    $packagesdata = Packages::all();
+    return view('dashboard.packages', ['packagesdata' => $packagesdata]);
 });
 
 Route::get('/membership', function(){
@@ -37,3 +40,7 @@ Route::get('/membership', function(){
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
+
+Route::post('/createpackages', [BordilController::class, 'createpackages']);
+
+Route::post('/login', [AuLogController::class, 'login']);

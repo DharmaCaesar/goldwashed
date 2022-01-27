@@ -28,14 +28,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($packagesdata as $packages)
                 <tr class="active">
-                    <th>7</th>
-                    <td>Meghann Durtnal</td>
-                    <td>Staff Accountant IV</td>
-                    <td>Yellow</td>
-                    <td></td>
-                    <td></td>
+                    <th>{{ $packages -> id }}</th>
+                    <td>{{ $packages -> outlets -> outlet_name }}</td>
+                    <td>{{ $packages -> package_name }}</td>
+                    <td>{{ $packages -> package_type }}</td>
+                    <td>{{ $packages -> package_price }}</td>
+                    <td><button class="btn btn-ghost">Edit</button></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -44,7 +46,8 @@
 
 {{-- BAGIAN AWAL CREATE --}}
 <div id="packages-create" class="hidden">
-    <form action="" method="post" class="text-center">
+    <form action="/createpackages" method="post" class="text-center">
+        @csrf
             <div class="flex flex-row">
                 <div class="flex-1 w-full mx-5">
                     <div class="form-control">
@@ -52,26 +55,9 @@
                             <span class="label-text">Outlet ID</span>
                         </label>
                         <div class="input-group">
-                            <input type="hidden" name="outlet_id" id="outlet_id_input">
-                            <input type="text" placeholder="Search" id="outlet_name_input" class="w-full input input-primary rounded-1-none" readonly> 
-                            <button class="btn btn-primary">Washearch</button>
-                        </div>
-                    </div>
-
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Packages Type</span>
-                        </label>
-                        <div class="flex-row">
-                            <select name="package_type" class="select select-bordered w-full">
-                                <option disabled="disabled" selected="selected">Choose Outlet Status</option>
-                                <option value="HEAVY">HEAVY</option>
-                                <option value="BLANKET">BLANKET</option>
-                                <option value="BED_COVER">BED COVER</option>
-                                <option value="SHIRTS">SHIRTS</option>
-                                <option value="SUIT">SUIT</option>
-                                <option value="OTHERS">OTHERS</option>
-                            </select>
+                            <input type="hidden" name="outlet_id" id="outlet_id_input" value="{{ Auth::user() -> outlet_id }}">
+                            <input type="text" value="{{ Auth::user() -> outlets -> outlet_name }}" id="outlet_name_input" class="w-full input input-primary rounded-1-none" readonly> 
+                            {{-- <button class="btn btn-primary">Washearch</button> --}}
                         </div>
                     </div>
                 </div>
@@ -83,6 +69,24 @@
                         </label>
                         <input type="text" name="package_name" placeholder="packages name" class="input input-primary input-bordered w-full">
                     </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Packages Type</span>
+                        </label>
+                        <div class="flex-row">
+                            <select name="package_type" class="select select-bordered w-full">
+                                <option disabled="disabled" selected="selected">Choose Packages Type</option>
+                                <option value="HEAVY">HEAVY</option>
+                                <option value="BLANKET">BLANKET</option>
+                                <option value="BED_COVER">BED COVER</option>
+                                <option value="SHIRTS">SHIRTS</option>
+                                <option value="SUIT">SUIT</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Packages Price</span>

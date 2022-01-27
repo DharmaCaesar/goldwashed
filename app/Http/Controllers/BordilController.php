@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Outlets;
+use App\Models\Packages;
 use Illuminate\Http\Request;
 
 class BordilController extends Controller
@@ -22,6 +23,26 @@ class BordilController extends Controller
         $outlet -> status = $data ['status'];
         if($outlet -> save()){
             return redirect() -> back(); 
+        } else {
+            return redirect() -> back();
+        }
+    }
+
+    public function createpackages(Request $request){
+        $data = $request -> validate([
+            'package_type' => ['required'],
+            'package_name' => ['required'],
+            'package_price' => ['required'],
+            'outlet_id' => ['required'],
+        ]);
+
+        $packages = new Packages;
+        $packages -> package_type = $data ['package_type'];
+        $packages -> package_name = $data ['package_name'];
+        $packages -> package_price = $data ['package_price'];
+        $packages -> outlet_id = $data ['outlet_id'];
+        if($packages -> save()){
+            return redirect() -> back();
         } else {
             return redirect() -> back();
         }
