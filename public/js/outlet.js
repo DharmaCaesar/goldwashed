@@ -35,3 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 })
+
+function editoutlet(entity){
+    
+}
