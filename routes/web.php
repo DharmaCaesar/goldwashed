@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
+use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use Illuminate\Support\Facades\Route;
@@ -36,11 +37,14 @@ Route::get('/packages', function(){
 });
 
 Route::get('/membership', function(){
-    return view('dashboard.membership');
+    $memberdata = Members::all();
+    return view('dashboard.membership', ['memberdata' => $memberdata]);
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
 
 Route::post('/createpackages', [BordilController::class, 'createpackages']);
+
+Route::post('/createmember', [BordilController::class, 'createmember']);
 
 Route::post('/login', [AuLogController::class, 'login']);

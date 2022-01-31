@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use Illuminate\Http\Request;
@@ -42,6 +43,27 @@ class BordilController extends Controller
         $packages -> package_price = $data ['package_price'];
         $packages -> outlet_id = $data ['outlet_id'];
         if($packages -> save()){
+            return redirect() -> back();
+        } else {
+            return redirect() -> back();
+        }
+    }
+
+    public function createmember(Request $request){
+        $data = $request -> validate([
+            'member_gender' => ['required'],
+            'member_name' => ['required'],
+            'member_address' => ['required'],
+            'member_phone' => ['required'],
+        ]);
+
+        $data ['member_phone'] = '+62' . $data ['member_phone'];
+        $member = new Members;
+        $member -> member_gender = $data ['member_gender'];
+        $member -> member_name = $data ['member_name'];
+        $member -> member_address = $data ['member_address'];
+        $member -> member_phone = $data ['member_phone'];
+        if($member -> save()){
             return redirect() -> back();
         } else {
             return redirect() -> back();

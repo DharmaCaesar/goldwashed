@@ -21,21 +21,23 @@
                 <tr>
                     <th></th>
                     <th>Member Name</th>
-                    <th>Mmeber Address</th>
+                    <th>Member Address</th>
                     <th>Member Contact</th>
                     <th>Gender</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($memberdata as $member)
                 <tr class="active">
-                    <th>7</th>
-                    <td>Meghann Durtnal</td>
-                    <td>Staff Accountant IV</td>
-                    <td>Yellow</td>
-                    <td></td>
-                    <td></td>
+                    <th>{{ $member -> id }}</th>
+                    <td>{{ $member -> member_name }}</td>
+                    <td>{{ $member -> member_address }}</td>
+                    <td>{{ $member -> member_phone }}</td>
+                    <td>{{ $member -> member_gender }}</td>
+                    <td><button class="btn btn-ghost">Edit</button></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -44,7 +46,8 @@
 
 {{-- BAGIAN AWAL CREATE --}}
 <div id="membership-create" class="hidden">
-    <form action="" method="post" class="text-center">
+    <form action="/createmember" method="post" class="text-center">
+        @csrf
             <div class="flex flex-row">
                 <div class="flex-1 w-full mx-5">
                     <div class="form-control">
