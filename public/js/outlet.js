@@ -37,5 +37,14 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function editoutlet(entity){
-    
+    let tableedit = entity.parentElement.parentElement
+    let id = tableedit.querySelectorAll('th')[0].innerText
+    $.ajax({
+        type: 'POST', 
+        url: '/catch-outlet',
+        data: {id:id},
+        success: function(response){
+            console.log(response)
+        }
+    })
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
+use App\Http\Controllers\EditController;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
@@ -42,6 +43,7 @@ Route::get('/membership', function(){
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
+Route::post('/catch-outlet', [EditController::class, 'catchoutlet']);
 
 Route::post('/createpackages', [BordilController::class, 'createpackages']);
 

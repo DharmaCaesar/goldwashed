@@ -12,6 +12,8 @@
         @yield('container')
     </div>
 
+    <script src="{{ asset("js/app.js") }}"></script>
+
     <script src="{{ asset("js/outlet.js") }}"></script>
 
     <script src="{{ asset("js/packages.js") }}"></script>
