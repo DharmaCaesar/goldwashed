@@ -29,21 +29,23 @@ Route::get('/home', function(){
 
 Route::get('/outlet', function(){
     $outletdata = Outlets::all();
-    return view('dashboard.outlet', ['outletdata' => $outletdata]);
+    return view('dashboard.outlet', ['outletdata' => $outletdata, 'page' => 'outlets']);
 });
 
 Route::get('/packages', function(){
     $packagesdata = Packages::all();
-    return view('dashboard.packages', ['packagesdata' => $packagesdata]);
+    return view('dashboard.packages', ['packagesdata' => $packagesdata, 'page' => 'packages']);
 });
 
 Route::get('/membership', function(){
     $memberdata = Members::all();
-    return view('dashboard.membership', ['memberdata' => $memberdata]);
+    return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership']);
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
 Route::post('/catch-outlet', [EditController::class, 'catchoutlet']);
+Route::post('/editoutlet', [EditController::class, 'editoutlet']);
+Route::post('/deleteoutlet', [EditController::class, 'deleteoutlet']);
 
 Route::post('/createpackages', [BordilController::class, 'createpackages']);
 

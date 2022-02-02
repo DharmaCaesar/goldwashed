@@ -45,6 +45,12 @@ function editoutlet(entity){
         data: {id:id},
         success: function(response){
             console.log(response)
+            document.getElementById('edit_outlet').classList.add('modal-open')
+
+            document.getElementById('statusInput').value = response.response.status
+            document.getElementById('nameInput').value = response.response.outlet_name
+            document.getElementById('addressInput').value = response.response.outlet_address
+            document.getElementById('numberInput').value = response.response.outlet_phone
         }
     })
 }
