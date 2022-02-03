@@ -35,3 +35,23 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 })
+
+function editpackage(entity){
+    let tableedit = entity.parentElement.parentElement
+    let id = tableedit.querySelectorAll('th')[0].innerText
+    $.ajax({
+        type: 'POST', 
+        url: '/catch-package',
+        data: {id:id},
+        success: function(response){
+            console.log(response)
+            document.getElementById('edit_package').classList.add('modal-open')
+
+            document.getElementById('idInput').value = response.response.id
+            document.getElementById('nameInput').value = response.response.package_name
+            document.getElementById('typeInput').value = response.response.package_type
+            document.getElementById('priceInput').value = response.response.package_price
+            document.getElementById('deleteId').value = response.response.id
+        }
+    })
+}

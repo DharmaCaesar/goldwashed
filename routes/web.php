@@ -48,7 +48,13 @@ Route::post('/editoutlet', [EditController::class, 'editoutlet']);
 Route::post('/deleteoutlet', [EditController::class, 'deleteoutlet']);
 
 Route::post('/createpackages', [BordilController::class, 'createpackages']);
+Route::post('/catch-package', [EditController::class, 'catchpackages']);
+Route::post('/editpackage', [EditController::class, 'editpackages']);
+Route::post('/deletepackage', [EditController::class, 'deletepackages']);
 
 Route::post('/createmember', [BordilController::class, 'createmember']);
+Route::post('/catch-member', [EditController::class, 'catchmember']);
+Route::post('/editmember', [EditController::class, 'editmember']);
+Route::post('/deletemember', [EditController::class, 'deletemember']);
 
 Route::post('/login', [AuLogController::class, 'login']);
