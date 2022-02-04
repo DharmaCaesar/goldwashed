@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\Logs;
 use App\Models\Outlets;
 
 class OutletsObserver
@@ -14,7 +15,10 @@ class OutletsObserver
      */
     public function created(Outlets $outlets)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'create',
+            'models' => 'outlets'
+        ]);
     }
 
     /**
@@ -25,7 +29,10 @@ class OutletsObserver
      */
     public function updated(Outlets $outlets)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'update',
+            'models' => 'outlets'
+        ]);
     }
 
     /**
@@ -36,7 +43,10 @@ class OutletsObserver
      */
     public function deleted(Outlets $outlets)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'delete',
+            'models' => 'outlets'
+        ]);
     }
 
     /**
@@ -47,7 +57,10 @@ class OutletsObserver
      */
     public function restored(Outlets $outlets)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'restore',
+            'models' => 'outlets'
+        ]);
     }
 
     /**
@@ -58,6 +71,9 @@ class OutletsObserver
      */
     public function forceDeleted(Outlets $outlets)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'force_delete',
+            'models' => 'outlets'
+        ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\Logs;
 use App\Models\Packages;
 
 class PackagesObserver
@@ -14,7 +15,10 @@ class PackagesObserver
      */
     public function created(Packages $packages)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'create',
+            'models' => 'packages'
+        ]);
     }
 
     /**
@@ -25,7 +29,10 @@ class PackagesObserver
      */
     public function updated(Packages $packages)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'update',
+            'models' => 'packages'
+        ]);
     }
 
     /**
@@ -36,7 +43,10 @@ class PackagesObserver
      */
     public function deleted(Packages $packages)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'delete',
+            'models' => 'packages'
+        ]);
     }
 
     /**
@@ -47,7 +57,10 @@ class PackagesObserver
      */
     public function restored(Packages $packages)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'restore',
+            'models' => 'packages'
+        ]);
     }
 
     /**
@@ -58,6 +71,9 @@ class PackagesObserver
      */
     public function forceDeleted(Packages $packages)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'force_delete',
+            'models' => 'packages'
+        ]);
     }
 }

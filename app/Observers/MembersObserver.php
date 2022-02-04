@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\Logs;
 use App\Models\Members;
 
 class MembersObserver
@@ -14,7 +15,10 @@ class MembersObserver
      */
     public function created(Members $members)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'create',
+            'models' => 'members'
+        ]);
     }
 
     /**
@@ -25,7 +29,10 @@ class MembersObserver
      */
     public function updated(Members $members)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'update',
+            'models' => 'members'
+        ]);
     }
 
     /**
@@ -36,7 +43,10 @@ class MembersObserver
      */
     public function deleted(Members $members)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'delete',
+            'models' => 'members'
+        ]);
     }
 
     /**
@@ -47,7 +57,10 @@ class MembersObserver
      */
     public function restored(Members $members)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'restore',
+            'models' => 'members'
+        ]);
     }
 
     /**
@@ -58,6 +71,9 @@ class MembersObserver
      */
     public function forceDeleted(Members $members)
     {
-        //
+        Logs::create([
+            'logs_activition' => 'force_delete',
+            'models' => 'members'
+        ]);
     }
 }

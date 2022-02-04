@@ -128,21 +128,22 @@
         <table class="table w-full">
           <thead>
             <tr>
-              <th></th> 
-              <th>packages Name</th> 
-              <th>Create at</th> 
-              <th>Delete at</th>
+              <th>Id</th> 
+              <th>Activition</th> 
+              <th>Created At</th>
               <th>Last Update</th>
             </tr>
           </thead> 
 
           <tbody>
+            @foreach ($logsdata as $logs)
             <tr class="hover">
-              <th>7</th> 
-              <td>Meghann Durtnal</td> 
-              <td>Staff Accountant IV</td> 
-              <td>Yellow</td>
+              <th>{{ $logs -> id }}</th> 
+              <td>{{ $logs -> logs_activition }}</td> 
+              <td>{{ $logs -> created_at }}</td> 
+              <td>{{ $logs -> updated_at }}</td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\EditController;
+use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
@@ -29,17 +30,20 @@ Route::get('/home', function(){
 
 Route::get('/outlet', function(){
     $outletdata = Outlets::all();
-    return view('dashboard.outlet', ['outletdata' => $outletdata, 'page' => 'outlets']);
+    $logsdata = Logs::where('models', 'outlets') -> get();
+    return view('dashboard.outlet', ['outletdata' => $outletdata, 'page' => 'outlets', 'logsdata' => $logsdata]);
 });
 
 Route::get('/packages', function(){
     $packagesdata = Packages::all();
-    return view('dashboard.packages', ['packagesdata' => $packagesdata, 'page' => 'packages']);
+    $logsdata = Logs::where('models', 'packages') -> get();
+    return view('dashboard.packages', ['packagesdata' => $packagesdata, 'page' => 'packages', 'logsdata' => $logsdata]);
 });
 
 Route::get('/membership', function(){
     $memberdata = Members::all();
-    return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership']);
+    $logsdata = Logs::where('models', 'members') -> get();
+    return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
