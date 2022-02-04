@@ -180,7 +180,7 @@
                         <label class="label">
                             <span class="label-text">Old Member Name</span>
                         </label>
-                        <input type="text" placeholder="member name" class="input input-primary input-bordered w-full" id="namaInput">
+                        <input type="text" placeholder="member name" class="input input-primary input-bordered w-full" id="namaInput" readonly>
                     </div>
                       <div class="form-control">
                           <label class="label">
@@ -216,7 +216,7 @@
                         </label>
                         <div class="input-group">
                             <span>+62</span>
-                            <input type="number" name="member_phone" placeholder="Number" class="input input-accent input-bordered w-full" id="numberInput">
+                            <input type="text" name="member_phone" placeholder="Number" class="input input-accent input-bordered w-full" id="numberInput">
                         </div>
                     </div>
                 </div>
@@ -237,7 +237,7 @@
   
       <form action="/deletemember" method="post" class="text-center">
           @csrf
-          <input type="hidden" name="member_id" value="{{ Auth::user() -> member_id }}">
+          <input type="hidden" name="member_id" id="deleteId">
               <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementByI('edit_member').classList.remove('modal-open')">Cancel</button>
               <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
       </form>

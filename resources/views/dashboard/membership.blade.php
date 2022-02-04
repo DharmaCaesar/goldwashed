@@ -1,7 +1,26 @@
 @extends('preload.default')
 
 @section('container')
+@include('partials.modals')
 @include('partials.navbar')
+@if (Session::has('success'))
+<div class="alert alert-success">
+    <div class="flex-1">
+      <label>✔ {{ Session::get('success') }}</label>
+    </div>
+  </div>  
+@endif
+
+@if (Session::has('failure'))
+<div class="alert alert-error">
+    <div class="flex-1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">    
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>                      
+      </svg> 
+      <label>{{ Session::get('failure') }}</label>
+    </div>
+  </div>
+@endif
 
 {{-- BAGIAN AWAL TAB --}}
 <div class="text-center my-5">
@@ -35,7 +54,7 @@
                     <td>{{ $member -> member_address }}</td>
                     <td>{{ $member -> member_phone }}</td>
                     <td>{{ $member -> member_gender }}</td>
-                    <td><button class="btn btn-ghost">Edit</button></td>
+                    <td><button class="btn btn-ghost" onclick="editmember(this)" >Edit</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -55,7 +74,7 @@
                             <span class="label-text">Gender</span>
                         </label>
                         <div class="flex-row">
-                            <select name="member_gender" class="select select-bordered w-full">
+                            <select name="member_gender" class="select select-bordered w-full" id="genderInput">
                                 <option disabled="disabled" selected="selected">Member Gender</option>
                                 <option value="MALE">Male</option>
                                 <option value="FEMALE">Female</option>
@@ -70,13 +89,13 @@
                         <label class="label">
                             <span class="label-text">Member Name</span>
                         </label>
-                        <input type="text" name="member_name" placeholder="member name" class="input input-primary input-bordered w-full">
+                        <input type="text" name="member_name" placeholder="member name" class="input input-primary input-bordered w-full" id="nameInput">
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Member Address</span>
                         </label>
-                        <input type="text" name="member_address" placeholder="member address" class="input input-secondary input-bordered w-full">
+                        <input type="text" name="member_address" placeholder="member address" class="input input-secondary input-bordered w-full" id="addressInput">
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -84,7 +103,7 @@
                         </label>
                         <div class="input-group">
                             <span>+62</span>
-                            <input type="number" name="member_phone" placeholder="Number" class="input input-accent input-bordered w-full">
+                            <input type="text" name="member_phone" placeholder="Number" class="input input-accent input-bordered w-full" id="numberInput">
                         </div>
                     </div>
                 </div>

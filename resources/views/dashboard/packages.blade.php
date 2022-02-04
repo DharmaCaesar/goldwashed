@@ -53,7 +53,7 @@
                     <td>{{ $packages -> outlets -> outlet_name }}</td>
                     <td>{{ $packages -> package_name }}</td>
                     <td>{{ $packages -> package_type }}</td>
-                    <td>{{ $packages -> package_price }}</td>
+                    <td>$ {{ $packages -> package_price }}</td>
                     <td><button class="btn btn-ghost" onclick="editpackage(this)">Edit</button></td>
                 </tr>
                 @endforeach

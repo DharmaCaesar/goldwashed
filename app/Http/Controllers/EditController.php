@@ -120,6 +120,7 @@ class EditController extends Controller
         ]);
 
         $member = Members::find($data['member_id']);
+        $data ['member_phone'] = '+62' . $data ['member_phone'];
         $member -> member_name = $data ['member_name'];
         $member -> member_address = $data ['member_address' ];
         $member -> member_phone = $data ['member_phone'];

@@ -35,3 +35,25 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 })
+
+function editmember(entity){
+    let tableedit = entity.parentElement.parentElement
+    let id = tableedit.querySelectorAll('th')[0].innerText
+    $.ajax({
+        type: 'POST', 
+        url: '/catch-member',
+        data: {id:id},
+        success: function(response){
+            console.log(response)
+            document.getElementById('edit_member').classList.add('modal-open')
+
+            document.getElementById('idInput').value = response.response.id
+            document.getElementById('genderInput').value = response.response.member_gender
+            document.getElementById('nameInput').value = response.response.member_name
+            document.getElementById('addressInput').value = response.response.member_address
+            document.getElementById('numberInput').value = response.response.member_phone
+            document.getElementById('namaInput').value = response.response.member_name            
+            document.getElementById('deleteId').value = response.response.id
+        }
+    })
+}
