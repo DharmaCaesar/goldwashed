@@ -7,6 +7,7 @@ use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
+use App\Models\Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,12 @@ Route::get('/membership', function(){
     $memberdata = Members::all();
     $logsdata = Logs::where('models', 'members') -> get();
     return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
+});
+
+Route::get('/regis', function(){
+    $registerdata = Register::all();
+    $logsdata = Logs::where('models', 'register') -> get();
+    return view('dashboard.register', ['registerdata' => $registerdata, 'page' => 'register', 'logsdata' => $logsdata]);
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);

@@ -31,7 +31,9 @@
               </label>
             </div> 
             <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary hover:outline-base-content hover:bg-transparent hover:text-neutral-content">Login</button>
+
+              <a href="/register" class="btn btn-outline my-2 btn-sm">Register</a>
             </div>
         </form>
         </div>
