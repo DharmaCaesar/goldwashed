@@ -5,7 +5,7 @@
     <div class="flex-col justify-center hero-content lg:flex-row">
       <div class="text-center lg:text-left">
         <h1 class="mb-5 text-5xl font-bold">
-              Hello there
+              Grubbywash
             </h1> 
         <p class="mb-5">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.

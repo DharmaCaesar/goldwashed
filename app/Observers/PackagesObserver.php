@@ -16,7 +16,7 @@ class PackagesObserver
     public function created(Packages $packages)
     {
         Logs::create([
-            'logs_activition' => 'create',
+            'logs_activition' => 'CREATE',
             'models' => 'packages'
         ]);
     }
@@ -30,7 +30,7 @@ class PackagesObserver
     public function updated(Packages $packages)
     {
         Logs::create([
-            'logs_activition' => 'update',
+            'logs_activition' => 'UPDATE',
             'models' => 'packages'
         ]);
     }
@@ -44,7 +44,7 @@ class PackagesObserver
     public function deleted(Packages $packages)
     {
         Logs::create([
-            'logs_activition' => 'delete',
+            'logs_activition' => 'DELETE',
             'models' => 'packages'
         ]);
     }
@@ -58,7 +58,7 @@ class PackagesObserver
     public function restored(Packages $packages)
     {
         Logs::create([
-            'logs_activition' => 'restore',
+            'logs_activition' => 'RESTORE',
             'models' => 'packages'
         ]);
     }
@@ -72,7 +72,7 @@ class PackagesObserver
     public function forceDeleted(Packages $packages)
     {
         Logs::create([
-            'logs_activition' => 'force_delete',
+            'logs_activition' => 'FORCE DELETE',
             'models' => 'packages'
         ]);
     }

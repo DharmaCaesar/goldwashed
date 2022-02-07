@@ -2287,6 +2287,11 @@ html {
   border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
   border-width: 1px;
 }
+.card-bordered {
+  --tw-border-opacity: 1;
+  border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
+  border-width: 1px;
+}
 .card.compact .card-body {
   font-size: .875rem;
   line-height: 1.25rem;
@@ -2684,6 +2689,10 @@ html {
   --tw-text-opacity: 1;
   color: hsla(var(--er) / var(--tw-text-opacity, 1));
 }
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -2696,9 +2705,9 @@ html {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -2813,6 +2822,14 @@ html {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -2823,6 +2840,9 @@ html {
 .text-neutral-content {
   --tw-text-opacity: 1;
   color: hsla(var(--nc) / var(--tw-text-opacity));
+}
+.opacity-50 {
+  opacity: 0.5;
 }
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -2858,6 +2878,22 @@ html {
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 @media (min-width: 1024px) {
+
+  .lg\:card-side {
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  .lg\:card-side>figure {
+    height: 100%;
+    max-width: none;
+    width: auto;
+  }
+
+  .lg\:card-side>figure>* {
+    width: auto;
+    max-width: none;
+  }
 
   .lg\:flex {
     display: flex;

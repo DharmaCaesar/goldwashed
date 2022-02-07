@@ -67,7 +67,7 @@
     <form action="/deleteoutlet" method="post" class="text-center">
         @csrf
         <input type="hidden" name="outlet_id" value="{{ Auth::user() -> outlet_id }}">
-            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementByI('edit_outlet').classList.remove('modal-open')">Cancel</button>
+            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('delete_outlet').classList.remove('modal-open')">Cancel</button>
             <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
     </form>
     </div>
@@ -153,7 +153,7 @@
     <form action="/deletepackage" method="post" class="text-center">
         @csrf
         <input type="hidden" id="deleteId" name="package_id">
-            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementByI('edit_package').classList.remove('modal-open')">Cancel</button>
+            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementByI('delete_package').classList.remove('modal-open')">Cancel</button>
             <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
     </form>
     </div>
@@ -238,7 +238,7 @@
       <form action="/deletemember" method="post" class="text-center">
           @csrf
           <input type="hidden" name="member_id" id="deleteId">
-              <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementByI('edit_member').classList.remove('modal-open')">Cancel</button>
+              <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('delete_member').classList.remove('modal-open')">Cancel</button>
               <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
       </form>
       </div>

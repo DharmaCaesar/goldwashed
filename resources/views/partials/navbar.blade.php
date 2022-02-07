@@ -55,7 +55,7 @@
                 <a>Help</a>
               </li> 
               <li>
-                <a>Logout</a>
+                <a href="/logout">Logout</a>
               </li>
             </ul>
           </div>

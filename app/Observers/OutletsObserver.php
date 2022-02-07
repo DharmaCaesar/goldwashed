@@ -16,7 +16,7 @@ class OutletsObserver
     public function created(Outlets $outlets)
     {
         Logs::create([
-            'logs_activition' => 'create',
+            'logs_activition' => 'CREATE',
             'models' => 'outlets'
         ]);
     }
@@ -30,7 +30,7 @@ class OutletsObserver
     public function updated(Outlets $outlets)
     {
         Logs::create([
-            'logs_activition' => 'update',
+            'logs_activition' => 'UPDATE',
             'models' => 'outlets'
         ]);
     }
@@ -44,7 +44,7 @@ class OutletsObserver
     public function deleted(Outlets $outlets)
     {
         Logs::create([
-            'logs_activition' => 'delete',
+            'logs_activition' => 'DELETE',
             'models' => 'outlets'
         ]);
     }

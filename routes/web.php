@@ -24,6 +24,8 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::middleware(['auth.basic']) -> group(function(){
+
 Route::get('/home', function(){
     return view('dashboard.home');
 });
@@ -60,5 +62,9 @@ Route::post('/createmember', [BordilController::class, 'createmember']);
 Route::post('/catch-member', [EditController::class, 'catchmember']);
 Route::post('/editmember', [EditController::class, 'editmember']);
 Route::post('/deletemember', [EditController::class, 'deletemember']);
+
+Route::get('/logout', [AuLogController::class,'logout']);
+
+});
 
 Route::post('/login', [AuLogController::class, 'login']);

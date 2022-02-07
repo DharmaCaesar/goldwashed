@@ -34,7 +34,7 @@
 
 {{-- BAGIAN AWAL TABEL --}}
 <div id="outlet-view" class="">
-    <div class="overflow-x-auto">
+    {{-- <div class="overflow-x-auto">
         <table class="table w-full">
             <thead>
                 <tr>
@@ -59,7 +59,41 @@
                 @endforeach
             </tbody>
         </table>
+    </div> --}}
+
+    @foreach ($outletdata as $util)
+    <div class="card lg:card-side card-bordered text-center bg-base-200 rounded-box mx-10">
+        <div class="card-body">
+            <div class="my-10">
+                <h2 class="text-sm font-bold">STATUS</h2>
+                <h2 class="text-xl font-bold">{{ $util->status }}</h2>
+            </div>
+
+            <div class="flex">
+                <div class="flex-1">
+                    <h2 class="text-sm font-bold">NAME</h2>
+                    <p class="text-xl font-bold"> {{ $util->outlet_name }} </p>
+                    <p class="font-sm opacity-50" id="table_outlet_id">{{ $util->id }}</p>
+                </div>
+
+                <div class="flex-1">
+                    <h2 class="text-sm font-bold">ADDRESS</h2>
+                    <p class="font-bold text-xl">"{{ $util->outlet_address }}"</p>
+                    <p class="text-sm">+62{{ $util->outlet_phone }}</p>
+                </div>
+            </div>
+
+            <div class="my-10">
+                <h2 class="text-sm font-bold">REGISTERED USERS</h2>
+                <h2 class="text-xl font-bold">{{ $util->user->count() }}</h2>
+            </div>
+
+            <div class="card-actions inline-block">
+                <button class="btn btn-ghost" onclick="editoutlet(this)">Edit</button>
+            </div>
+        </div>
     </div>
+    @endforeach
 </div>
 {{-- BAGIAN AKHIR TABEL --}}
 
@@ -116,10 +150,10 @@
 {{-- BAGIAN AWAL LOG --}}
 <div id="outlet-log" class="hidden">
     <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table w-full text-center">
             <thead>
               <tr>
-                <th>Id</th> 
+                {{-- <th>Id</th>  --}}
                 <th>Activition</th> 
                 <th>Created At</th>
                 <th>Last Update</th>
@@ -129,7 +163,7 @@
             <tbody>
               @foreach ($logsdata as $logs)
               <tr class="hover">
-                <th>{{ $logs -> id }}</th> 
+                {{-- <th>{{ $logs -> id }}</th>  --}}
                 <td>{{ $logs -> logs_activition }}</td> 
                 <td>{{ $logs -> created_at }}</td> 
                 <td>{{ $logs -> updated_at }}</td>
