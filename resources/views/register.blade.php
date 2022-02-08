@@ -1,21 +1,21 @@
-    @extends('preload.default')
+@extends('preload.default')
 
-    @section('container')
+@section('container')
 
-    <div class="hero min-h-screen bg-base-200">
+<div class="hero min-h-screen bg-base-200">
+      <form action="/register-outlet" method="post">
         <div class="text-center hero-content">
           <div class="max-w-md">
 
-            <h1 class="mb-5 text-5xl font-bold">
+            {{-- <h1 class="mb-5 text-5xl font-bold">
                 Hello there
               </h1> 
-          <p class="mb-5">
+            <p class="mb-5">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-              </p> 
-
+              </p>  --}}
+            
             <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100 mb-5">
                 <div class="card-body">
-                  <form action="/login" method="post">
                     @csrf
                     <div class="form-control">
                       <label class="label">
@@ -80,25 +80,23 @@
                             </div> 
                             <div class="collapse-content"> 
                                 <div class="card-body">
-                                    <form action="/login" method="post">
-                                      @csrf
                                       <div class="form-control">
                                             <label class="label">
                                             <span class="label-text">Fullname</span>
                                             </label> 
-                                            <input type="text" name="name" placeholder="Fullname" class="input input-bordered">
+                                            <input type="text" name="admin_name" placeholder="Fullname" class="input input-bordered">
                                       </div>
                                       <div class="form-control">
                                           <label class="label">
                                             <span class="label-text">Username</span>
                                           </label> 
-                                          <input type="text" name="username" placeholder="Username" class="input input-bordered">
+                                          <input type="text" name="admin_username" placeholder="Username" class="input input-bordered">
                                       </div> 
                                       <div class="form-control">
                                             <label class="label">
                                             <span class="label-text">Password</span>
                                             </label> 
-                                            <input type="password" name="password" placeholder="password" class="input input-bordered"> 
+                                            <input type="password" name="admin_password" placeholder="password" class="input input-bordered"> 
                                             {{-- <label class="label">
                                             <a href="#" class="label-text-alt">Forgot password?</a>
                                             </label> --}}
@@ -107,20 +105,17 @@
                             </div>
                           </div> 
                     </div>
-                </form>
+                  </div>
                 </div>
+                
+                <button type="submit" class="btn btn-outline my-2">Register</button>
               </div>
-
-              <a class="btn btn-outline my-2">Register</a>
+            </div>
           </div>
+          
+          
         </div>
-      </div>
-      
-    
-    <div class="flex">
-        <div class="flex-1">
-    
-    </div>
+      </form>
     </div>
         
     @endsection

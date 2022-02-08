@@ -3,11 +3,13 @@
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use App\Models\Register;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +34,7 @@ Route::get('/home', function(){
 });
 
 Route::get('/outlet', function(){
-    $outletdata = Outlets::all();
+    $outletdata = Outlets::where('id', Auth::user() -> outlet_id) -> get();
     $logsdata = Logs::where('models', 'outlets') -> get();
     return view('dashboard.outlet', ['outletdata' => $outletdata, 'page' => 'outlets', 'logsdata' => $logsdata]);
 });
@@ -73,3 +75,5 @@ Route::post('/login', [AuLogController::class, 'login']);
 Route::get('/register', function(){
     return view('register');
 });
+
+Route::post('/register-outlet', [RegisterController::class, 'register']);
