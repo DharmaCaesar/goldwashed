@@ -49,12 +49,6 @@ Route::get('/membership', function(){
     return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
 });
 
-Route::get('/regis', function(){
-    $registerdata = Register::all();
-    $logsdata = Logs::where('models', 'register') -> get();
-    return view('dashboard.register', ['registerdata' => $registerdata, 'page' => 'register', 'logsdata' => $logsdata]);
-});
-
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
 Route::post('/catch-outlet', [EditController::class, 'catchoutlet']);
 Route::post('/editoutlet', [EditController::class, 'editoutlet']);
@@ -75,3 +69,7 @@ Route::get('/logout', [AuLogController::class,'logout']);
 });
 
 Route::post('/login', [AuLogController::class, 'login']);
+
+Route::get('/register', function(){
+    return view('register');
+});

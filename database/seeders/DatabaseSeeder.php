@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'outlet_id' => 1,
             'role' => 'ADMIN'
         ]);
+
+        \App\Models\Members::factory(77)->create();
+        \App\Models\Outlets::factory(7)->create();
+        \App\Models\Packages::factory(17)->create();
+        \App\Models\Transactions::factory(27)->create();
+        \App\Models\TransactionDetails::factory(27)->create();
     }
 
     

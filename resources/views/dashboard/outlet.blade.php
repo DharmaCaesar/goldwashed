@@ -26,7 +26,7 @@
 <div class="text-center my-5">
     <div class="btn-group inline-block">
         <button class="btn btn-active" id="view-btn">View</button>
-        <button class="btn" id="create-btn">Create</button>
+        {{-- <button class="btn" id="create-btn">Create</button> --}}
         <button class="btn" id="log-btn">Logs</button>
     </div>
 </div>
@@ -98,7 +98,7 @@
 {{-- BAGIAN AKHIR TABEL --}}
 
 {{-- BAGIAN AWAL CREATE --}}
-<div id="outlet-create" class="hidden">
+{{-- <div id="outlet-create" class="hidden">
     <form action="/createoutlet" method="post" class="text-center">
         @csrf
             <div class="flex flex-row">
@@ -144,7 +144,7 @@
             </div>
         <button class="btn btn-outline my-10">Create</button>
     </form>
-</div>
+</div> --}}
 {{-- BAGIAN AKHIR CREATE --}}
 
 {{-- BAGIAN AWAL LOG --}}
