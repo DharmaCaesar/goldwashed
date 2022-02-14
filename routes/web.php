@@ -9,6 +9,7 @@ use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use App\Models\Register;
+use App\Models\User;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,12 @@ Route::get('/membership', function(){
     $memberdata = Members::all();
     $logsdata = Logs::where('models', 'members') -> get();
     return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
+});
+
+Route::get('/user', function(){
+    $userdata = User::where('outlet_id', Auth::user() -> outlet_id) -> get();
+    $logsdata = Logs::where('models', 'user') -> get();
+    return view('dashboard.user', ['userdata' => $userdata, 'page' => 'user', 'logsdata' => $logsdata]);
 });
 
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
