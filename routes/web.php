@@ -9,6 +9,7 @@ use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use App\Models\Register;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,11 +28,16 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::middleware(['auth.basic', 'role:ADMIN']) -> group(function(){
-
+Route::middleware(['auth.basic']) -> group(function(){
 Route::get('/home', function(){
     return view('dashboard.home');
+}) -> name('home');
+
+Route::get('/logout', [AuLogController::class,'logout']);
+
 });
+
+Route::middleware(['auth.basic', 'role:ADMIN']) -> group(function(){
 
 Route::get('/outlet', function(){
     $outletdata = Outlets::where('id', Auth::user() -> outlet_id) -> get();
@@ -66,25 +72,12 @@ Route::post('/catch-member', [EditController::class, 'catchmember']);
 Route::post('/editmember', [EditController::class, 'editmember']);
 Route::post('/deletemember', [EditController::class, 'deletemember']);
 
-Route::get('/logout', [AuLogController::class,'logout']);
-
 });
 
-Route::middleware(['auth.basic', 'role:OWNER']) -> group(function(){
-
-    Route::get('/home', function(){
-        return view('dashboard.home');
-    });
-    
-    Route::get('/logout', [AuLogController::class,'logout']);
-    
-});
+Route::middleware(['auth.basic', 'role:OWNER']) -> group(function(){});
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){
 
-    Route::get('/home', function(){
-        return view('dashboard.home');
-    });
     
     Route::get('/membership', function(){
         $memberdata = Members::all();
@@ -96,8 +89,6 @@ Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){
     Route::post('/catch-member', [EditController::class, 'catchmember']);
     Route::post('/editmember', [EditController::class, 'editmember']);
     Route::post('/deletemember', [EditController::class, 'deletemember']);
-    
-    Route::get('/logout', [AuLogController::class,'logout']);
     
 });
 

@@ -15,7 +15,7 @@ class AuLogController extends Controller
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
 
-            return redirect('/home');
+            return redirect() -> route('home');
         }
 
         return back()->withErrors([

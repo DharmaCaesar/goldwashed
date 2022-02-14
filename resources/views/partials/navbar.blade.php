@@ -12,7 +12,7 @@
             <a class="btn btn-ghost btn-sm rounded-btn">
                 Home
             </a>
-            
+
             @if(Auth::user() -> role == 'ADMIN')
             <a class="btn btn-ghost btn-sm rounded-btn">
                 User Account
@@ -28,9 +28,11 @@
             </a>
             @endif
 
+            @if(Auth::user() -> role == 'OWNER')
             <a class="btn btn-ghost btn-sm rounded-btn">
-                Contact
+                REPORT
             </a>
+            @endif
 
             @if(Auth::user() -> role != 'OWNER')
             <div class="dropdown dropdown-hover">
@@ -68,9 +70,6 @@
             </button>
 
             <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
-              <li>
-                <a>Profile</a>
-              </li> 
               <li>
                 <a>Help</a>
               </li> 
