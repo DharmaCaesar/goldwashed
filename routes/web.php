@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::middleware(['auth.basic']) -> group(function(){
+Route::middleware(['auth.basic', 'role:ADMIN']) -> group(function(){
 
 Route::get('/home', function(){
     return view('dashboard.home');
@@ -68,6 +68,37 @@ Route::post('/deletemember', [EditController::class, 'deletemember']);
 
 Route::get('/logout', [AuLogController::class,'logout']);
 
+});
+
+Route::middleware(['auth.basic', 'role:OWNER']) -> group(function(){
+
+    Route::get('/home', function(){
+        return view('dashboard.home');
+    });
+    
+    Route::get('/logout', [AuLogController::class,'logout']);
+    
+});
+
+Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){
+
+    Route::get('/home', function(){
+        return view('dashboard.home');
+    });
+    
+    Route::get('/membership', function(){
+        $memberdata = Members::all();
+        $logsdata = Logs::where('models', 'members') -> get();
+        return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
+    });
+    
+    Route::post('/createmember', [BordilController::class, 'createmember']);
+    Route::post('/catch-member', [EditController::class, 'catchmember']);
+    Route::post('/editmember', [EditController::class, 'editmember']);
+    Route::post('/deletemember', [EditController::class, 'deletemember']);
+    
+    Route::get('/logout', [AuLogController::class,'logout']);
+    
 });
 
 Route::post('/login', [AuLogController::class, 'login']);
