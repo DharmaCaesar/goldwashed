@@ -35,3 +35,23 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 })
+
+function edituser(entity){
+    let tableedit = entity.parentElement.parentElement
+    let id = tableedit.querySelectorAll('th')[0].innerText
+    $.ajax({
+        type: 'POST', 
+        url: '/catch-user',
+        data: {id:id},
+        success: function(response){
+            console.log(response)
+            document.getElementById('edit_user').classList.add('modal-open')
+
+            document.getElementById('idInput').value = response.response.id
+            document.getElementById('roleInput').value = response.response.role
+            document.getElementById('nameInput').value = response.response.name
+            document.getElementById('usernameInput').value = response.response.username
+            document.getElementById('deleteId').value = response.response.id
+        }
+    })
+}

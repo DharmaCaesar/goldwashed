@@ -1,7 +1,7 @@
 @extends('preload.default')
 
 @section('container')
-<div class="hero min-h-screen bg-base-200">
+<div class="hero min-h-screen bg-base-200" style="background-image: url({{ asset('ingredient/apel.jpg') }})";>
     <div class="flex-col justify-center hero-content lg:flex-row">
       <div class="text-center lg:text-left">
         <h1 class="mb-5 text-5xl font-bold">

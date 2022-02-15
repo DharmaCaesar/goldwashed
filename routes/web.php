@@ -52,12 +52,6 @@ Route::get('/packages', function(){
     return view('dashboard.packages', ['packagesdata' => $packagesdata, 'page' => 'packages', 'logsdata' => $logsdata]);
 });
 
-Route::get('/membership', function(){
-    $memberdata = Members::all();
-    $logsdata = Logs::where('models', 'members') -> get();
-    return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
-});
-
 Route::get('/user', function(){
     $userdata = User::where('outlet_id', Auth::user() -> outlet_id) -> get();
     $logsdata = Logs::where('models', 'user') -> get();
@@ -74,19 +68,19 @@ Route::post('/catch-package', [EditController::class, 'catchpackages']);
 Route::post('/editpackage', [EditController::class, 'editpackages']);
 Route::post('/deletepackage', [EditController::class, 'deletepackages']);
 
-Route::post('/createmember', [BordilController::class, 'createmember']);
-Route::post('/catch-member', [EditController::class, 'catchmember']);
-Route::post('/editmember', [EditController::class, 'editmember']);
-Route::post('/deletemember', [EditController::class, 'deletemember']);
+Route::post('/createuser', [BordilController::class, 'createuser']);
+Route::post('/catch-user', [EditController::class, 'catchuser']);
+Route::post('/edituser', [EditController::class, 'edituser']);
+Route::post('/deleteuser', [EditController::class, 'deleteuser']);
 
 });
 
 Route::middleware(['auth.basic', 'role:OWNER']) -> group(function(){});
 
-Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){
-
+Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     
     Route::get('/membership', function(){
+
         $memberdata = Members::all();
         $logsdata = Logs::where('models', 'members') -> get();
         return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
@@ -96,8 +90,9 @@ Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){
     Route::post('/catch-member', [EditController::class, 'catchmember']);
     Route::post('/editmember', [EditController::class, 'editmember']);
     Route::post('/deletemember', [EditController::class, 'deletemember']);
-    
 });
+
+Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});
 
 Route::post('/login', [AuLogController::class, 'login']);
 

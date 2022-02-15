@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EditController extends Controller
 {
@@ -145,4 +148,66 @@ class EditController extends Controller
         }
     }
 // BAGIAN AKHIR MEMBERSHIP
+
+// BAGIAN AWAL user
+public function catchuser(Request $request){
+    if($request -> ajax()){
+        $data = $request -> validate([
+            'id' => ['required']
+        ]);
+        $user = User::find($data['id']);
+        return response() -> json(['response' => $user]);
+    }
+}
+
+public function edituser(Request $request){
+    $data = $request -> validate([
+        'role' => ['required'],
+        'name' => ['required'],
+        'username' => ['required'],
+        'password' => ['required'],
+    ]);
+
+    $user = new User();
+    $user -> role = $data ['role'];
+    $user -> name = $data ['name'];
+    $user -> username = $data ['username'];
+    $user -> password = Hash::make($data ['password']);
+    if($user -> update()){
+        return redirect() -> back();
+    } else {
+        return redirect() -> back();
+    }
+}
+
+public function deleteuser(Request $request){
+    $data = $request -> validate([
+        'user_id' => ['required']
+    ]);
+
+    $user = User::find($data['user_id']);
+    
+    $outlet = Outlets::find($user -> outlet_id);
+    $package = Packages::where('outlet_id', $user -> outlet_id);
+    
+    if($user -> delete()){
+
+        if ($user -> count() == 0){
+            $outlet -> delete();
+            $package -> delete();
+        }
+
+        if ($user -> role == 'OWNER'){
+            User::where('outlet_id', Auth::user() -> outlet_id) -> delete();
+            $outlet -> delete();
+            $package -> delete();
+            return redirect('/') -> with('success', 'Deleting was completed, there is nothing no to worry');
+        }
+ 
+        return redirect() -> back() -> with('success', 'Deleting was completed, there is nothing no to worry');
+    } else {
+        return redirect() -> back() -> with('failure', 'There has problem to deleting the data!!!');
+    }
+}
+// BAGIAN AKHIR user
 }

@@ -247,3 +247,82 @@
   
     @endif
   {{-- BAGIAN AKHIR MEMBERSHIP --}}
+
+  {{-- BAGIAN AWAL USER --}}
+  @if ($page == 'user')
+
+  {{-- BAGIAN AWAL EDIT --}}
+  <div id="edit_user" class="modal">
+      <div class="modal-box min-w-full text-center">
+        <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
+  
+        <form action="/edituser" method="post" class="text-center">
+            @csrf
+            <input type="hidden" name="user_id" id="idInput">
+                <div class="flex flex-row">
+                    <div class="flex-1 w-full mx-5">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Role</span>
+                            </label>
+                            <div class="flex-row">
+                                <select name="role" class="select select-bordered w-full" id="roleInput">
+                                    <option disabled="disabled" selected="selected">User Role</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                    <option value="OWNER">OWNER</option>
+                                    <option value="CASHIER">CASHIER</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="flex-1 w-full mx-5">
+                        <div class="form-control">
+                            <label class="label">
+                              <span class="label-text">Fullname</span>
+                            </label> 
+                            <input id="nameInput" type="text" name="name" placeholder="Fullname" class="input input-bordered">
+                          </div>
+                          <div class="form-control">
+                              <label class="label">
+                                <span class="label-text">Username</span>
+                              </label> 
+                              <input id="usernameInput" type="text" name="username" placeholder="Username" class="input input-bordered">
+                          </div> 
+                          <div class="form-control">
+                            <label class="label">
+                              <span class="label-text">Password</span>
+                            </label> 
+                            <input id="passwordInput" type="password" name="password" placeholder="password" class="input input-bordered"> 
+                            {{-- <label class="label">
+                              <a href="#" class="label-text-alt">Forgot password?</a>
+                            </label> --}}
+                        </div>
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
+            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('edit_user').classList.remove('modal-open')">Cancel</button>
+            <button type="button" class="btn btn-outline my-10 mx-2 hover:bg-red-900" onclick="document.getElementById('delete_user').classList.add('modal-open'); document.getElementById('edit_user').classList.remove('modal-open')">Delete</button>
+        </form>
+  
+      </div>
+    </div>
+    {{-- BAGIAN AKHIR EDIT --}}
+  
+    {{-- BAGIAN AWAL DELETE --}}
+    <div id="delete_user" class="modal">
+      <div class="modal-box min-w-full text-center">
+        <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
+  
+      <form action="/deleteuser" method="post" class="text-center">
+          @csrf
+          <input type="hidden" name="user_id" id="deleteId">
+              <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('delete_user').classList.remove('modal-open')">Cancel</button>
+              <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
+      </form>
+      </div>
+    </div>
+  {{-- BAGIAN AKHIR DELETE --}}
+  
+    @endif
+  {{-- BAGIAN AKHIR USER --}}

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class BordilController extends Controller
 {
@@ -64,6 +67,27 @@ class BordilController extends Controller
         $member -> member_address = $data ['member_address'];
         $member -> member_phone = $data ['member_phone'];
         if($member -> save()){
+            return redirect() -> back();
+        } else {
+            return redirect() -> back();
+        }
+    }
+
+    public function createuser(Request $request){
+        $data = $request -> validate([
+            'role' => ['required'],
+            'name' => ['required'],
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        $user = new User();
+        $user -> outlet_id = Auth::user() -> outlet_id;
+        $user -> role = $data ['role'];
+        $user -> name = $data ['name'];
+        $user -> username = $data ['username'];
+        $user -> password = Hash::make($data ['password']);
+        if($user -> save()){
             return redirect() -> back();
         } else {
             return redirect() -> back();

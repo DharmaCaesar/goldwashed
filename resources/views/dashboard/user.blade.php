@@ -35,10 +35,10 @@
 {{-- BAGIAN AWAL TABEL --}}
 <div id="user-view" class="">
     <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table w-full text-center">
             <thead>
                 <tr>
-                    <th></th>
+                    <th class="hidden"></th>
                     <th>User Fullname</th>
                     <th>User name</th>
                     <th>Role</th>
@@ -48,7 +48,7 @@
             <tbody>
                 @foreach ($userdata as $user)
                 <tr class="active">
-                    <th>{{ $user -> id }}</th>
+                    <th class="hidden">{{ $user -> id }}</th>
                     <td>{{ $user -> name }}</td>
                     <td>{{ $user -> username }}</td>
                     <td>{{ $user -> role }}</td>
@@ -117,7 +117,7 @@
         <table class="table w-full">
             <thead>
               <tr>
-                <th>Id</th> 
+                <th>#</th> 
                 <th>Activition</th> 
                 <th>Created At</th>
                 <th>Last Update</th>

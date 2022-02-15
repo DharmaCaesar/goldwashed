@@ -2,7 +2,7 @@
 
 @section('container')
 
-<div class="hero min-h-screen bg-base-200">
+<div class="hero min-h-screen bg-base-200" style="background-image: url({{ asset('ingredient/gelas.png') }})";>
       <form action="/register-outlet" method="post">
         <div class="text-center hero-content">
           <div class="max-w-md">
