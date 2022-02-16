@@ -3,6 +3,8 @@
 @section('container')
 @include('partials.modals')
 @include('partials.navbar')
+
+{{-- BAGIAN AWAL NOTIF --}}
 @if (Session::has('success'))
 <div class="alert alert-success">
     <div class="flex-1">
@@ -21,6 +23,7 @@
     </div>
   </div>
 @endif
+{{-- BAGINA AKHIR NOTIF --}}
 
 {{-- BAGIAN AWAL TAB --}}
 <div class="text-center my-5">

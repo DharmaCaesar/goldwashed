@@ -75,9 +75,9 @@
 {{-- BAGIAN AKHIR DELETE --}}
 
   @endif
-  {{-- BAGIAN AKHIR OUTLET --}}
+{{-- BAGIAN AKHIR OUTLET --}}
 
-  {{-- BAGIAN AWAL PACKAGES --}}
+{{-- BAGIAN AWAL PACKAGES --}}
   @if ($page == 'packages')
 
 {{-- BAGIAN AWAL EDIT --}}
@@ -143,9 +143,9 @@
 
     </div>
   </div>
-  {{-- BAGIAN AKHIR EDIT --}}
+{{-- BAGIAN AKHIR EDIT --}}
 
-  {{-- BAGIAN AWAL DELETE --}}
+{{-- BAGIAN AWAL DELETE --}}
   <div id="delete_package" class="modal">
     <div class="modal-box min-w-full text-center">
       <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
@@ -161,12 +161,12 @@
 {{-- BAGIAN AKHIR DELETE --}}
 
   @endif
-  {{-- BAGIAN AKHIR PACKAGES --}}
+{{-- BAGIAN AKHIR PACKAGES --}}
 
-  {{-- BAGIAN AWAL MEMBERSHIP --}}
+{{-- BAGIAN AWAL MEMBERSHIP --}}
   @if ($page == 'membership')
 
-  {{-- BAGIAN AWAL EDIT --}}
+{{-- BAGIAN AWAL EDIT --}}
   <div id="edit_member" class="modal">
       <div class="modal-box min-w-full text-center">
         <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
@@ -228,9 +228,9 @@
   
       </div>
     </div>
-    {{-- BAGIAN AKHIR EDIT --}}
+{{-- BAGIAN AKHIR EDIT --}}
   
-    {{-- BAGIAN AWAL DELETE --}}
+{{-- BAGIAN AWAL DELETE --}}
     <div id="delete_member" class="modal">
       <div class="modal-box min-w-full text-center">
         <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
@@ -243,15 +243,15 @@
       </form>
       </div>
     </div>
-  {{-- BAGIAN AKHIR DELETE --}}
+{{-- BAGIAN AKHIR DELETE --}}
   
     @endif
-  {{-- BAGIAN AKHIR MEMBERSHIP --}}
+{{-- BAGIAN AKHIR MEMBERSHIP --}}
 
-  {{-- BAGIAN AWAL USER --}}
+{{-- BAGIAN AWAL USER --}}
   @if ($page == 'user')
 
-  {{-- BAGIAN AWAL EDIT --}}
+{{-- BAGIAN AWAL EDIT --}}
   <div id="edit_user" class="modal">
       <div class="modal-box min-w-full text-center">
         <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
@@ -307,9 +307,9 @@
   
       </div>
     </div>
-    {{-- BAGIAN AKHIR EDIT --}}
+{{-- BAGIAN AKHIR EDIT --}}
   
-    {{-- BAGIAN AWAL DELETE --}}
+{{-- BAGIAN AWAL DELETE --}}
     <div id="delete_user" class="modal">
       <div class="modal-box min-w-full text-center">
         <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque. Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p> 
@@ -322,7 +322,7 @@
       </form>
       </div>
     </div>
-  {{-- BAGIAN AKHIR DELETE --}}
+{{-- BAGIAN AKHIR DELETE --}}
   
     @endif
-  {{-- BAGIAN AKHIR USER --}}
+{{-- BAGIAN AKHIR USER --}}

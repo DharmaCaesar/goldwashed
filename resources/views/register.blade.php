@@ -3,17 +3,18 @@
 @section('container')
 
 <div class="hero min-h-screen bg-base-200" style="background-image: url({{ asset('ingredient/gelas.png') }})";>
-      <form action="/register-outlet" method="post">
-        <div class="text-center hero-content">
-          <div class="max-w-md">
-
-            {{-- <h1 class="mb-5 text-5xl font-bold">
-                Hello there
-              </h1> 
-            <p class="mb-5">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-              </p>  --}}
-            
+  <form action="/register-outlet" method="post">
+    <div class="text-center hero-content">
+      <div class="max-w-md">
+        
+        {{-- <h1 class="mb-5 text-5xl font-bold">
+          Hello there
+        </h1> 
+        <p class="mb-5">
+          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+        </p>  --}}
+        
+{{-- BAGIAN AWAL REGISTER --}}
             <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100 mb-5">
                 <div class="card-body">
                     @csrf
@@ -38,8 +39,9 @@
                         <a href="#" class="label-text-alt">Forgot password?</a>
                       </label> --}}
                     </div>
+{{-- BAGIAN AKHIR REGISTER --}}
                     
-
+{{-- BAGIAN AWAL REGIS OUTLET --}}
                     <div class="form-control mt-6">
                         <div class="collapse w-96 border rounded-box border-base-300 collapse-arrow">
                             <input type="checkbox"> 
@@ -72,7 +74,9 @@
                                 </div>
                             </div>
                           </div> 
-        
+{{-- BAGIAN AKHIR REGIS OUTLET --}}
+
+{{-- BAGIAN AWAL REGIS ADMIN --}}
                           <div class="collapse w-96 border rounded-box border-base-300 collapse-arrow my-5">
                             <input type="checkbox"> 
                             <div class="collapse-title text-xl font-medium">
@@ -103,7 +107,8 @@
                                       </div>
                                 </div>
                             </div>
-                          </div> 
+                          </div>
+{{-- BAGIAN AKHIR REGIS ADMIN  --}}
                     </div>
                   </div>
                 </div>
