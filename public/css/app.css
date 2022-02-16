@@ -1363,6 +1363,20 @@ html {
 .alert>* {
   display: flex;
 }
+.avatar {
+  display: inline-flex;
+  position: relative;
+}
+.avatar>div {
+  display: block;
+  overflow: hidden;
+}
+.avatar img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}
 .avatar.placeholder>div {
   display: flex;
   align-items: center;
@@ -1903,6 +1917,52 @@ html {
   cursor: not-allowed;
   --tw-text-opacity: 0.2;
 }
+.stats {
+  display: inline-grid;
+  overflow: hidden;
+  overflow-x: auto;
+  grid-auto-flow: column;
+  border-radius: var(--rounded-box, 1rem);
+}
+.stat {
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
+  padding: 1rem 1.5rem;
+  --tw-text-opacity: 1;
+  color: hsla(var(--bc) / var(--tw-text-opacity, 1));
+}
+.stat-figure {
+  place-self: center;
+  justify-self: end;
+  grid-column-start: 2;
+  grid-row: span 3 / span 3;
+  grid-row-start: 1;
+}
+.stat-title {
+  white-space: nowrap;
+  grid-column-start: 1;
+  opacity: .5;
+}
+.stat-value {
+  white-space: nowrap;
+  grid-column-start: 1;
+  font-weight: 800;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.stat-desc {
+  white-space: nowrap;
+  grid-column-start: 1;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  opacity: .5;
+}
+.stats.grid-flow-row {
+  grid-auto-rows: minmax(0, 1fr);
+}
 .table {
   position: relative;
   text-align: left;
@@ -1912,6 +1972,13 @@ html {
   position: -webkit-sticky;
   left: 0;
   z-index: 10;
+}
+.avatar-group .avatar {
+  --tw-border-opacity: 1;
+  border-color: hsla(var(--b1) / var(--tw-border-opacity, 1));
+  border-radius: 9999px;
+  border-width: 4px;
+  overflow: hidden;
 }
 .btn .badge {
   --tw-bg-opacity: 1;
@@ -2717,6 +2784,15 @@ html {
   background-image: none;
   padding-right: 1rem;
 }
+.stat+.stat {
+  --tw-border-opacity: 0.1;
+  border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
+  border-left-width: 1px;
+}
+.stats.grid-flow-row .stat+.stat {
+  border-left-width: 0;
+  border-top-width: 1px;
+}
 .table :where(th,td) {
   padding: 1rem;
   vertical-align: middle;
@@ -2816,6 +2892,39 @@ html {
   --tw-text-opacity: 1;
   color: hsla(var(--er) / var(--tw-text-opacity, 1));
 }
+.avatar.online:before {
+  content: "";
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--su) / var(--tw-bg-opacity, 1));
+  border-radius: 9999px;
+  display: block;
+  position: absolute;
+  z-index: 10;
+  width: 15%;
+  height: 15%;
+  top: 7%;
+  right: 7%;
+  box-shadow: 0 0 0 2px hsl(var(--b1));
+}
+.avatar.offline:before {
+  content: "";
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b3) / var(--tw-bg-opacity, 1));
+  border-radius: 9999px;
+  display: block;
+  position: absolute;
+  z-index: 10;
+  width: 15%;
+  height: 15%;
+  top: 7%;
+  right: 7%;
+  box-shadow: 0 0 0 2px hsl(var(--b1));
+}
+.table-compact :where(th,td) {
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding: .5rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -2839,6 +2948,14 @@ html {
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -2864,6 +2981,9 @@ html {
 .h-6 {
   height: 1.5rem;
 }
+.h-8 {
+  height: 2rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2878,6 +2998,12 @@ html {
 }
 .w-52 {
   width: 13rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-16 {
+  width: 4rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -2914,6 +3040,9 @@ html {
 }
 .rounded-xl {
   border-radius: 0.75rem;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .border {
   border-width: 1px;
@@ -2987,6 +3116,26 @@ html {
 .text-neutral-content {
   --tw-text-opacity: 1;
   color: hsla(var(--nc) / var(--tw-text-opacity));
+}
+.text-primary {
+  --tw-text-opacity: 1;
+  color: hsla(var(--p) / var(--tw-text-opacity));
+}
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: hsla(var(--s) / var(--tw-text-opacity));
+}
+.text-success {
+  --tw-text-opacity: 1;
+  color: hsla(var(--su) / var(--tw-text-opacity));
+}
+.text-info {
+  --tw-text-opacity: 1;
+  color: hsla(var(--in) / var(--tw-text-opacity));
+}
+.text-warning {
+  --tw-text-opacity: 1;
+  color: hsla(var(--wa) / var(--tw-text-opacity));
 }
 .opacity-50 {
   opacity: 0.5;

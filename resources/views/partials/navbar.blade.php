@@ -17,13 +17,13 @@
             <a href="/user" class="btn btn-ghost btn-sm rounded-btn">
                 User Account
             </a>
-            <a class="btn btn-ghost btn-sm rounded-btn">
+            <a href="/transaction" class="btn btn-ghost btn-sm rounded-btn">
                 Transaction
             </a>
             @endif
 
             @if(Auth::user() -> role == 'CASHIER')
-            <a class="btn btn-ghost btn-sm rounded-btn">
+            <a href="/transaction" class="btn btn-ghost btn-sm rounded-btn">
                 Transaction
             </a>
             @endif

@@ -17,11 +17,27 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::create([
-            'name' => 'Bitch',
-            'username' => 'BitchMama',
+            'name' => 'Dr.Huston Butt',
+            'username' => 'BIG-PP',
+            'password' => Hash::make('gal'),
+            'outlet_id' => 1,
+            'role' => 'OWNER'
+        ]);
+
+        User::create([
+            'name' => 'Bonk',
+            'username' => 'Horny',
             'password' => Hash::make('gal'),
             'outlet_id' => 1,
             'role' => 'ADMIN'
+        ]);
+
+        User::create([
+            'name' => 'Adela',
+            'username' => 'Accel',
+            'password' => Hash::make('gal'),
+            'outlet_id' => 1,
+            'role' => 'CASHIER'
         ]);
 
         \App\Models\Members::factory(77)->create();

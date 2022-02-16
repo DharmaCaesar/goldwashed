@@ -9,6 +9,7 @@ use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use App\Models\Register;
+use App\Models\Transactions;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,8 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::middleware(['auth.basic']) -> group(function(){
+Route::middleware(['auth.basic', 'role:ADMIN,CASHIER,OWNER']) -> group(function(){
+
 Route::get('/home', function(){
     return view('dashboard.home');
 }) -> name('home');
@@ -80,10 +82,16 @@ Route::middleware(['auth.basic', 'role:OWNER']) -> group(function(){});
 Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     
     Route::get('/membership', function(){
-
         $memberdata = Members::all();
         $logsdata = Logs::where('models', 'members') -> get();
         return view('dashboard.membership', ['memberdata' => $memberdata, 'page' => 'membership', 'logsdata' => $logsdata]);
+    });
+
+    Route::get('/transaction', function(){
+        $transaction = Transactions::where('outlet_id', Auth::user() -> outlet_id) -> get();
+        $memberdata = Members::all();
+        $packagesdata = Packages::where('outlet_id', Auth::user() -> outlet_id) -> get();
+        return view('dashboard.transaction', ['transaction' => $transaction, 'memberdata' => $memberdata, 'packagesdata' => $packagesdata, 'page' => 'transaction']);
     });
     
     Route::post('/createmember', [BordilController::class, 'createmember']);
