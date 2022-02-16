@@ -1973,6 +1973,54 @@ html {
   left: 0;
   z-index: 10;
 }
+.textarea {
+  flex-shrink: 1;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  font-size: .875rem;
+  line-height: 1.25rem;
+  line-height: 2;
+  padding: .5rem 1rem;
+  min-height: 3rem;
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
+  --tw-border-opacity: 0;
+  border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
+  border-width: 1px;
+  border-radius: var(--rounded-btn, .5rem);
+}
+.textarea:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsla(var(--bc) / .2);
+}
+.toggle {
+  flex-shrink: 0;
+  --chkbg: hsla(var(--bc) / .2);
+  --focus-shadow: 0 0 0;
+  --handleoffset: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  --tw-bg-opacity: 0.2;
+  background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
+  --tw-border-opacity: 0.2;
+  border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
+  border-width: 1px;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 3rem;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .3s;
+  border-radius: var(--rounded-badge, 1.9rem);
+  transition: background,box-shadow var(--animation-input, .2s) ease-in-out;
+  box-shadow: calc(var(--handleoffset)*-1) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
+}
+.toggle:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 .avatar-group .avatar {
   --tw-border-opacity: 1;
   border-color: hsla(var(--b1) / var(--tw-border-opacity, 1));
@@ -2831,6 +2879,55 @@ html {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 }
+.textarea-bordered {
+  --tw-border-opacity: 0.2;
+}
+.textarea-disabled,.textarea[disabled] {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
+  --tw-border-opacity: 1;
+  border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
+  cursor: not-allowed;
+  --tw-text-opacity: 0.2;
+}
+.textarea-disabled::-moz-placeholder,.textarea[disabled]::-moz-placeholder {
+  --tw-placeholder-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
+}
+.textarea-disabled:-ms-input-placeholder,.textarea[disabled]:-ms-input-placeholder {
+  --tw-placeholder-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
+}
+.textarea-disabled::-moz-placeholder, .textarea[disabled]::-moz-placeholder {
+  --tw-placeholder-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
+}
+.textarea-disabled:-ms-input-placeholder, .textarea[disabled]:-ms-input-placeholder {
+  --tw-placeholder-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
+}
+.textarea-disabled::placeholder,.textarea[disabled]::placeholder {
+  --tw-placeholder-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
+}
+.toggle:focus-visible {
+  --focus-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--bc));
+}
+.toggle:checked,.toggle[checked=true] {
+  --chkbg: hsl(var(--bc));
+  --tw-bg-opacity: 1;
+  --tw-border-opacity: 1;
+  box-shadow: var(--handleoffset) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
+}
+[dir=rtl] .toggle:checked,[dir=rtl] .toggle[checked=true] {
+  box-shadow: calc(var(--handleoffset)*1) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
+}
+.toggle:disabled {
+  --tw-bg-opacity: 0.2;
+  background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
+  border-color: transparent;
+  cursor: not-allowed;
+}
 .rounded-box {
   border-radius: var(--rounded-box, 1rem);
 }
@@ -3017,8 +3114,14 @@ html {
 .flex-1 {
   flex: 1 1 0%;
 }
+.flex-none {
+  flex: none;
+}
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .flex-row {
   flex-direction: row;
@@ -3074,6 +3177,9 @@ html {
 .bg-neutral-content {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--nc) / var(--tw-bg-opacity));
+}
+.fill-current {
+  fill: currentColor;
 }
 .stroke-current {
   stroke: currentColor;
