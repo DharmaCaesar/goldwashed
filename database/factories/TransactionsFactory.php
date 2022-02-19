@@ -32,7 +32,7 @@ class TransactionsFactory extends Factory
             'transaction_deadline' => now(),
             'transaction_paydate' => now(),
             'transaction_paid' => $this->faker->numberBetween(5, 5000),
-            'transaction_paid_extra' => $this->faker->numberBetween(5, 500),
+            'transaction_paid_extra' => $this->faker->numberBetween(5, 50),
             'transaction_discount' => $this->faker->randomElements([0, 10, 20, 30, 40, 50])[0],
             'transaction_tax' => $this->faker->numberBetween(5, 5000) * (5 / 100),
             'status' => $this->faker->randomElements(['NEW', 'PROCESSING', 'FINISHED', 'PULLED'])[0],

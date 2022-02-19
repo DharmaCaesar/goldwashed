@@ -19,7 +19,11 @@
 
             <div class="flex-none">
                 <button class="btn btn-sm" onclick="document.getElementById('alert-success').remove()">
-                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 512 512">
+                        <polygon
+                            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -38,7 +42,11 @@
 
             <div class="flex-none">
                 <button class="btn btn-sm" onclick="document.getElementById('alert-error').remove()">
-                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 512 512">
+                        <polygon
+                            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -159,7 +167,9 @@
                                     <input type="hidden" name="member_id" id="memberInput">
                                     <input type="text" placeholder="Search…" class="input input-bordered w-full"
                                         id="nameInput" readonly>
-                                    <button class="btn btn-square" onclick="document.getElementById('find_member').classList.add('modal-open')" type="button">Find</button>
+                                    <button class="btn btn-square"
+                                        onclick="document.getElementById('find_member').classList.add('modal-open')"
+                                        type="button">Find</button>
                                 </div>
                             </div>
                             <div class="form-control">
@@ -184,8 +194,8 @@
                                     <span class="label-text">Gender</span>
                                 </label>
                                 <div class="flex-row">
-                                    <input type="text" placeholder="Gender"
-                                        class="input input-accent input-bordered w-full" id="genderInput" readonly>
+                                    <input type="text" placeholder="Gender" class="input input-accent input-bordered w-full"
+                                        id="genderInput" readonly>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +208,7 @@
                     </label>
                     <p class="text-sm text-primary">Anything added at note will be added to fee</p>
                 </div>
-                <textarea class="textarea textarea-bordered my-4 w-full" placeholder="Bio"></textarea>
+                <textarea class="textarea textarea-bordered my-4 w-full" placeholder="Bio" id="nude"></textarea>
             </div>
 
             <div class="flex-1 mx-4 w-full">
@@ -214,7 +224,7 @@
                                     <span class="label-text">Transaction Type</span>
                                 </label>
                                 <div class="flex-row">
-                                    <select name="type" class="select select-bordered w-full" id="typeInput">
+                                    <select name="type" class="select select-bordered w-full" id="`">
                                         <option disabled="disabled" selected="selected">Choose Transaction Type will Used
                                         </option>
                                         <option value="paynow">Pay Now</option>
@@ -222,27 +232,29 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Deadline Date</span>
-                                </label>
-                                <input type="date" name="date" placeholder=""
-                                    class="input input-secondary input-bordered w-full bg-neutral-content text-black"
-                                    id="dateInput">
-                            </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Discount</span>
-                                </label>
-                                <div class="flex-row">
-                                    <select name="disc" class="select select-bordered w-full" id="discInput">
-                                        <option disabled="disabled" selected="selected">Select Discount</option>
-                                        <option value="10">10% Discount</option>
-                                        <option value="20">20% Discount</option>
-                                        <option value="30">30% Discount</option>
-                                        <option value="40">40% Discount</option>
-                                        <option value="50">50% Discount</option>
-                                    </select>
+                            <div id="payblok">
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Deadline Date</span>
+                                    </label>
+                                    <input type="date" name="date" placeholder=""
+                                        class="input input-secondary input-bordered w-full bg-neutral-content text-black"
+                                        id="dateInput">
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Discount</span>
+                                    </label>
+                                    <div class="flex-row">
+                                        <select name="disc" class="select select-bordered w-full" id="discInput">
+                                            <option disabled="disabled" selected="selected">Select Discount</option>
+                                            <option value="10">10% Discount</option>
+                                            <option value="20">20% Discount</option>
+                                            <option value="30">30% Discount</option>
+                                            <option value="40">40% Discount</option>
+                                            <option value="50">50% Discount</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
