@@ -4,6 +4,7 @@ use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
@@ -98,6 +99,7 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/catch-member', [EditController::class, 'catchmember']);
     Route::post('/editmember', [EditController::class, 'editmember']);
     Route::post('/deletemember', [EditController::class, 'deletemember']);
+    Route::post('/takemember', [TransactionController::class, 'takemember']);
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

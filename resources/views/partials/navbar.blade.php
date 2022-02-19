@@ -9,10 +9,10 @@
 {{-- BAGIAN AWAL BUTTON --}}
     <div class="hidden px-2 mx-2 navbar-center lg:flex">
         <div class="flex items-stretch">
-            <a class="btn btn-ghost btn-sm rounded-btn">
+            <a href="/home" class="btn btn-ghost btn-sm rounded-btn">
                 Home
             </a>
-
+            
             @if(Auth::user() -> role == 'ADMIN')
             <a href="/user" class="btn btn-ghost btn-sm rounded-btn">
                 User Account

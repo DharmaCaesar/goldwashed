@@ -56,8 +56,8 @@
 
     {{-- BAGIAN AWAL TABEL --}}
     <div id="membership-view" class="">
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div class="overflow-x-auto p-2">
+            <table class="table w-full" id="membershipTable">
                 <thead>
                     <tr>
                         <th></th>

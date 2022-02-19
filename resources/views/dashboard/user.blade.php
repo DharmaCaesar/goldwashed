@@ -57,7 +57,7 @@
     {{-- BAGIAN AWAL TABEL --}}
     <div id="user-view" class="">
         <div class="overflow-x-auto">
-            <table class="table w-full text-center">
+            <table class="table w-full text-center" id="userTable">
                 <thead>
                     <tr>
                         <th class="hidden"></th>

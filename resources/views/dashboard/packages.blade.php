@@ -56,8 +56,8 @@
 
     {{-- BAGIAN AWAL TABEL --}}
     <div id="packages-view" class="">
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div class="overflow-x-auto p-2">
+            <table class="table w-full" id="packagesTable">
                 <thead>
                     <tr>
                         <th></th>

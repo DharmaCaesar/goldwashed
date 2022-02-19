@@ -1,7 +1,8 @@
 @extends('preload.default')
 
 @section('container')
-    @include('partials.modals')
+    {{-- @include('partials.modals') --}}
+    @include('partials.motrac')
     @include('partials.navbar')
 
     {{-- BAGIAN AWAL NOTIF --}}
@@ -89,6 +90,14 @@
     </div>
     {{-- BAGIAN AKHIR STAT --}}
 
+    <div class="flex flex-row text-center my-2">
+        <div class="flex-1">
+            <button class="btn btn-outline" onclick="document.getElementById('find_packages').classList.add('modal-open')">
+                Add Packages
+            </button>
+        </div>
+    </div>
+
     {{-- BAGIAN AWAL TABLE --}}
     <div class="overflow-x-auto">
         <table class="table table-compact w-full">
@@ -147,16 +156,17 @@
                                     <span class="label-text">Customer Name</span>
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" name="name" placeholder="Search…" class="input input-bordered w-full"
+                                    <input type="hidden" name="member_id" id="memberInput">
+                                    <input type="text" placeholder="Search…" class="input input-bordered w-full"
                                         id="nameInput" readonly>
-                                    <button class="btn btn-square">Find</button>
+                                    <button class="btn btn-square" onclick="document.getElementById('find_member').classList.add('modal-open')" type="button">Find</button>
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <span class="label-text">Address</span>
                                 </label>
-                                <input type="text" name="address" placeholder="Location name"
+                                <input type="text" placeholder="Location name"
                                     class="input input-secondary input-bordered w-full" id="addressInput" readonly>
                             </div>
                             <div class="form-control">
@@ -165,7 +175,7 @@
                                 </label>
                                 <div class="input-group">
                                     <span>+62</span>
-                                    <input type="text" name="number" placeholder="Phone Number"
+                                    <input type="text" placeholder="Phone Number"
                                         class="input input-accent input-bordered w-full" id="numberInput" readonly>
                                 </div>
                             </div>
@@ -174,7 +184,7 @@
                                     <span class="label-text">Gender</span>
                                 </label>
                                 <div class="flex-row">
-                                    <input type="text" name="gender" placeholder="Gender"
+                                    <input type="text" placeholder="Gender"
                                         class="input input-accent input-bordered w-full" id="genderInput" readonly>
                                 </div>
                             </div>
