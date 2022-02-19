@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
+use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
@@ -50,7 +51,7 @@ Route::get('/outlet', function(){
 });
 
 Route::get('/packages', function(){
-    $packagesdata = Packages::all();
+    $packagesdata = Packages::where('outlet_id', Auth::user() -> outlet_id) -> get();
     $logsdata = Logs::where('models', 'packages') -> get();
     return view('dashboard.packages', ['packagesdata' => $packagesdata, 'page' => 'packages', 'logsdata' => $logsdata]);
 });
@@ -100,6 +101,8 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/editmember', [EditController::class, 'editmember']);
     Route::post('/deletemember', [EditController::class, 'deletemember']);
     Route::post('/takemember', [TransactionController::class, 'takemember']);
+    Route::post('/addpackage', [TransactionController::class, 'addpackage']);
+    Route::post('/calculate', [CalculateController::class, 'calculate']);
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

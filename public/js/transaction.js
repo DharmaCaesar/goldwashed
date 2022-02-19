@@ -1,6 +1,3 @@
-const { type } = require("jquery")
-const { update } = require("lodash")
-
 var CHOOSEN = []
 
 $('#membertable').DataTable()
@@ -38,7 +35,7 @@ function packages_available(id){
 
 function add_package(entity){
     let table = entity.parentElement.parentElement
-    let id = table.querySelectorAll('th')[index].innerText
+    let id = table.querySelectorAll('th')[0].innerText
     entity.classList.add('pointer-events-none')
     entity.classList.add('opacity-50')
     if(!packages_available(id)){
