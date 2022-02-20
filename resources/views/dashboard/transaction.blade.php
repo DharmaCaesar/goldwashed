@@ -14,7 +14,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <label>{{ Session::get('success') }}</label>
+                <label class="mx-2"> {{ Session::get('success') }}</label>
             </div>
 
             <div class="flex-none">
@@ -37,7 +37,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <label>{{ Session::get('failure') }}</label>
+                <label class="mx-2"> {{ Session::get('failure') }}</label>
             </div>
 
             <div class="flex-none">
@@ -65,8 +65,8 @@
                 </svg>
             </div>
             <div class="stat-title text-primary">Price</div>
-            <div class="stat-value text-success">$ <span id="price-view"></span></div>
-            <div class="stat-desc text-primary"><span id="discount-view"></span> Discount</div>
+            <div class="stat-value text-success">$ <span id="price-view">0</span></div>
+            <div class="stat-desc text-primary"><span id="discount-view"></span>% Discount</div>
         </div>
 
         <div class="stat w-full text-center">
@@ -78,7 +78,7 @@
                 </svg>
             </div>
             <div class="stat-title text-primary">Additional Fee</div>
-            <div class="stat-value text-info">$ <span id="fe-view"></span></div>
+            <div class="stat-value text-info">$ <span id="fe-view">0</span></div>
             <div class="stat-desc text-primary">Anything spesial to add at order</div>
         </div>
 
@@ -91,8 +91,8 @@
                 </svg>
             </div>
             <div class="stat-title text-primary">Tax</div>
-            <div class="stat-value text-warning">$ <span id="tax-view"></span></div>
-            <div class="stat-desc text-primary">5% tax added form packages & qty</div>
+            <div class="stat-value text-warning">$ <span id="tax-view">0</span></div>
+            <div class="stat-desc text-primary">Tax added from packages & qty</div>
         </div>
 
     </div>
@@ -108,7 +108,7 @@
 
     {{-- BAGIAN AWAL TABLE --}}
     <div class="overflow-x-auto">
-        <table class="table table-compact w-full">
+        <table class="table table-compact w-full text-center">
 
             {{-- BAGIAN AWAL HEADER TABLE --}}
             <thead>
@@ -139,11 +139,11 @@
     {{-- BAGIAN AKHIR TABLE --}}
 
     {{-- BAGIAN AWAL CUSTOMER & SELLER INFO --}}
-    <form action="/pay" method="POST">
+    <form action="/pay" method="POST" class="text-center">
         @csrf
         <div id="datainfo">
             <input type="hidden" name="sumpay" id="sumpay">
-            <input type="hidden" name="fepay" id="fepay">
+            <input type="hidden" name="fepay" id="fepay" value="0">
             <input type="hidden" name="taxpay" id="taxpay">
         </div>
         <div id="packinfo">
@@ -204,11 +204,11 @@
                 <div class="form-control my-4">
                     <label class="cursor-pointer label">
                         <span class="label-text text-lg">Note Trigger</span>
-                        <input type="checkbox" class="toggle">
+                        <input type="checkbox" class="toggle" onclick="toggle_note(this)">
                     </label>
                     <p class="text-sm text-primary">Anything added at note will be added to fee</p>
                 </div>
-                <textarea class="textarea textarea-bordered my-4 w-full" placeholder="Bio" id="nude"></textarea>
+                <textarea class="textarea textarea-bordered my-4 w-full hidden" placeholder="Bio" id="nude" name="note">NUN</textarea>
             </div>
 
             <div class="flex-1 mx-4 w-full">
@@ -224,7 +224,7 @@
                                     <span class="label-text">Transaction Type</span>
                                 </label>
                                 <div class="flex-row">
-                                    <select name="type" class="select select-bordered w-full" id="`">
+                                    <select name="type" class="select select-bordered w-full" onchange="change_pay(this)">
                                         <option disabled="disabled" selected="selected">Choose Transaction Type will Used
                                         </option>
                                         <option value="paynow">Pay Now</option>
@@ -232,7 +232,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="payblok">
+                            <div id="payblok" class="hidden">
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Deadline Date</span>
@@ -247,7 +247,7 @@
                                     </label>
                                     <div class="flex-row">
                                         <select name="disc" class="select select-bordered w-full" id="discInput">
-                                            <option disabled="disabled" selected="selected">Select Discount</option>
+                                            <option value="0" selected="selected">No Discount</option>
                                             <option value="10">10% Discount</option>
                                             <option value="20">20% Discount</option>
                                             <option value="30">30% Discount</option>
@@ -262,6 +262,8 @@
                 </div>
             </div>
         </div>
+
+        <button class="btn btn-outline" type="submit">Pay</button>
 
     </form>
     {{-- BAGIAN AKHIR CUSTOMER & SELLER INFO --}}

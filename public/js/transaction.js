@@ -5,6 +5,7 @@ $('#membertable').DataTable()
 function takemember(entity, index){
     let table = entity.parentElement.parentElement
     let id = table.querySelectorAll('th')[index].innerText
+    
     $.ajax({
         type: 'POST',
         url: '/takemember',
@@ -44,7 +45,7 @@ function add_package(entity){
             url: '/addpackage',
             data: {id:id},
             success: function(response){
-                let buffer = document.getElementById('packagebuffer')
+                let buffer = document.getElementById('dbuff')
                 let form = document.getElementById('packinfo')
                 let tr = document.createElement('tr')
                 let input_id = document.createElement('input')
@@ -56,7 +57,7 @@ function add_package(entity){
                 let package_qty = document.createElement('td')
                 let action = document.createElement('td')
                 let qty_input = document.createElement('input')
-                let drop_input = document.createElement('input')
+                let drop_input = document.createElement('button')
                 let package_price = document.createElement('span')
 
                 buffer.appendChild(tr)
@@ -77,6 +78,7 @@ function add_package(entity){
 
                 package_qty.appendChild(qty_input)
                 action.appendChild(drop_input)
+
                 qty_input.type = 'number'
                 qty_input.classList.add('input')
                 qty_input.classList.add('input-bordered')
@@ -120,6 +122,7 @@ function remove_package(entity){
     document.getElementById('id-input-' + id).remove()
     document.getElementById('qty-input-' + id).remove()
 
+    
     sift_table('packagebuffer', id)
 
     table.remove()

@@ -16,20 +16,20 @@ class CalculateController extends Controller
                 'discount' => ['required']
             ]);
 
-            if ($validatedData['discount'] == 0 || $validatedData['discount'] == 10 || $validatedData['discount'] == 20 || $validatedData['discount'] == 30) {
+            if ($validatedData['discount'] == 0 || $validatedData['discount'] == 10 || $validatedData['discount'] == 20 || $validatedData['discount'] == 30 || $validatedData['discount'] == 40 || $validatedData['discount'] == 50) {
                 $total_price = 0;
                 $tax_price = 0;
                 $discount = intval($validatedData['discount']);
                 $calculated_discount = 0;
 
                 foreach ($validatedData['id'] as $data) {
-                    $packageData = Packages::Find($data['id']);
+                    $packageData = Packages::find($data['id']);
 
                     if ($packageData->outlet_id != Auth::user()->outlet_id) {
                         return 'INVALID RESPONSE';
                     }
 
-                    $total_price += intval($packageData->package_price) * $data['quantity'];
+                    $total_price += intval($packageData->package_price) * $data['qty'];
                     $calculated_discount = intval($total_price) * ($discount / 100);
                 }
 

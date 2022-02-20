@@ -103,6 +103,7 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/takemember', [TransactionController::class, 'takemember']);
     Route::post('/addpackage', [TransactionController::class, 'addpackage']);
     Route::post('/calculate', [CalculateController::class, 'calculate']);
+    Route::post('/pay', [TransactionController::class, 'pay']);
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

@@ -2940,6 +2940,20 @@ html {
   min-height: 2rem;
   font-size: .875rem;
 }
+.btn-md {
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 3rem;
+  font-size: .875rem;
+}
+.btn-lg {
+  height: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  min-height: 4rem;
+  font-size: 1.125rem;
+}
 .btn-square:where(.btn-xs) {
   height: 1.5rem;
   padding: 0;
@@ -2965,6 +2979,18 @@ html {
   height: 2rem;
   padding: 0;
   width: 2rem;
+}
+.btn-circle:where(.btn-md) {
+  border-radius: 9999px;
+  height: 3rem;
+  padding: 0;
+  width: 3rem;
+}
+.btn-circle:where(.btn-lg) {
+  border-radius: 9999px;
+  height: 4rem;
+  padding: 0;
+  width: 4rem;
 }
 .alert-success {
   --tw-bg-opacity: 0.1;
@@ -3145,10 +3171,6 @@ html {
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 .pt-10 {
   padding-top: 2.5rem;

@@ -1,6 +1,5 @@
 @if ($page == 'transaction')
 
-
 <div class="modal" id="find_member">
   <div class="modal-box min-w-full">
     <div class="overflow-x-auto">
@@ -40,7 +39,6 @@
 
 @if ($page == 'transaction')
 
-
 <div class="modal" id="find_packages">
   <div class="modal-box min-w-full">
     <div class="overflow-x-auto">
@@ -63,7 +61,7 @@
                         <td>{{ $packages->package_name }}</td>
                         <td>{{ $packages->package_type }}</td>
                         <td>$ {{ $packages->package_price }}</td>
-                        <td><button class="btn btn-ghost" onclick="add_package(this,0)">Pick</button></td>
+                        <th><button class="btn btn-ghost" onclick="add_package(this,0)">Pick</button></th>
                     </tr>
                 @endforeach
             </tbody>
