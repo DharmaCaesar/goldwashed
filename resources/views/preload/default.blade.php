@@ -29,5 +29,7 @@
     <script src="{{ asset("js/transaction.js") }}"></script>
     
     <script src="{{ asset("js/calculate.js") }}"></script>
+
+    <script src="{{  asset("js/invoice.js") }}"></script>
 </body>
 </html>

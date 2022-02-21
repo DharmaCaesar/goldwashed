@@ -4,6 +4,7 @@ use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
 use App\Models\Logs;
@@ -111,6 +112,7 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/addpackage', [TransactionController::class, 'addpackage']);
     Route::post('/calculate', [CalculateController::class, 'calculate']);
     Route::post('/pay', [TransactionController::class, 'pay']);
+    Route::post('/invoice', [InvoiceController::class, 'takeinvoice']);
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

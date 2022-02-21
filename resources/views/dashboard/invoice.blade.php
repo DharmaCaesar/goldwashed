@@ -54,8 +54,8 @@
     {{-- BAGIAN AKHIR NOTIF --}}
 
     {{-- BAGIAN AWAL TABLE --}}
-    <div class="overflow-x-auto">
-        <table class="table table-compact w-full text-center">
+    <div class="overflow-x-auto p-2">
+        <table class="table table-compact w-full text-center py-2" id="icu">
 
             {{-- BAGIAN AWAL HEADER TABLE --}}
             <thead>
@@ -81,7 +81,7 @@
                     <td>{{ $t -> members -> member_address }}</td>
                     <td>$ {{ $t -> transaction_paid }}</td>
                     <th>
-                        <button class="btn btn-outline" type="button">View</button>
+                        <button class="btn btn-outline" type="button" onclick="viewInvoice(this)">View</button>
                     </th>
                 </tr>
                 @endforeach
