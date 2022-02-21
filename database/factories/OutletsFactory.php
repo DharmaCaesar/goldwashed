@@ -16,7 +16,7 @@ class OutletsFactory extends Factory
         return [
             'outlet_name' => $this -> faker -> company,
             'outlet_address' => $this -> faker -> streetAddress,
-            'outlet_phone' => $this -> faker -> e164PhoneNumber,
+            'outlet_phone' => '62' . $this -> faker -> numerify('##########'),
             'status' => $this -> faker -> randomElements(['BANKRUPT', 'CLOSED', 'ACTIVE'])[0]
         ];
     }

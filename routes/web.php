@@ -95,6 +95,13 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
         $packagesdata = Packages::where('outlet_id', Auth::user() -> outlet_id) -> get();
         return view('dashboard.transaction', ['transaction' => $transaction, 'memberdata' => $memberdata, 'packagesdata' => $packagesdata, 'page' => 'transaction']);
     });
+
+    Route::get('/invoice', function(){
+        $transaction = Transactions::where('outlet_id', Auth::user() -> outlet_id) -> get();
+        $memberdata = Members::all();
+        return view('dashboard.invoice', ['transaction' => $transaction, 'memberdata' => $memberdata, 'page' => 'invoice']);
+
+    });
     
     Route::post('/createmember', [BordilController::class, 'createmember']);
     Route::post('/catch-member', [EditController::class, 'catchmember']);

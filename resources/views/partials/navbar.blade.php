@@ -48,11 +48,17 @@
                     <li>
                         <a href="/membership">Membership</a>
                     </li>
+                    <li>
+                        <a href="/invoice">Invoices</a>
+                    </li>
                     @endif
 
                     @if(Auth::user() -> role == 'CASHIER')
                     <li>
                         <a href="/membership">Membership</a>
+                    </li>
+                    <li>
+                        <a href="/invoice">Invoices</a>
                     </li>
                     @endif
                 </ul>

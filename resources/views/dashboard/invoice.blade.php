@@ -61,25 +61,30 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Packages</th>
-                    <th>packages type</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Invoice Code</th>
+                    <th>Member Name</th>
+                    <th>Member Phone</th>
+                    <th>Member Address</th>
+                    <th>Total Price</th>
                     <th>Action</th>
                 </tr>
             </thead>
             {{-- BAGIAN AKHIR HEADER TABLE --}}
 
             <tbody id="iv">
-                {{-- <tr>
-                <th></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr> --}}
+                @foreach($transaction as $t)
+                <tr>
+                    <th>{{ $t -> id }}</th>
+                    <td>{{ $t -> invoice_code  }}</td>
+                    <td>{{ $t -> members -> member_name }}</td>
+                    <td>{{ $t -> members -> member_phone }}</td>
+                    <td>{{ $t -> members -> member_address }}</td>
+                    <td>$ {{ $t -> transaction_paid }}</td>
+                    <th>
+                        <button class="btn btn-outline" type="button">View</button>
+                    </th>
+                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
