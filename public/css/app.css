@@ -2940,20 +2940,6 @@ html {
   min-height: 2rem;
   font-size: .875rem;
 }
-.btn-md {
-  height: 3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  min-height: 3rem;
-  font-size: .875rem;
-}
-.btn-lg {
-  height: 4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  min-height: 4rem;
-  font-size: 1.125rem;
-}
 .btn-square:where(.btn-xs) {
   height: 1.5rem;
   padding: 0;
@@ -2979,18 +2965,6 @@ html {
   height: 2rem;
   padding: 0;
   width: 2rem;
-}
-.btn-circle:where(.btn-md) {
-  border-radius: 9999px;
-  height: 3rem;
-  padding: 0;
-  width: 3rem;
-}
-.btn-circle:where(.btn-lg) {
-  border-radius: 9999px;
-  height: 4rem;
-  padding: 0;
-  width: 4rem;
 }
 .alert-success {
   --tw-bg-opacity: 0.1;
@@ -3029,6 +3003,10 @@ html {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -3036,10 +3014,6 @@ html {
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
-}
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -3167,6 +3141,10 @@ html {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .px-2 {
   padding-left: 0.5rem;
@@ -3304,3 +3282,5 @@ html {
     text-align: left;
   }
 }
+
+

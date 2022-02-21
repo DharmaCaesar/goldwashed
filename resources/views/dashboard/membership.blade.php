@@ -57,7 +57,7 @@
     {{-- BAGIAN AWAL TABEL --}}
     <div id="membership-view" class="">
         <div class="overflow-x-auto p-2">
-            <table class="table w-full" id="membershipTable">
+            <table class="table w-full py-2" id="membershipTable">
                 <thead>
                     <tr>
                         <th></th>
@@ -141,7 +141,7 @@
     {{-- BAGIAN AWAL LOG --}}
     <div id="membership-log" class="hidden">
         <div class="overflow-x-auto">
-            <table class="table w-full">
+            <table class="table w-full text-center">
                 <thead>
                     <tr>
                         <th>Id</th>

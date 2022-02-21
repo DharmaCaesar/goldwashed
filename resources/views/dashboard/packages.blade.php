@@ -57,7 +57,7 @@
     {{-- BAGIAN AWAL TABEL --}}
     <div id="packages-view" class="">
         <div class="overflow-x-auto p-2">
-            <table class="table w-full" id="packagesTable">
+            <table class="table w-full py-2" id="packagesTable">
                 <thead>
                     <tr>
                         <th></th>
@@ -151,7 +151,7 @@
     {{-- BAGIAN AWAL LOG --}}
     <div id="packages-log" class="hidden">
         <div class="overflow-x-auto">
-            <table class="table w-full">
+            <table class="table w-full text-center">
                 <thead>
                     <tr>
                         <th>Id</th>

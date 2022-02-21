@@ -56,8 +56,8 @@
 
     {{-- BAGIAN AWAL TABEL --}}
     <div id="user-view" class="">
-        <div class="overflow-x-auto">
-            <table class="table w-full text-center" id="userTable">
+        <div class="overflow-x-auto p-2">
+            <table class="table w-full text-center py-2" id="userTable">
                 <thead>
                     <tr>
                         <th class="hidden"></th>
