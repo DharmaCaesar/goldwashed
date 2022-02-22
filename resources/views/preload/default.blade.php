@@ -31,5 +31,7 @@
     <script src="{{ asset("js/calculate.js") }}"></script>
 
     <script src="{{  asset("js/invoice.js") }}"></script>
+
+    <script src="{{ asset("js/print.js") }}"></script>
 </body>
 </html>

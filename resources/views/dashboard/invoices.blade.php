@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="flex-none text-right">
-                    <p class="text-sm opacity-50" id="date"></p>
+                    <p class="text-sm opacity-50" id="date">{{ $transaction -> transaction_date }}</p>
                 </div>
             </div>
 
@@ -71,8 +71,8 @@
                     <p class="font-bold">Customer:</p>
 
                     <address>
-                        <span id="name"></span>, <span id="gender"></span>
-                        <p><span id="number"></span></p>
+                        <span id="name">{{ $transaction -> members -> member_name }}</span>, <span id="gender">{{ $transaction -> members -> member_gender }}</span>
+                        <p><span id="number">{{ $transaction -> members -> member_phone }}</span></p>
                     </address>
                 </div>
 
@@ -80,8 +80,8 @@
                     <p class="font-bold">Outlet:</p>
 
                     <address>
-                        <p id="outletName"></p>
-                        <p><span id="outletPhone"></span></p>
+                        <p id="outletName">{{ $transaction -> outlets -> outlet_name }}</p>
+                        <p><span id="outletPhone">{{ $transaction -> outlets -> outlet_phone }}</span></p>
                     </address>
                 </div>
             </div>
@@ -90,14 +90,14 @@
                 <div class="flex-1">
                     <address class="text-left">
                         To:
-                        <p class="my-2" id="sento"></p>
+                        <p class="my-2" id="sento">{{ $transaction -> members -> member_address }}</p>
                     </address>
                 </div>
 
                 <div class="flex-2">
                     <address class="text-right">
                         From:
-                        <p class="my-2" id="senrom"></p>
+                        <p class="my-2" id="senrom">{{  $transaction -> outlets -> outlet_address }}</p>
                     </address>
                 </div>
             </div>
@@ -114,14 +114,15 @@
                 </thead>
 
                 <tbody id="inbuff">
+                    @foreach ($trandet as $t)
                     <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>{{ $t -> packages -> id }}</th>
+                        <td>{{ $t -> packages -> package_name }}</td>
+                        <td>{{ $t -> packages -> package_type }}</td>
+                        <td>{{ $t -> packages -> package_price }}</td>
+                        <td>{{ $t -> quantity }}</td>
                     </tr>
+                    @endforeach
                 </tbody>
 
                 <tfoot>
@@ -135,8 +136,8 @@
                     <tr>
                         <th></th>
                         <th>Discount</th>
-                        <th><span id="disc"></span>%</th>
-                        <th><span class="normal-case">$</span> <span id="sumtal"></span></th>
+                        <th><span id="disc">{{ $transaction -> transaction_discount }}</span>%</th>
+                        <th><span class="normal-case">$</span> <span id="sumtal">{{ $transaction -> transaction_paid }}</span></th>
                         <th></th>
                     </tr>
                 </tfoot>
