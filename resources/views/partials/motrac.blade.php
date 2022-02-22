@@ -169,7 +169,8 @@
                 </table>
             </div>
             <div class="modal-action">
-                <button type="button" class="btn btn-outline my-10 mx-2" onclick="exit()">Cancel</button>
+                <button class="btn btn-outline non-printtab my-10 mx-2" onclick="window.print()" type="button">Print</button>
+                <button type="button" class="btn btn-outline my-10 mx-2 non-printtab" onclick="exit()">Cancel</button>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.4/datatables.min.css"/>
     <link rel="stylesheet" href="{{ asset("css/print.css") }}">
-    <title>Grubbywash</title>
+    <title>Goldwashed</title>
 </head>
 <body>
     <div class="body">

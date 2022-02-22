@@ -173,7 +173,7 @@ class TransactionController extends Controller
                         }
 
                         // return redirect()->back()->with('success', 'Transaction successful! Invoice has been saved.');
-                        return redirect('/invoices/' . $transaction -> invoice_code . '') -> with('success', 'Transaction successful! Invoice has been saved.');
+                        return redirect('/invoice/' . $transaction -> invoice_code . '') -> with('success', 'Transaction successful! Invoice has been saved.');
                     } else {
                         $transaction->delete();
                     }
