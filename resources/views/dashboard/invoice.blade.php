@@ -89,3 +89,5 @@
         </table>
     </div>
     {{-- BAGIAN AKHIR TABLE --}}
+
+@endsection

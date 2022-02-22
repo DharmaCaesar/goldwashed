@@ -27,4 +27,10 @@ class InvoiceController extends Controller
             return response() -> json(['response' => [$invoice, $transaction, $member, $package, $outlet], 'lists' => $transaction_details]);
         }
     }
+
+    public function pin($invoice_code){
+        $transaction = Transactions::where('invoice_code', $invoice_code) -> first();
+        $trandet = TransactionDetails::with('packages') -> where('transaction_id', $transaction -> id) -> get();
+        return view('dashboard.invoices', ['page' => 'view', 'transaction' => $transaction, 'trandet' => $trandet]);
+    }
 }
