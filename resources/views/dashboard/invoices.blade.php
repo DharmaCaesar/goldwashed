@@ -56,7 +56,7 @@
 {{-- BAGIAN AWAL TABLE --}}
     <div class="flex flex-row">
         <div class="flex-1 p-4">
-            <div class=" flex flex-row mb-4 items-center">
+            <div class=" flex flex-row mb-4 items-center" id="printlocal">
                 <div class="flex-1">
                     <p class="text-2xl font-bold">#<span id="code">{{ $transaction -> invoice_code }}</span></p>
                 </div>
@@ -72,7 +72,7 @@
 
                     <address>
                         <span id="name">{{ $transaction -> members -> member_name }}</span>, <span id="gender">{{ $transaction -> members -> member_gender }}</span>
-                        <p><span id="number">{{ $transaction -> members -> member_phone }}</span></p>
+                        <p><span id="number">+{{ $transaction -> members -> member_phone }}</span></p>
                     </address>
                 </div>
 
@@ -81,7 +81,7 @@
 
                     <address>
                         <p id="outletName">{{ $transaction -> outlets -> outlet_name }}</p>
-                        <p><span id="outletPhone">{{ $transaction -> outlets -> outlet_phone }}</span></p>
+                        <p><span id="outletPhone">+{{ $transaction -> outlets -> outlet_phone }}</span></p>
                     </address>
                 </div>
             </div>
@@ -129,6 +129,13 @@
                     <tr>
                         <th></th>
                         <th></th>
+                        <th>Additional Fee</th>
+                        <th><span class="normal-case">$</span> <span id="fee">{{ $transaction -> transaction_paid_extra }}</span></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
                         <th>Subtotal</th>
                         <th><span class="normal-case">$</span> <span id="total"></span></th>
                         <th id="totalqty">0</th>
@@ -145,4 +152,10 @@
         </div>
     </div>
   {{-- BAGIAN AKHIR TABLE --}}
+
+  <div class="flex flex-row">
+      <div class="flex-1 text-center">
+        <button class="btn btn-outline non-printtab" onclick="window.print()">Print</button>
+      </div>
+  </div>
 @endsection

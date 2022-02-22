@@ -90,7 +90,8 @@ class TransactionController extends Controller
                 $calculated_price = intval($calculated_price);
             }
 
-            $calculated_price = intval($calculated_price - $calculated_discount);
+            $calculated_price = intval($calculated_price - $calculated_discount) + intval($validatedData['fepay']);
+            $validatedData['sumpay'] += intval($validatedData['fepay']);
             $calculated_tax = intval($calculated_price) * (2 / 100);
 
             if ($validatedData['disc'] <= 50) {

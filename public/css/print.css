@@ -1,0 +1,9 @@
+@media print{
+    .non-printtab{
+        display: none !important;
+    }
+
+    #printlocal{
+        display: block !important;
+    }
+}

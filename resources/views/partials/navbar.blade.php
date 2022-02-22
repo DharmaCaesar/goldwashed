@@ -1,5 +1,5 @@
 {{-- BAGIAN AWAL NAVBAR --}}
-<div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
+<div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box non-printtab">
     <div class="px-2 mx-2 navbar-start">
         <span class="text-lg font-bold">
             Grubbywash

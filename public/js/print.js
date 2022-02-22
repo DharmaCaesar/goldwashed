@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     const buffer = document.getElementById('inbuff')
+    let fee = parseInt(Number(document.getElementById('fee').innerText))
     let total = 0
     let totalqty = 0
 
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
         totalqty += parseInt(Number(buffer.querySelectorAll('tr')[i].querySelectorAll('td')[3].innerText))
     }
 
+    total += fee
     document.getElementById('total').innerText = total
     document.getElementById('totalqty').innerText = totalqty
 })
