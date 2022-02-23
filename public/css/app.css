@@ -3045,6 +3045,9 @@ html {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mr-2 {
+  margin-right: 0.5rem;
+}
 .inline-block {
   display: inline-block;
 }
@@ -3080,6 +3083,9 @@ html {
 }
 .w-52 {
   width: 13rem;
+}
+.w-32 {
+  width: 8rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -3156,6 +3162,9 @@ html {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--n) / var(--tw-bg-opacity));
 }
+.bg-transparent {
+  background-color: transparent;
+}
 .fill-current {
   fill: currentColor;
 }
@@ -3200,6 +3209,10 @@ html {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -3207,10 +3220,6 @@ html {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .font-bold {
   font-weight: 700;

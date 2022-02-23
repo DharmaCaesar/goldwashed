@@ -326,3 +326,97 @@
   
     @endif
 {{-- BAGIAN AKHIR USER --}}
+
+{{-- BAGIAN AWAL BARVENTARIS --}}
+@if ($page == 'barventaris')
+
+{{-- BAGIAN AWAL EDIT --}}
+  <div id="edit_user" class="modal">
+      <div class="modal-box min-w-full text-center">
+        <p>Change informmation of goods .</p> 
+  
+        <form action="/editbarventaris" method="post" class="text-center">
+            @csrf
+            <input type="hidden" name="inventory_id" id="inventory_input">
+            <div class="flex flex-row">
+                <div class="flex-1 w-full mx-5">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name of goods</span>
+                        </label>
+                        <input type="text" name="nama_barang" placeholder="name of goods"
+                            class="input input-primary input-bordered w-full" id="nameInput" required>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Goods brands</span>
+                        </label>
+                        <input type="text" name="merk_barang" placeholder="goods brands"
+                            class="input input-secondary input-bordered w-full" id="brandInput" required>
+                    </div>
+                </div>
+
+                <div class="flex-1 w-full mx-5">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Qty</span>
+                        </label>
+                        <input type="number" name="qty" placeholder="quantity"
+                            class="input input-primary input-bordered w-full" id="qtyInput" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Condition</span>
+                        </label>
+                        <div class="flex-row">
+                            <select name="kondisi"
+                            id="typeInput" class="select select-bordered w-full">
+                                <option disabled="disabled" selected="selected">Condition of goods</option>
+                                <option value="layak_pakai">Normal</option>
+                                <option value="rusak_ringan">Minus Damage</option>
+                                <option value="rusak_berat">Broke</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">procurement date</span>
+                        </label>
+                        <div class="input-group">
+                            <input type="date" name="tanggal_pengadaan"
+                            id="dateInput"
+                            placeholder="Number"
+                                class="input input-accent input-bordered w-full" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
+            <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('updateInventoryModal').classList.remove('modal-open')">Cancel</button>
+            <button type="button" class="btn btn-outline my-10 mx-2 hover:bg-red-900" onclick="deleteItem('inventory_input' ,'updateInventoryModal')>Delete</button>
+        </form>
+  
+      </div>
+    </div>
+{{-- BAGIAN AKHIR EDIT --}}
+  
+{{-- BAGIAN AWAL DELETE --}}
+    <div id="deleteInventoryModal" class="modal">
+      <div class="modal-box min-w-full text-center">
+        <p>Be sure to deleting the item u choose, before deleting permanently.</p> 
+  
+      <form action="/deleteinventory" method="post" class="text-center">
+          @csrf
+          <input type="hidden" name="inventory_delete" id="inventory_delete">
+              <button type="button" class="btn btn-outline my-10 mx-2" onclick="document.getElementById('deleteInventoryModal').classList.remove('modal-open')">Cancel</button>
+              <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
+      </form>
+      </div>
+    </div>
+{{-- BAGIAN AKHIR DELETE --}}
+  
+    @endif
+{{-- BAGIAN AKHIR BARVENTARIS --}}
