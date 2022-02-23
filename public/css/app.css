@@ -3099,6 +3099,12 @@ html {
 .max-w-2xl {
   max-width: 42rem;
 }
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -3165,6 +3171,10 @@ html {
 .bg-transparent {
   background-color: transparent;
 }
+.bg-base-300 {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b3) / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -3176,6 +3186,9 @@ html {
 }
 .p-4 {
   padding: 1rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -3257,6 +3270,10 @@ html {
 .text-neutral-content {
   --tw-text-opacity: 1;
   color: hsla(var(--nc) / var(--tw-text-opacity));
+}
+.text-base-300 {
+  --tw-text-opacity: 1;
+  color: hsla(var(--b3) / var(--tw-text-opacity));
 }
 .opacity-50 {
   opacity: 0.5;

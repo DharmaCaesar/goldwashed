@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(e){
 
-    document.getElemenById('barventaris-view-btn').addEventListener('click', function(e){
+    document.getElementById('barventaris-btn').addEventListener('click', function(e){
         e.preventDefault()
 
         if(document.getElementById('barventaris-view').classList.contains('hidden')){
-            document.getElmentById('barventaris-view').classList.remove('hidden')
+            document.getElementById('barventaris-view').classList.remove('hidden')
             document.getElementById('barventaris-btn').classList.add('btn-active')
             document.getElementById('barventaris-create').classList.add('hidden')
             document.getElementById('barventaris-create-btn').classList.remove('btn-active')
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function(e){
         if(document.getElementById('barventaris-create').classList.contains('hidden')){
             document.getElementById('barventaris-create').classList.remove('hidden')
             document.getElementById('barventaris-create-btn').classList.add('btn-active')
-            document.getElementById('barventaris-view').classList.remove('hidden')
-            document.getElementById('barventaris-btn').classList.add('btn-active')
+            document.getElementById('barventaris-view').classList.add('hidden')
+            document.getElementById('barventaris-btn').classList.remove('btn-active')
         }
     })
 })
@@ -37,11 +37,11 @@ function request_info(el, id_input, modal){
             console.log(response)
 
             document.getElementById(id_input).value = response.response.id
-            document.getElementById(nama_barang).value = response.response.nama_barang
-            document.getElementById(merk_barang).value = response.response.merk_barang
-            document.getElementById(qty).value = response.response.qty
-            document.getElementById(kondisi).value = response.response.kondisi
-            document.getElementById(tanggal_pengadaan).value = response.response.tanggal_pengadaan
+            document.getElementById('nameInput').value = response.response.nama_barang
+            document.getElementById('brandInput').value = response.response.merk_barang
+            document.getElementById('qtyInput').value = response.response.qty
+            document.getElementById('conditionInput').value = response.response.kondisi
+            document.getElementById('dateInput').value = response.response.tanggal_pengadaan
         }
     })
 }
@@ -50,7 +50,7 @@ function deleteItem(id_element, modal){
     let id = document.getElementById(id_element).value
 
     document.getElementById(modal).classList.remove('modal-open')
-    document.getElementById('deleteInventoryModal').classList.add('modal-open')
+    document.getElementById('deletebarventarisModal').classList.add('modal-open')
 
-    document.getElementById('inventory_delete').value = id
+    document.getElementById('barventaris_delete').value = id
 }

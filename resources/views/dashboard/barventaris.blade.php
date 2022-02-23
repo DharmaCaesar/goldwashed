@@ -69,7 +69,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($barventarisdata as $bv)
+                    @foreach ($barventarisData as $bv)
                         <tr class="active">
                             <th>{{ $bv->id }}</th>
                             <td>{{ $bv->nama_barang }}</td>
@@ -77,7 +77,7 @@
                             <td>{{ $bv->qty }}</td>
                             <td>{{ $bv->kondisi }}</td>
                             <td>{{ $bv->tanggal_pengadaan  }}</td>
-                            <td><button class="btn btn-ghost" onclick="request_info(this, 'inventory_input' ,'updateInventoryModal')">Edit</button></td>
+                            <td><button class="btn btn-ghost" onclick="request_info(this, 'barventaris_input' ,'updatebarventarisModal')">Edit</button></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -125,9 +125,9 @@
                             <select name="kondisi"
                             id="typeInput" class="select select-bordered w-full">
                                 <option disabled="disabled" selected="selected">Condition of goods</option>
-                                <option value="layak_pakai">Normal</option>
-                                <option value="rusak_ringan">Minus Damage</option>
-                                <option value="rusak_berat">Broke</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Minus">Minus Damage</option>
+                                <option value="Broke">Broke</option>
                             </select>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                             <input type="date" name="tanggal_pengadaan"
                             id="dateInput"
                             placeholder="Number"
-                                class="input input-accent input-bordered w-full" required>
+                                class="input input-secondary input-bordered w-full bg-neutral-content text-black" required>
                         </div>
                     </div>
                 </div>

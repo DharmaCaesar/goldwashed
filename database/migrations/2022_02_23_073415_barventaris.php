@@ -13,12 +13,12 @@ class Barventaris extends Migration
      */
     public function up()
     {
-        Schema::create('barang_inventaris', function(Blueprint $table) {
+        Schema::create('barventaris', function(Blueprint $table) {
             $table -> id();
             $table -> string('nama_barang');
             $table -> string('merk_barang');
             $table -> integer('qty');
-            $table -> enum('kondisi', ['layak_pakai', 'rusak_ringan', 'rusak_berat']);
+            $table -> enum('kondisi', ['Normal', 'Minus', 'Broke']);
             $table -> date('tanggal_pengadaan');
             $table -> timestamps();
 

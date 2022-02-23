@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuLogController;
+use App\Http\Controllers\barventarisController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\EditController;
@@ -114,6 +115,12 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/pay', [TransactionController::class, 'pay']);
     Route::post('/invoice', [InvoiceController::class, 'takeinvoice']);
     Route::get('/invoice/{invoice_code}', [InvoiceController::class, 'pin']);
+
+    Route::get('/barventaris', [barventarisController::class, 'index']) -> name('barventaris');
+    Route::post('/barventaris', [barventarisController::class, 'create']) -> name('add_inventory');
+    Route::post('/takebarventaris', [barventarisController::class, 'fetch']) -> name('take_barventaris');
+    Route::post('/update-barventaris', [barventarisController::class, 'update']) -> name('update_barventaris');
+    Route::post('/delete-barventaris', [barventarisController::class, 'delete']) -> name('delete_barventaris');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

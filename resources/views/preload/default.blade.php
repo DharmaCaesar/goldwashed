@@ -34,5 +34,7 @@
     <script src="{{  asset("js/invoice.js") }}"></script>
 
     <script src="{{ asset("js/print.js") }}"></script>
+
+    <script src="{{ asset("js/barventaris.js") }}"></script>
 </body>
 </html>
