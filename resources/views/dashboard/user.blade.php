@@ -55,7 +55,7 @@
     {{-- BAGIAN AKHIR TAB --}}
 
     {{-- BAGIAN AWAL TABEL --}}
-    <div id="user-view" class="">
+    <div id="user-view">
         <div class="overflow-x-auto p-2">
             <table class="table w-full text-center py-2" id="userTable">
                 <thead>

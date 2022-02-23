@@ -4,7 +4,7 @@
 @include('partials.navbar')
 
 {{-- BAGIAN TESTING HOME WALL --}}
-{{-- <img src="{{ asset('ingredient/salmon.png') }}"> --}}
+{{-- <img src="{{ asset('ingredient/bggrubby.png') }}"> --}}
 {{-- BAGIAN TESTING HOME WALL --}}
 
 {{-- BAGIAN AWAL HOMEPAGE --}}

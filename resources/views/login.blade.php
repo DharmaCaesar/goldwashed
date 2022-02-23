@@ -1,7 +1,7 @@
 @extends('preload.default')
 
 @section('container')
-    <div class="hero min-h-screen bg-base-200" style="background-image: url({{ asset('ingredient/bggrubby.png') }})" ;>
+    <div class="hero min-h-screen bg-base-200" style="background-image: url({{ asset('ingredient/patterngrubby.png') }})" ;>
         <div class="flex-col justify-center hero-content lg:flex-row">
               <div class="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 p-2">
                 <div class="text-center lg:text-left">
