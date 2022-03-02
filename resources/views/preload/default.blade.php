@@ -15,7 +15,7 @@
     <title>Goldwashed</title>
 </head>
 <body>
-    <div class="body" style="background-image: url({{ asset('ingredient/patterngrubby.png') }})">
+    <div class="body">
         @yield('container')
     </div>
 

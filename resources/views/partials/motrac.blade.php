@@ -154,6 +154,13 @@
                         <tr>
                             <th></th>
                             <th></th>
+                            <th>Addtional Fee</th>
+                            <th><span class="normal-case">$</span> <span id="fe"></span></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
                             <th>Subtotal</th>
                             <th><span class="normal-case">$</span> <span id="total"></span></th>
                             <th id="totalqty">0</th>

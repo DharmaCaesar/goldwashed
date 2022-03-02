@@ -51,10 +51,11 @@ function viewInvoice(entity){
                 totalqty += parseInt(Number(response.lists[i]['quantity']))
             }
 
+            document.getElementById('fe').innerText = response.response[1].transaction_paid_extra
             document.getElementById('total').innerText = total
             document.getElementById('totalqty').innerText = totalqty
             document.getElementById('sumtal').innerHTML = response.response[1].transaction_paid
-
+            
             totalqty = 0
         }
     })

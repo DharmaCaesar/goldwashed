@@ -66,7 +66,7 @@ class MembershipExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder 
 
                 // HEADER 
                 $event->sheet->getStyle('A3:G3')->applyFromArray([
-                    'border' => [
+                    'borders' => [
                         'allBorders' => [
                             'borderStyle' => Border::BORDER_THIN,
                             'color' => ['rgb', '000000']
@@ -76,7 +76,7 @@ class MembershipExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder 
 
                 // CELLS
                 $event->sheet->getStyle('A4:G' . $event -> sheet -> getHighestRow())->applyFromArray([
-                    'border' => [
+                    'borders' => [
                         'allBorders' => [
                             'borderStyle' => Border::BORDER_THIN,
                             'color' => ['rgb', '000000']

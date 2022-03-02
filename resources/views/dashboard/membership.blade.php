@@ -56,7 +56,7 @@
     {{-- BAGIAN AKHIR TAB --}}
 
     {{-- BAGIAN AWAL TABEL --}}
-    <div id="membership-view" class="">
+    <div id="membership-view" class="bg-black">
         <div class="overflow-x-auto p-2">
             <table class="table w-full py-2" id="membershipTable">
                 <thead>

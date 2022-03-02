@@ -100,6 +100,6 @@ class BordilController extends Controller
 
     public function exportdata(){
         $date = date('Y-m-d');
-        return Excel::download(new MembershipExport, $date.'Member.xlsx');
+        return Excel::download(new MembershipExport, $date.' Member.xlsx');
     }
 }

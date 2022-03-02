@@ -17,14 +17,19 @@ class InvoiceController extends Controller
             $data = $request -> validate([
                 'id' => ['required']
             ]);
-            $transaction = Transactions::find($data['id']);
-            $transaction_details = TransactionDetails::with('packages') -> where('transaction_id', $transaction -> id) -> get();
-            $invoice = TransactionDetails::find($data['id']);
-            $member = Members::find($transaction -> id);
-            $package = Packages::find($invoice -> package_id);
-            $outlet = Outlets::find(Auth::user() -> outlet_id);
+            // $transaction = Transactions::find($data['id']);
+            // $transaction_details = TransactionDetails::with('packages') -> where('transaction_id', $transaction -> id) -> get();
+            // $invoice = TransactionDetails::find($data['id']);
+            // $member = Members::find($transaction -> id);
+            // $package = Packages::find($invoice -> package_id);
+            // $outlet = Outlets::find(Auth::user() -> outlet_id);
 
-            return response() -> json(['response' => [$invoice, $transaction, $member, $package, $outlet], 'lists' => $transaction_details]);
+            // return response() -> json(['response' => [$invoice, $transaction, $member, $package, $outlet], 'lists' => $transaction_details]);
+
+            $transaction = Transactions::find($data['id']);
+            $transaction_dets = TransactionDetails::with('packages')->where('transaction_id', $transaction->id)->get();
+
+            return response()->json(['response' => [$transaction->transaction_details, $transaction, $transaction->members, $transaction->transaction_details->packages, $transaction->outlets], 'lists' => $transaction_dets]);
         }
     }
 
