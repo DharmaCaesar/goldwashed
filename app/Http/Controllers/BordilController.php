@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\MembershipExport;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
@@ -10,7 +9,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Excel as ExcelExcel;
+use Maatwebsite\Excel\ExcelServiceProvider;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MembershipExport;
 
 class BordilController extends Controller
 {
@@ -97,6 +99,7 @@ class BordilController extends Controller
     }
 
     public function exportdata(){
-        return Excel::download(new MembershipExport);
+        $date = date('Y-m-d');
+        return Excel::download(new MembershipExport, $date.'Member.xlsx');
     }
 }

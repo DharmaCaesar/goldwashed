@@ -50,6 +50,7 @@
             <button class="btn btn-active" id="view-btn">View</button>
             <button class="btn" id="create-btn">Create</button>
             <button class="btn" id="log-btn">Logs</button>
+            <a href="{{ route('export-member') }}" class="btn fa fa-file-excel">Export</a>
         </div>
     </div>
     {{-- BAGIAN AKHIR TAB --}}
@@ -65,7 +66,7 @@
                         <th>Member Address</th>
                         <th>Member Contact</th>
                         <th>Gender</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
