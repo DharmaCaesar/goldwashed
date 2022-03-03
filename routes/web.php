@@ -123,6 +123,8 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/delete-barventaris', [barventarisController::class, 'delete']) -> name('delete_barventaris');
     Route::get('member/export/', [BordilController::class, 'exportMember']) -> name('export-member');
     Route::post('member/import/', [BordilController::class, 'importMember']) -> name('import-member');
+    Route::get('package/export/', [BordilController::class, 'exportPackage']) -> name('export-package');
+    Route::post('package/import/', [BordilController::class, 'importPackage']) -> name('import-package');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});
