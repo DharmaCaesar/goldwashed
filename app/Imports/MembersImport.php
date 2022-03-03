@@ -16,22 +16,33 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Sheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class MembersImport implements ToModel
+class MembersImport implements ToModel, WithStartRow
 {
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+
+    public function startRow(): int{
+        return 4;
+    }
+
     public function model(array $row)
     {
         return new Members([
-            //
+            'member_name' => $row[1],
+            'member_address' => $row[2],
+            'member_phone' => $row[3],
+            'member_gender' => $row[4]
         ]);
     }
+
+
 }

@@ -121,7 +121,8 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/takebarventaris', [barventarisController::class, 'fetch']) -> name('take_barventaris');
     Route::post('/update-barventaris', [barventarisController::class, 'update']) -> name('update_barventaris');
     Route::post('/delete-barventaris', [barventarisController::class, 'delete']) -> name('delete_barventaris');
-    Route::get('users/export/', [BordilController::class, 'exportdata']) -> name('export-member');
+    Route::get('member/export/', [BordilController::class, 'exportMember']) -> name('export-member');
+    Route::post('member/import/', [BordilController::class, 'importMember']) -> name('import-member');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

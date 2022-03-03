@@ -13,6 +13,8 @@ use Maatwebsite\Excel\Excel as ExcelExcel;
 use Maatwebsite\Excel\ExcelServiceProvider;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MembershipExport;
+use App\Imports\MembersImport;
+use Illuminate\Support\Facades\Storage;
 
 class BordilController extends Controller
 {
@@ -98,8 +100,24 @@ class BordilController extends Controller
         }
     }
 
-    public function exportdata(){
+    public function exportMember(){
         $date = date('Y-m-d');
         return Excel::download(new MembershipExport, $date.' Member.xlsx');
+    }
+
+    public function importMember(Request $request){
+        $request -> validate([
+            'file' => ['required', 'mimes:csv,xlsx,xls']
+        ]);
+
+        $file = $request -> file('file');
+
+        if($file != null){
+            $filename = $file -> getClientOriginalName();
+            $file -> move('import', $filename);
+            Excel::import(new MembersImport, public_path('import/'.$filename));
+            Storage::delete(public_path('import/'.$filename));
+            return redirect() -> back();
+         }
     }
 }
