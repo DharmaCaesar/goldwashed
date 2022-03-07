@@ -53,7 +53,7 @@
             <a href="{{ route('export-package') }}" class="btn fa fa-file-excel">Export</a>
             <form action="{{ route('import-package') }}" enctype="multipart/form-data" class="inline-block" id="importForm" method="POST">
                 @csrf
-                <button type="button" class="btn rounded-l-none" id="imbtn" onclick="document.getElementById('impor').click()">
+                <button type="button" class="btn rounded-l-none gap-0" id="imbtn" onclick="document.getElementById('impor').click()">
                     Import
                 </button>
                 <input type="file" name="file" id="impor" class="hidden" onchange="document.getElementById('importForm').submit()">

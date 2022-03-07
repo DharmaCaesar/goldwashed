@@ -1,4 +1,21 @@
-$('#packagesTable').DataTable()
+$('#packagesTable').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'copy',
+            exportOptions: {
+                columns: ':visible:not(:last-chiled)'
+            }
+        },
+
+        {
+            extend: 'pdf',
+            exportOptions: {
+                columns: ':visible:not(:last-chiled)'
+            }
+        }
+    ]
+ })
 
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("view-btn").addEventListener("click", function(e){
