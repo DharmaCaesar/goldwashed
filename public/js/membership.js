@@ -61,6 +61,9 @@ function editmember(entity){
     $.ajax({
         type: 'POST', 
         url: '/catch-member',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: {id:id},
         success: function(response){
             console.log(response)

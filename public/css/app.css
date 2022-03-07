@@ -3463,8 +3463,14 @@ body[dir="rtl"] .checkbox:checked,
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.block {
+  display: block;
+}
 .inline-block {
   display: inline-block;
+}
+.inline {
+  display: inline;
 }
 .flex {
   display: flex;

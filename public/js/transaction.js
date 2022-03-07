@@ -9,6 +9,9 @@ function takemember(entity, index){
     $.ajax({
         type: 'POST',
         url: '/takemember',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: {id:id},
         success: function(response){
             document.getElementById('memberInput').value=response.response.id
@@ -43,6 +46,9 @@ function add_package(entity){
         $.ajax({
             type: 'POST',
             url: '/addpackage',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: {id:id},
             success: function(response){
                 let buffer = document.getElementById('dbuff')

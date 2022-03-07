@@ -32,6 +32,9 @@ function request_info(el, id_input, modal){
     $.ajax({
         type: 'POST',
         url: '/takebarventaris',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: {id:id},
         success: function(response){
             console.log(response)
