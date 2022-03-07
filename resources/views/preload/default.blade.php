@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ingredient/favicon-16x16.png">
     <link rel="manifest" href="ingredient/favicon">
     <link rel="stylesheet" type="text/css" href="{{ asset('datatables/datatables.min.css') }}"/>
-    <title>Goldwashed</title>
+    <title>Sapphirewash</title>
 </head>
 <body>
     <div class="body">
@@ -27,22 +27,36 @@
     
     <script type="text/javascript" src="{{ asset('datatables/datatables.min.js') }}"></script>
     
+    @if($page == 'outlets')
     <script src="{{ asset("js/outlet.js") }}"></script>
+    @endif
 
+    @if($page == 'packages')
     <script src="{{ asset("js/packages.js") }}"></script>
+    @endif
 
+    @if($page == 'membership')
     <script src="{{ asset("js/membership.js") }}"></script>
+    @endif
 
+    @if($page == 'user')
     <script src="{{ asset("js/user.js") }}"></script>
+    @endif
 
+    @if($page == 'transaction')
     <script src="{{ asset("js/transaction.js") }}"></script>
     
     <script src="{{ asset("js/calculate.js") }}"></script>
+    @endif
 
+    @if($page == 'invoice')
     <script src="{{  asset("js/invoice.js") }}"></script>
 
     <script src="{{ asset("js/print.js") }}"></script>
+    @endif
 
+    @if($page == 'barventaris')
     <script src="{{ asset("js/barventaris.js") }}"></script>
+    @endif
 </body>
 </html>

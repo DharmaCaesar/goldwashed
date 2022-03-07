@@ -4,14 +4,14 @@ $('#membershipTable').DataTable({
         {
             extend: 'copy',
             exportOptions: {
-                columns: ':visible:not(:last-chiled)'
+                columns: ':visible:not(:last-child)'
             }
         },
 
         {
             extend: 'pdf',
             exportOptions: {
-                columns: ':visible:not(:last-chiled)'
+                columns: ':visible:not(:last-child)'
             }
         }
     ]
