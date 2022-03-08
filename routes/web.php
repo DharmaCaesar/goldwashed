@@ -31,13 +31,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('login', ['page' => 'login']);
 });
 
 Route::middleware(['auth.basic', 'role:ADMIN,CASHIER,OWNER']) -> group(function(){
 
 Route::get('/home', function(){
-    return view('dashboard.home');
+    return view('dashboard.home', ['page' => 'home']);
 }) -> name('home');
 
 Route::get('/logout', [AuLogController::class,'logout']);
