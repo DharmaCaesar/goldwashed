@@ -58,5 +58,9 @@
     @if($page == 'barventaris')
     <script src="{{ asset("js/barventaris.js") }}"></script>
     @endif
+
+    @if ($page == 'simp')
+    <script src="{{ asset('js/simplation.js') }}"></script>
+    @endif
 </body>
 </html>

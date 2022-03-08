@@ -3609,6 +3609,9 @@ body[dir="rtl"] .checkbox:checked,
 .pt-10 {
   padding-top: 2.5rem;
 }
+.pt-\[2\.2rem\] {
+  padding-top: 2.2rem;
+}
 .text-left {
   text-align: left;
 }

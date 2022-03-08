@@ -40,6 +40,10 @@ Route::get('/home', function(){
     return view('dashboard.home', ['page' => 'home']);
 }) -> name('home');
 
+Route::get('/simp', function(){
+    return view('simpinglation.simplation', ['page' => 'simp']);
+}) -> name('simp');
+
 Route::get('/logout', [AuLogController::class,'logout']);
 
 });

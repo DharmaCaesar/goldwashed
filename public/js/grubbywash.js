@@ -26,3 +26,27 @@ function sift_table(table, filter){
         }
     }
 }
+
+function search(search, table) {
+    let record, success;
+    let search_value = search.value.toUpperCase()
+    let table_element = document.getElementById(table)
+    let rows = table_element.querySelector('tbody').getElementsByTagName('tr')
+
+    for (i = 0; i < rows.length; i++){
+        record = rows[i].getElementsByTagName('td')
+
+        for (j = 0; j < record.length; j++){
+            if (record[j].innerText.toUpperCase().indexOf(search_value) > -1) {
+                success = true
+            }
+        }
+
+        if (success) {
+            rows[i].classList.remove('hidden')
+            success = false
+        } else {
+            rows[i].classList.add('hidden')
+        }
+    }
+}

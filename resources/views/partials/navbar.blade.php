@@ -67,6 +67,10 @@
                 </ul>
             </div>
             @endif
+
+            <a href="/simp" class="btn btn-ghost btn-sm rounded-btn">
+                Simulation
+            </a>
         </div>
     </div>
 {{-- BAGIAN AKHIR BUTTON --}}
