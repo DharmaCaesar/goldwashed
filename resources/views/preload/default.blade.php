@@ -62,5 +62,10 @@
     @if ($page == 'simp')
     <script src="{{ asset('js/simplation.js') }}"></script>
     @endif
+
+    @if ($page == 'report')
+    <script src="{{ asset('socket.io/dist/socket.io.min.js') }}"></script>
+        @stack('chart')
+    @endif
 </body>
 </html>
