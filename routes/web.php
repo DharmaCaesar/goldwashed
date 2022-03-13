@@ -8,6 +8,8 @@ use App\Http\Controllers\EditController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReportController;
+use App\Models\Chat;
 use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
@@ -68,6 +70,21 @@ Route::get('/user', function(){
     return view('dashboard.user', ['userdata' => $userdata, 'page' => 'user', 'logsdata' => $logsdata]);
 });
 
+Route::get('/report', function(){
+    $transactionData = Transactions::where('outlet_id', Auth::user()->outlet_id)->with('TransactionDetails')->get();
+    $chatData = Chat::all();
+    $memberData = Members::all();
+    // $activityData = Activity::all();
+
+    return view('dashboard.report', [
+    'page' => 'report',
+    'chatData' => $chatData,
+    'transactionData' => $transactionData,
+    'memberData' => $memberData,
+    // 'activityData' => $activityData
+    ]);    
+});
+
 Route::post('/createoutlet', [BordilController::class, 'createoutlet']);
 Route::post('/catch-outlet', [EditController::class, 'catchoutlet']);
 Route::post('/editoutlet', [EditController::class, 'editoutlet']);
@@ -82,6 +99,9 @@ Route::post('/createuser', [BordilController::class, 'createuser']);
 Route::post('/catch-user', [EditController::class, 'catchuser']);
 Route::post('/edituser', [EditController::class, 'edituser']);
 Route::post('/deleteuser', [EditController::class, 'deleteuser']);
+
+Route::post('/reportSchedule', [ReportController::class, 'report_schedule'])->name('reportSchedule');
+Route::post('/sendRequestMessage', [ReportController::class, 'sendRequestMessage']);
 
 });
 

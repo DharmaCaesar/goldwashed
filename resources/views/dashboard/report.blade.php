@@ -15,14 +15,14 @@
                     Schedule
                 </a>
 
-                <a id="request-tab" class="indicator tab tab-lg tab-bordered" onclick="change_tab(this)">
-                    Requests
-                    <span id="request-counter" class="indicator-item badge hidden">0</span>
+                <a id="chat-tab" class="indicator tab tab-lg tab-bordered" onclick="change_tab(this)">
+                    Chats
+                    <span id="chat-counter" class="indicator-item badge hidden">0</span>
                 </a>
 
-                <a id="request-tab" class="indicator tab tab-lg tab-bordered" onclick="change_tab(this)">
+                <a id="chat-tab" class="indicator tab tab-lg tab-bordered" onclick="change_tab(this)">
                     Logs
-                    <span id="request-counter" class="indicator-item badge hidden">0</span>
+                    <span id="chat-counter" class="indicator-item badge hidden">0</span>
                 </a>
             </div>
         </div>
@@ -219,8 +219,8 @@
 </div>
 {{-- BAGIAN AKHIR SCHEDULE --}}
 
-{{-- BAGIAN AWAL REQUEST --}}
-<div id="requests-view" class="border-2 border-primary m-2">
+{{-- BAGIAN AWAL CHAT --}}
+<div id="chats-view" class="border-2 border-primary m-2">
     <div class="flex flex-row p-4">
         <div class="flex-1">
             <div class="bg-primary rounded-l-xl px-4 py-3 text-primary-content">
@@ -280,7 +280,7 @@
         </div>
     </div>
 </div>
-{{-- BAGIAN AKHIR REQUEST --}}
+{{-- BAGIAN AKHIR CHAT --}}
 @endsection
 
 {{-- BAGIAN JS CHART --}}
