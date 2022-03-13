@@ -18,7 +18,11 @@
 
             <div class="flex-none">
                 <button class="btn btn-sm" onclick="document.getElementById('alert-success').remove()">
-                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 512 512">
+                        <polygon
+                            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -37,7 +41,11 @@
 
             <div class="flex-none">
                 <button class="btn btn-sm" onclick="document.getElementById('alert-error').remove()">
-                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 512 512">
+                        <polygon
+                            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -46,18 +54,29 @@
 
     {{-- BAGIAN AWAL TAB --}}
     <div class="text-center my-5">
-        <div class="btn-group inline-block">
-            <button class="btn btn-active" id="view-btn">View</button>
-            <button class="btn" id="create-btn">Create</button>
-            <button class="btn" id="log-btn">Logs</button>
-            <a href="{{ route('export-package') }}" class="btn fa fa-file-excel">Export</a>
-            <form action="{{ route('import-package') }}" enctype="multipart/form-data" class="inline-block" id="importForm" method="POST">
-                @csrf
-                <button type="button" class="btn rounded-l-none" id="imbtn" onclick="document.getElementById('impor').click()">
-                    Import
-                </button>
-                <input type="file" name="file" id="impor" class="hidden" onchange="document.getElementById('importForm').submit()">
-            </form>
+        <div class="flex flex-row">
+            <div class="flex-1">
+                <div class="btn-group inline-block">
+                    <button class="btn btn-active" id="view-btn">View</button>
+                    <button class="btn" id="create-btn">Create</button>
+                    <button class="btn" id="log-btn">Logs</button>
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="btn-group inline-block">
+                    <a href="{{ route('export-package') }}" class="btn fa fa-file-excel">Export</a>
+                    <form action="{{ route('import-package') }}" enctype="multipart/form-data" class="inline-block"
+                        id="importForm" method="POST">
+                        @csrf
+                        <button type="button" class="btn rounded-l-none" id="imbtn"
+                            onclick="document.getElementById('impor').click()">
+                            Import
+                        </button>
+                        <input type="file" name="file" id="impor" class="hidden"
+                            onchange="document.getElementById('importForm').submit()">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     {{-- BAGIAN AKHIR TAB --}}

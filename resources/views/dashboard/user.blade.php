@@ -46,6 +46,10 @@
 
     {{-- BAGIAN AWAL TAB --}}
     <div class="text-center my-5">
+        <p class="font-bold text-2xl">Users</p>
+    </div>
+
+    <div class="text-center my-5">
         <div class="btn-group inline-block">
             <button class="btn btn-active" id="view-btn">View</button>
             <button class="btn" id="create-btn">Create</button>
@@ -87,10 +91,10 @@
     <div id="user-create" class="hidden">
         <form action="/createuser" method="post" class="text-center">
             @csrf
-            <div class="flex flex-row">
-                <div class="flex-1 w-full mx-5">
+            <div class="flex flex-row justify-center">
+                <div class="flex-1 w-full mx-5 max-w-lg">
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Role</span>
                         </label>
                         <div class="flex-row">
@@ -102,23 +106,20 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex-1 w-full mx-5">
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Fullname</span>
                         </label>
                         <input type="text" name="name" placeholder="Fullname" class="input input-bordered">
                     </div>
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Username</span>
                         </label>
                         <input type="text" name="username" placeholder="Username" class="input input-bordered">
                     </div>
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="password" class="input input-bordered">

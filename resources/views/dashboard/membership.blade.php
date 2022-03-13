@@ -46,18 +46,29 @@
 
     {{-- BAGIAN AWAL TAB --}}
     <div class="text-center my-5">
-        <div class="btn-group inline-block">
-            <button class="btn btn-active" id="view-btn">View</button>
-            <button class="btn" id="create-btn">Create</button>
-            <button class="btn" id="log-btn">Logs</button>
-            <a href="{{ route('export-member') }}" class="btn fa fa-file-excel">Export</a>
-            <form action="{{ route('import-member') }}" enctype="multipart/form-data" class="inline-block" id="importForm" method="POST">
-                @csrf
-                <button type="button" class="btn rounded-l-none" id="imbtn" onclick="document.getElementById('impor').click()">
-                    Import
-                </button>
-                <input type="file" name="file" id="impor" class="hidden" onchange="document.getElementById('importForm').submit()">
-            </form>
+        <div class="flex flex-row">
+            <div class="flex-1">
+                <div class="btn-group inline-block">
+                    <button class="btn btn-active" id="view-btn">View</button>
+                    <button class="btn" id="create-btn">Create</button>
+                    <button class="btn" id="log-btn">Logs</button>
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="btn-group inline-block">
+                    <a href="{{ route('export-package') }}" class="btn fa fa-file-excel">Export</a>
+                    <form action="{{ route('import-package') }}" enctype="multipart/form-data" class="inline-block"
+                        id="importForm" method="POST">
+                        @csrf
+                        <button type="button" class="btn rounded-l-none" id="imbtn"
+                            onclick="document.getElementById('impor').click()">
+                            Import
+                        </button>
+                        <input type="file" name="file" id="impor" class="hidden"
+                            onchange="document.getElementById('importForm').submit()">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     {{-- BAGIAN AKHIR TAB --}}
@@ -97,10 +108,10 @@
     <div id="membership-create" class="hidden">
         <form action="/createmember" method="post" class="text-center">
             @csrf
-            <div class="flex flex-row">
-                <div class="flex-1 w-full mx-5">
+            <div class="flex flex-row justify-center">
+                <div class="flex-1 w-full mx-5 max-w-lg">
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Gender</span>
                         </label>
                         <div class="flex-row">
@@ -112,25 +123,22 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex-1 w-full mx-5">
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Member Name</span>
                         </label>
                         <input type="text" name="member_name" placeholder="member name"
                             class="input input-primary input-bordered w-full" id="nameInput">
                     </div>
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Member Address</span>
                         </label>
                         <input type="text" name="member_address" placeholder="member address"
                             class="input input-secondary input-bordered w-full" id="addressInput">
                     </div>
                     <div class="form-control">
-                        <label class="label">
+                        <label class="label justify-center">
                             <span class="label-text">Member Contact</span>
                         </label>
                         <div class="input-group">

@@ -156,7 +156,7 @@ Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});
 Route::post('/login', [AuLogController::class, 'login']);
 
 Route::get('/register', function(){
-    return view('register');
+    return view('register', ['page' => 'register']);
 });
 
 Route::post('/register-outlet', [RegisterController::class, 'register']);

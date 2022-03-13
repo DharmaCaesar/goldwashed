@@ -54,7 +54,7 @@
     {{-- BAGIAN AKHIR TAB --}}
 
     {{-- BAGIAN AWAL TABEL --}}
-    <div id="barventaris-view" class="bg-black">
+    <div id="barventaris-view">
         <div class="overflow-x-auto p-2">
             <table class="table w-full py-2" id="barventarisTable">
                 <thead>
@@ -137,10 +137,7 @@
                             <span class="label-text">procurement date</span>
                         </label>
                         <div class="input-group">
-                            <input type="date" name="tanggal_pengadaan"
-                            id="dateInput"
-                            placeholder="Number"
-                                class="input input-secondary input-bordered w-full bg-neutral-content text-black" required>
+                            <input type="date" name="tanggal_pengadaan" placeholder="Number" class="date-input input-secondary input-bordered w-full text-black" id="dateInput">
                         </div>
                     </div>
                 </div>

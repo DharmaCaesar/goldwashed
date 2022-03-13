@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="card-actions inline-block">
-                        <button class="btn btn-ghost" onclick="editoutlet(this)">Edit</button>
+                        <button class="btn btn-outline" onclick="editoutlet(this)">Edit</button>
                     </div>
                 </div>
             </div>

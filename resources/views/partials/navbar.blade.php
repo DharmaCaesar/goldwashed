@@ -54,9 +54,9 @@
                     <li>
                         <a href="/barventaris">Inventory</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="/report">Report</a>
-                    </li>
+                    </li> --}}
                     @endif
 
                     @if(Auth::user() -> role == 'CASHIER')

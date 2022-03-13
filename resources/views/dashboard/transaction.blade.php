@@ -54,8 +54,13 @@
     {{-- BAGIAN AKHIR NOTIF --}}
 
     {{-- BAGIAN AWAL STAT --}}
-    <div class="shadow stats w-full">
+        <div class="text-center my-2">
+            <p class="font-bold text-2xl">
+                Transactions
+            </p>
+        </div>
 
+    <div class="shadow stats w-full my-5">
         <div class="stat w-full text-center">
             <div class="stat-figure text-success">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -98,7 +103,7 @@
     </div>
     {{-- BAGIAN AKHIR STAT --}}
 
-    <div class="flex flex-row text-center my-2">
+    <div class="flex flex-row text-center my-5">
         <div class="flex-1">
             <button class="btn btn-outline" onclick="document.getElementById('find_packages').classList.add('modal-open')">
                 Add Packages
@@ -165,7 +170,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input type="hidden" name="member_id" id="memberInput">
-                                    <input type="text" placeholder="Search…" class="input input-bordered w-full"
+                                    <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
                                         id="nameInput" readonly>
                                     <button class="btn btn-square"
                                         onclick="document.getElementById('find_member').classList.add('modal-open')"
@@ -203,7 +208,7 @@
                 </div>
                 <div class="form-control my-4">
                     <label class="cursor-pointer label">
-                        <span class="label-text text-lg">Note Trigger</span>
+                        <span class="label-text text-lg">Note</span>
                         <input type="checkbox" class="toggle" onclick="toggle_note(this)">
                     </label>
                     <p class="text-sm text-primary">Anything added at note will be added to fee</p>
@@ -238,7 +243,7 @@
                                         <span class="label-text">Deadline Date</span>
                                     </label>
                                     <input type="date" name="date" placeholder=""
-                                        class="input input-secondary input-bordered w-full bg-neutral-content text-black"
+                                        class="date-input input-secondary input-bordered w-full text-black"
                                         id="dateInput">
                                 </div>
                                 <div class="form-control">

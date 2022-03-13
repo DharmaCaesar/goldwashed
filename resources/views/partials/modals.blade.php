@@ -9,10 +9,10 @@
             <form action="/editoutlet" method="post" class="text-center">
                 @csrf
                 <input type="hidden" name="outlet_id" value="{{ Auth::user()->outlet_id }}">
-                <div class="flex flex-row">
-                    <div class="flex-1 w-full mx-5">
+                <div class="flex flex-row justify-center">
+                    <div class="flex-1 w-full mx-5 max-w-lg">
                         <div class="form-control">
-                            <label class="label">
+                            <label class="label justify-center">
                                 <span class="label-text">Outlet Status</span>
                             </label>
                             <div class="flex-row">
@@ -24,25 +24,22 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="flex-1 w-full mx-5">
                         <div class="form-control">
-                            <label class="label">
+                            <label class="label justify-center">
                                 <span class="label-text">Outlet New Name</span>
                             </label>
                             <input id="nameInput" type="text" name="outlet_name" placeholder="Outlet name"
                                 class="input input-primary input-bordered w-full">
                         </div>
                         <div class="form-control">
-                            <label class="label">
+                            <label class="label justify-center">
                                 <span class="label-text">Outlet New Location</span>
                             </label>
                             <input id="addressInput" type="text" name="outlet_address" placeholder="Location name"
                                 class="input input-secondary input-bordered w-full">
                         </div>
                         <div class="form-control">
-                            <label class="label">
+                            <label class="label justify-center">
                                 <span class="label-text">Contact New number</span>
                             </label>
                             <div class="input-group">
