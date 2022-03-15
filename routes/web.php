@@ -6,6 +6,7 @@ use App\Http\Controllers\BordilController;
 use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PenjemputanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ReportController;
@@ -14,6 +15,7 @@ use App\Models\Logs;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
+use App\Models\penjemputan;
 use App\Models\Register;
 use App\Models\Transactions;
 use App\Models\User;
@@ -45,6 +47,10 @@ Route::get('/home', function(){
 Route::get('/simp', function(){
     return view('simpinglation.simplation', ['page' => 'simp']);
 }) -> name('simp');
+
+Route::get('/simpp', function(){
+    return view('simpinglation.simp', ['page' => 'simpp']);
+}) -> name('simpp');
 
 Route::get('/logout', [AuLogController::class,'logout']);
 
@@ -134,7 +140,13 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/editmember', [EditController::class, 'editmember']);
     Route::post('/deletemember', [EditController::class, 'deletemember']);
     Route::post('/takemember', [TransactionController::class, 'takemember']);
+    Route::get('member/export/', [BordilController::class, 'exportMember']) -> name('export-member');
+    Route::post('member/import/', [BordilController::class, 'importMember']) -> name('import-member');
+
     Route::post('/addpackage', [TransactionController::class, 'addpackage']);
+    Route::get('package/export/', [BordilController::class, 'exportPackage']) -> name('export-package');
+    Route::post('package/import/', [BordilController::class, 'importPackage']) -> name('import-package');
+
     Route::post('/calculate', [CalculateController::class, 'calculate']);
     Route::post('/pay', [TransactionController::class, 'pay']);
     Route::post('/invoice', [InvoiceController::class, 'takeinvoice']);
@@ -145,10 +157,19 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/takebarventaris', [barventarisController::class, 'fetch']) -> name('take_barventaris');
     Route::post('/update-barventaris', [barventarisController::class, 'update']) -> name('update_barventaris');
     Route::post('/delete-barventaris', [barventarisController::class, 'delete']) -> name('delete_barventaris');
-    Route::get('member/export/', [BordilController::class, 'exportMember']) -> name('export-member');
-    Route::post('member/import/', [BordilController::class, 'importMember']) -> name('import-member');
-    Route::get('package/export/', [BordilController::class, 'exportPackage']) -> name('export-package');
-    Route::post('package/import/', [BordilController::class, 'importPackage']) -> name('import-package');
+    
+    Route::get('/penjemputan', function(){
+        $penjemputandata = penjemputan::all();
+        // $logsdata = Logs::where('models', 'penjemputan') -> get();  ['logsdata' => $logsdata];
+        return view('dashboard.penjemputan', ['penjemputandata' => $penjemputandata, 'page' => 'penjemputan']);
+    });
+    Route::post('/createpenjemputan', [BordilController::class, 'createpenjemputan']);
+    Route::post('/catch-penjemputan', [EditController::class, 'catchpenjemputan']);
+    Route::post('/editpenjemputan', [EditController::class, 'editpenjemputan']);
+    Route::post('/deletepenjemputan', [EditController::class, 'deletepenjemputan']);
+    Route::post('/takepenjemputan', [TransactionController::class, 'takepenjemputan']);
+    Route::get('penjemputan/export/', [BordilController::class, 'exportPenjemputan']) -> name('export-penjemputan');
+    Route::post('penjemputan/import/', [BordilController::class, 'importPenjemputan']) -> name('import-penjemputan');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});
