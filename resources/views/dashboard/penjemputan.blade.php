@@ -90,12 +90,12 @@
                 <tbody>
                     @foreach ($penjemputandata as $penjemputan)
                         <tr class="active">
-                            <th>{{ $penjemputan->member->id }}</th>
-                            <td>{{ $penjemputan->member->member_name }}</td>
-                            <td>{{ $penjemputan->member->member_address }}</td>
-                            <td>{{ $penjemputan->member->member_phone }}</td>
-                            <td>{{  }}</td>
-                            <td>{{  }}</td>
+                            <th>{{ $penjemputan->id }}</th>
+                            <td>{{ $penjemputan->member_name }}</td>
+                            <td>{{ $penjemputan->member_address }}</td>
+                            <td>{{ $penjemputan->member_phone }}</td>
+                            <td>{{ $penjemputan->penjemputan_name}}</td>
+                            <td>{{ $penjemputan->penjemputan_status }}</td>
                             <td><button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button></td>
                         </tr>
                     @endforeach
@@ -113,39 +113,53 @@
                 <div class="flex-1 w-full mx-5 max-w-lg">
                     <div class="form-control">
                         <label class="label justify-center">
-                            <span class="label-text">Status</span>
+                            <span class="label-text">Customer Name</span>
                         </label>
-                        <div class="flex-row">
-                            <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
-                                <option disabled="disabled" selected="selected">Member Gender</option>
-                                <option value="MALE">Male</option>
-                                <option value="FEMALE">Female</option>
-                                <option value="SHEMALE">Shemale</option>
-                            </select>
+                        <div class="input-group">
+                            <input type="hidden" name="member_id" id="membersInput">
+                            <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
+                                id="namesInput" readonly>
+                            <button class="btn btn-square"
+                                onclick="document.getElementById('fin_member').classList.add('modal-open')"
+                                type="button">Find</button>
                         </div>
                     </div>
                     <div class="form-control">
                         <label class="label justify-center">
-                            <span class="label-text">Member Name</span>
+                            <span class="label-text">Address</span>
                         </label>
-                        <input type="text" name="member_name" placeholder="member name"
-                            class="input input-primary input-bordered w-full" id="nameInput">
+                        <input type="text" placeholder="Location name"
+                            class="input input-secondary input-bordered w-full" id="alamatInput" readonly>
                     </div>
                     <div class="form-control">
                         <label class="label justify-center">
-                            <span class="label-text">Member Address</span>
-                        </label>
-                        <input type="text" name="member_address" placeholder="member address"
-                            class="input input-secondary input-bordered w-full" id="addressInput">
-                    </div>
-                    <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Member Contact</span>
+                            <span class="label-text">Contact number</span>
                         </label>
                         <div class="input-group">
                             <span>+62</span>
-                            <input type="text" name="member_phone" placeholder="Number"
-                                class="input input-accent input-bordered w-full" id="numberInput">
+                            <input type="text" placeholder="Phone Number"
+                                class="input input-accent input-bordered w-full" id="nomorInput" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label justify-center">
+                            <span class="label-text">Officer Name</span>
+                        </label>
+                        <input type="text" name="penjemputan_name" placeholder="Officer name"
+                            class="input input-primary input-bordered w-full" id="namiInput">
+                    </div>
+                    <div class="form-control">
+                        <label class="label justify-center">
+                            <span class="label-text">Status</span>
+                        </label>
+                        <div class="flex-row">
+                            <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
+                                <option disabled="disabled" selected="selected">Status</option>
+                                <option value="TERCATAT">TERCATAT</option>
+                                <option value="PENJEMPUTAN">PENJEMPUTAN</option>
+                                <option value="SELESAI">SELESAI</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -156,7 +170,7 @@
     {{-- BAGIAN AKHIR CREATE --}}
 
     {{-- BAGIAN AWAL LOG --}}
-    <div id="penjemputan-log" class="hidden">
+    {{-- <div id="penjemputan-log" class="hidden">
         <div class="overflow-x-auto">
             <table class="table w-full text-center">
                 <thead>
@@ -180,6 +194,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
     {{-- BAGIAN AKHIR LOG --}}
 @endsection
+

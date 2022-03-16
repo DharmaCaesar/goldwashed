@@ -63,6 +63,14 @@
     <script src="{{ asset('js/simplation.js') }}"></script>
     @endif
 
+    @if ($page == 'simpp')
+        <script src="{{ asset('js/simpp.js') }}"></script>
+    @endif
+
+    @if ($page == 'penjemputan')
+        <script src="{{ asset('js/penjemputan.js') }}"></script>
+    @endif
+
     @if ($page == 'report')
     <script src="{{ asset('socket.io/dist/socket.io.min.js') }}"></script>
     <script src="{{ asset('js/report.js') }}"></script>

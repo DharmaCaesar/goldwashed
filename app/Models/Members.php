@@ -17,4 +17,7 @@ class Members extends Model
         return $this -> hasMany(Transactions::class, 'member_id');
     }
     
+    public function penjemputan(){
+        return $this-> hasMany(penjemputan::class, 'member_id');
+    }
 }

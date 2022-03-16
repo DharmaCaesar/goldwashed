@@ -450,72 +450,81 @@
 {{-- BAGIAN AKHIR BARVENTARIS --}}
 
 {{-- BAGIAN AWAL PENJEMPUTAN --}}
-@if ($page == 'membership')
+@if ($page == 'penjemputan')
     {{-- BAGIAN AWAL EDIT --}}
-    <div id="edit_member" class="modal">
+    <div id="edit_penjemputan" class="modal">
         <div class="modal-box min-w-full text-center">
             <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
                 Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
 
-            <form action="/editmember" method="post" class="text-center">
+            <form action="/editpenjemputan" method="post" class="text-center">
                 @csrf
-                <input type="hidden" name="member_id" id="idInput">
+                <input type="hidden" name="member_id" id="Idinput">
                 <div class="flex flex-row">
                     <div class="flex-1 w-full mx-5">
                         <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Old Member Name</span>
+                            <label class="label justify-center">
+                                <span class="label-text">Before Member Name</span>
                             </label>
                             <input type="text" placeholder="member name"
-                                class="input input-primary input-bordered w-full" id="namaInput" readonly>
+                                class="input input-primary input-bordered w-full" id="namasInput" readonly>
                         </div>
                         <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Member Gender</span>
+                            <label class="label justify-center">
+                                <span class="label-text">Member Name</span>
                             </label>
-                            <div class="flex-row">
-                                <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
-                                    <option disabled="disabled" selected="selected">Member Gender</option>
-                                    <option value="MALE">Male</option>
-                                    <option value="FEMALE">Female</option>
-                                    <option value="SHEMALE">Shemale</option>
-                                </select>
+                            <div class="input-group">
+                                <input type="hidden" name="member_id" id="memberInput">
+                                <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
+                                    id="namesInput" readonly>
+                                <button class="btn btn-square"
+                                    onclick="document.getElementById('fin_member').classList.add('modal-open')"
+                                    type="button">Find</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="flex-1 w-full mx-5">
                         <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">New Member Name</span>
+                            <label class="label justify-center">
+                                <span class="label-text">Address</span>
                             </label>
-                            <input type="text" name="member_name" placeholder="member name"
-                                class="input input-primary input-bordered w-full" id="nameInput">
+                            <input type="text" placeholder="Location name"
+                                class="input input-secondary input-bordered w-full" id="alamatInput" readonly>
                         </div>
                         <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">New Member Address</span>
-                            </label>
-                            <input type="text" name="member_address" placeholder="member address"
-                                class="input input-secondary input-bordered w-full" id="addressInput">
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">New Member Contact</span>
+                            <label class="label justify-center">
+                                <span class="label-text">Contact number</span>
                             </label>
                             <div class="input-group">
                                 <span>+62</span>
-                                <input type="text" name="member_phone" placeholder="Number"
-                                    class="input input-accent input-bordered w-full" id="numberInput">
+                                <input type="text" placeholder="Phone Number"
+                                    class="input input-accent input-bordered w-full" id="nomorInput" readonly>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">New Officer Name</span>
+                            </label>
+                            <input type="text" name="penjemputan_name" placeholder="Officer Name" class="input input-secondary input-bordered w-full" id="namiInput">
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">Status</span>
+                            </label>
+                            <div class="flex-row">
+                                <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
+                                    <option disabled="disabled" selected="selected">Status</option>
+                                    <option value="TERCATAT">TERCATAT</option>
+                                    <option value="PENJEMPUTAN">PENJEMPUTAN</option>
+                                    <option value="SELESAI">SELESAI</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
                 <button type="button" class="btn btn-outline my-10 mx-2"
-                    onclick="document.getElementById('edit_member').classList.remove('modal-open')">Cancel</button>
+                    onclick="document.getElementById('edit_penjemputan').classList.remove('modal-open')">Cancel</button>
                 <button type="button" class="btn btn-outline my-10 mx-2 hover:bg-red-900"
-                    onclick="document.getElementById('delete_member').classList.add('modal-open'); document.getElementById('edit_member').classList.remove('modal-open')">Delete</button>
+                    onclick="document.getElementById('delete_penjemputan').classList.add('modal-open'); document.getElementById('edit_penjemputan').classList.remove('modal-open')">Delete</button>
             </form>
 
         </div>
@@ -523,20 +532,59 @@
     {{-- BAGIAN AKHIR EDIT --}}
 
     {{-- BAGIAN AWAL DELETE --}}
-    <div id="delete_member" class="modal">
+    <div id="delete_penjemputan" class="modal">
         <div class="modal-box min-w-full text-center">
             <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
                 Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
 
-            <form action="/deletemember" method="post" class="text-center">
+            <form action="/deletepenjemputan" method="post" class="text-center">
                 @csrf
-                <input type="hidden" name="member_id" id="deleteId">
+                <input type="hidden" name="member_id" id="delId">
                 <button type="button" class="btn btn-outline my-10 mx-2"
-                    onclick="document.getElementById('delete_member').classList.remove('modal-open')">Cancel</button>
+                    onclick="document.getElementById('delete_penjemputan').classList.remove('modal-open')">Cancel</button>
                 <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
             </form>
         </div>
     </div>
     {{-- BAGIAN AKHIR DELETE --}}
+@endif
+
+@if ($page == 'penjemputan')
+
+    <div class="modal" id="fin_member">
+        <div class="modal-box min-w-full">
+            <div class="overflow-x-auto">
+                <table class="table w-full" id="membertable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Member Name</th>
+                            <th>Member Address</th>
+                            <th>Member Contact</th>
+                            {{-- <th>Gender</th> --}}
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($penjemputandata as $penjemputan)
+                            <tr class="active">
+                                <th>{{ $penjemputan->id }}</th>
+                                <td>{{ $penjemputan->member_name }}</td>
+                                <td>{{ $penjemputan->member_address }}</td>
+                                <td>{{ $penjemputan->member_phone }}</td>
+                                {{-- <td>{{ $member->member_gender }}</td> --}}
+                                <td><button class="btn btn-ghost" onclick="takemember(this,0)">Pick</button></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-action">
+                <button type="button" class="btn btn-outline my-10 mx-2"
+                    onclick="document.getElementById('fin_member').classList.remove('modal-open')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 @endif
 {{-- BAGIAN AKHIR PENJEMPUTAN --}}

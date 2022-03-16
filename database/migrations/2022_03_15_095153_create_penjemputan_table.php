@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Penjemputan extends Migration
+class CreatePenjemputanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class Penjemputan extends Migration
     {
         Schema::create('penjemputan', function (Blueprint $table) {
             $table->id();
-            $table->id('members_id');
+            $table->foreignId('member_id');
             $table->string('member_name', 100);
             $table->text('member_address');
             $table->string('member_phone', 16);

@@ -19,10 +19,11 @@ class PenjemputanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+        public function index(){
+            $penjemputanData = penjemputan::all();
+    
+            return view('dashboard.penjemputan', ['page' => 'penjemputan', 'penjemputanData' => $penjemputanData ]);
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -31,6 +32,7 @@ class PenjemputanController extends Controller
      */
         public function createpenjemputan(Request $request){
             $data = $request -> validate([
+                'penjemputan_name' => ['required'],
                 'penjemputan_status' => ['required'],
                 'member_name' => ['required'],
                 'member_address' => ['required'],
@@ -38,12 +40,13 @@ class PenjemputanController extends Controller
             ]);
     
             $data ['member_phone'] = '+62' . $data ['member_phone'];
-            $member = new penjemputan;
-            $member -> penjemputan_status = $data ['penjemputan_status'];
-            $member -> member_name = $data ['member_name'];
-            $member -> member_address = $data ['member_address'];
-            $member -> member_phone = $data ['member_phone'];
-            if($member -> save()){
+            $penjemputan = new penjemputan;
+            $penjemputan -> penjemputan_name = $data['penjemputan_name'];
+            $penjemputan -> penjemputan_status = $data ['penjemputan_status'];
+            $penjemputan -> member_name = $data ['member_name'];
+            $penjemputan -> member_address = $data ['member_address'];
+            $penjemputan -> member_phone = $data ['member_phone'];
+            if($penjemputan -> save()){
                 return redirect() -> back();
             } else {
                 return redirect() -> back();
@@ -80,7 +83,26 @@ class PenjemputanController extends Controller
      */
     public function edit(penjemputan $penjemputan)
     {
-        //
+        $data = $penjemputan -> validate([
+            'penjemputan_name' => ['required'],
+            'penjemputan_status' => ['required'],
+            'member_name' => ['required'],
+            'member_address' => ['required'],
+            'member_phone' => ['required'],
+        ]);
+
+        $data ['member_phone'] = '+62' . $data ['member_phone'];
+        $penjemputan = new penjemputan;
+        $penjemputan -> penjemputan_name = $data['penjemputan_name'];
+        $penjemputan -> penjemputan_status = $data ['penjemputan_status'];
+        $penjemputan -> member_name = $data ['member_name'];
+        $penjemputan -> member_address = $data ['member_address'];
+        $penjemputan -> member_phone = $data ['member_phone'];
+        if($penjemputan -> save()){
+            return redirect() -> back();
+        } else {
+            return redirect() -> back();
+        }
     }
 
     /**
@@ -103,6 +125,36 @@ class PenjemputanController extends Controller
      */
     public function destroy(penjemputan $penjemputan)
     {
-        //
+            $data = $penjemputan -> validate([
+                'member_id' => ['required']
+            ]);
+    
+            $member = penjemputan::find($data['member_id']);
+            if($member -> delete()){
+                return redirect() -> back() -> with('success', 'Deleting was completed, there is nothing no to worry');
+            } else {
+                return redirect() -> back() -> with('failure', 'There has problem to deleting the data!!!');
+            }
+    }
+
+    public function takepenjemputan(Request $request){
+        if($request -> ajax()){
+            $data = $request -> validate([
+                'id' => ['required']
+            ]); 
+
+            $penjemputan = penjemputan::find($data['id']);
+            return response() -> json(['response' => $penjemputan]);
+        }
+    }
+
+    public function catchpenjemputan(Request $request){
+        if($request -> ajax()){
+            $data = $request -> validate([
+                'id' => ['required']
+            ]);
+            $member = penjemputan::find($data['id']);
+            return response() -> json(['response' => $member]);
+        }
     }
 }

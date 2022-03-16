@@ -3925,6 +3925,10 @@ body[dir="rtl"] .checkbox:checked,
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+.rounded-r-lg {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
 .rounded-l-xl {
   border-top-left-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
@@ -3932,10 +3936,6 @@ body[dir="rtl"] .checkbox:checked,
 .rounded-r-xl {
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
-}
-.rounded-r-lg {
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
 }
 .border {
   border-width: 1px;
@@ -4148,35 +4148,28 @@ body[dir="rtl"] .checkbox:checked,
 .outline-blue-300 {
   outline-color: #93c5fd;
 }
-
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
-
 .hover\:bg-green-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
-
 .hover\:bg-info:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--in) / var(--tw-bg-opacity));
 }
-
 .hover\:bg-red-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
-
 .hover\:text-neutral-content:hover {
   --tw-text-opacity: 1;
   color: hsl(var(--nc) / var(--tw-text-opacity));
 }
-
 .hover\:outline-base-content:hover {
   outline-color: hsl(var(--bc));
 }
-
 @media (min-width: 1024px) {
 
   .lg\:card-side {
