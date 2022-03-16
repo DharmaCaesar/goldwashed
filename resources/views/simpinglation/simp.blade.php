@@ -12,7 +12,7 @@
                     <span class="label-text">Filter</span>
                 </label>
                 <div class="flex-row">
-                    <select class="select select-bordered w-full " id="fInput" onchange="sort(get_id('simpTable'))">
+                    <select class="select select-bordered w-full " id="fInput" onchange="sort(get_id('simppTable'))">
                         <option value="ASC">Ascending</option>
                         <option value="DESC">Descending</option>
                     </select>
@@ -22,7 +22,7 @@
         <div class="flex-1 pt-[2.2rem]">
             <div class="btn-group inline-block">
                 <button class="btn btn-active" id="view-btn">View</button>
-                <button class="btn btn-outline" type="button" onclick="sort(get_id('simpTable'))">Sort</button>
+                <button class="btn btn-outline" type="button" onclick="sort(get_id('simppTable'))">Sort</button>
                 <button class="btn" id="create-btn">Create</button>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <span class="label-text">Search</span>
                 </label>
                 <div class="flex-row">
-                    <input type="search" id="sInput" class="input input-bordered w-full" oninput="search(document.getElementById('sInput'), 'simpTable')">
+                    <input type="search" id="sInput" class="input input-bordered w-full" oninput="search(document.getElementById('sInput'), 'simppTable')">
                 </div>
             </div>
         </div>
@@ -40,13 +40,26 @@
     {{-- BAGIAN AKHIR TAB --}}
 
     {{-- BAGIAN AWAL CREATE --}}
-    <div id="simp-create" class="hidden text-center">
-        {{-- <form action="/createsimp" method="post" class="text-center"> --}}
+    <div id="simpp-create" class="hidden text-center">
+        {{-- <form action="/createsimpp" method="post" class="text-center"> --}}
         {{-- @csrf --}}
-        <div class="flex flex-row">
-            <div class="flex-1 w-full mx-5">
+        <div class="flex flex-row justify-center">
+            <div class="flex-1 max-w-lg mx-5">
                 <div class="form-control">
-                    <label class="label">
+                    <label class="label justify-center">
+                        <span class="label-text">Id</span>
+                    </label>
+                    <input type="number" placeholder="id" class="input input-secondary input-bordered w-full" id="idInput"
+                        min="1" value="1" required>
+                </div>
+                <div class="form-control">
+                    <label class="label justify-center">
+                        <span class="label-text">Name</span>
+                    </label>
+                    <input type="text" placeholder="Name" class="input input-primary input-bordered w-full" id="nameInput">
+                </div>
+                <div class="form-control">
+                    <label class="label justify-center">
                         <span class="label-text">Gender</span>
                     </label>
                     <div class="flex-row">
@@ -59,7 +72,7 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <label class="label">
+                    <label class="label justify-center">
                         <span class="label-text">Status</span>
                     </label>
                     <div class="flex-row">
@@ -70,24 +83,16 @@
                         </select>
                     </div>
                 </div>
-            </div>
-
-            <div class="flex-1 w-full mx-5">
                 <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Id</span>
+                    <label class="label justify-center">
+                        <span class="label-text">Son's</span>
                     </label>
-                    <input type="number" placeholder="id" class="input input-secondary input-bordered w-full" id="idInput"
-                        min="1" value="1" required>
+                    <div class="flex-row">
+                        <input type="number" name="son" placeholder="Amount of Son" class="input input-secondary input-bordered w-full" id="sonInput">
+                    </div>
                 </div>
                 <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Name</span>
-                    </label>
-                    <input type="text" placeholder="Name" class="input input-primary input-bordered w-full" id="nameInput">
-                </div>
-                <div class="form-control">
-                    <label class="label">
+                    <label class="label justify-center">
                         <span class="label-text">Started Work</span>
                     </label>
                     <input type="date" name="date" placeholder=""
@@ -102,10 +107,10 @@
     {{-- BAGIAN AKHIR CREATE --}}
 
     {{-- BAGIAN AWAL TABEL --}}
-    <div id="simp-view" class="flex flex-row">
+    <div id="simpp-view" class="flex flex-row">
         <div class="flex-1">
             <div class="overflow-x-auto p-2">
-                <table class="table w-full py-2 text-center" id="simpTable">
+                <table class="table w-full py-2 text-center" id="simppTable">
                     <thead>
                         <tr>
                             <th>#Id</th>
@@ -120,7 +125,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="simpBody">
+                    <tbody id="simppBody">
                         <tr>
                             <td>1</td>
                             <td></td>
@@ -175,9 +180,9 @@
                             <td>Total</td>
                             <td></td>
                             <td></td>
-                            <td><span class="normal-case">Rp.</span> <span id="total"></td>
-                            <td><span class="normal-case">Rp.</span> <span id="total"></td>
-                            <td><span class="normal-case">Rp.</span> <span id="total"></td>
+                            <td><span class="normal-case">Rp.</span> <span id="tgaji"></td>
+                            <td><span class="normal-case">Rp.</span> <span id="tt"></td>
+                            <td><span class="normal-case">Rp.</span> <span id="ttotal"></td>
                         </tr>
                     </tfoot>
                 </table>
