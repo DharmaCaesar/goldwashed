@@ -19,7 +19,7 @@ $('#penjemputanTable').DataTable({
     ]
  })
 
- $('#membertable').DataTable()
+ $('#memetable').DataTable()
 
  function takepenjemputan(entity, index){
      let table = entity.parentElement.parentElement
@@ -27,7 +27,7 @@ $('#penjemputanTable').DataTable({
      
      $.ajax({
          type: 'POST',
-         url: '/takepenjemputan',
+         url: '/catch-penjemputan',
          headers: {
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
          },
@@ -74,7 +74,7 @@ function editpenjemputan(entity){
     let id = tableedit.querySelectorAll('th')[0].innerText
     $.ajax({
         type: 'POST', 
-        url: '/catch-penjemputan',
+        url: '/takepenjemputan',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -84,11 +84,12 @@ function editpenjemputan(entity){
             document.getElementById('edit_penjemputan').classList.add('modal-open')
 
             document.getElementById('Idinput').value = response.response.id
-            // document.getElementById('genderInput').value = response.response.member_gender
-            document.getElementById('namesInput').value = response.response.member_name
-            document.getElementById('alamatInput').value = response.response.member_address
-            document.getElementById('nomorInput').value = response.response.member_phone
-            document.getElementById('namasInput').value = response.response.member_name            
+            document.getElementById('memberInput').value = response.response.member_id
+            document.getElementById('addInput').value = response.response.member_address
+            document.getElementById('noInput').value = response.response.member_phone
+            document.getElementById('namasInput').value = response.response.member_name 
+            document.getElementById('namiInput').value = response.response.petugas_penjemputan
+            document.getElementById('sInput').value = response.response.status
             document.getElementById('delId').value = response.response.id
         }
     })

@@ -160,12 +160,13 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     
     Route::get('/penjemputan', function(){
         $penjemputandata = penjemputan::all();
-        return view('dashboard.penjemputan', ['penjemputandata' => $penjemputandata, 'page' => 'penjemputan']);
+        $memberdata = Members::all();
+        return view('dashboard.penjemputan', ['penjemputandata' => $penjemputandata, 'memberdata' => $memberdata, 'page' => 'penjemputan']);
     }) -> name('penjemputan');
-    Route::post('/createpenjemputan', [PenjemputanController::class, 'createpenjemputan']);
+    Route::post('/createpenjemputan', [BordilController::class, 'createpenjemputan']);
     Route::post('/catch-penjemputan', [PenjemputanController::class, 'catchpenjemputan']);
-    Route::post('/editpenjemputan', [PenjemputanController::class, 'editpenjemputan']);
-    Route::post('/deletepenjemputan', [PenjemputanController::class, 'deletepenjemputan']);
+    Route::post('/editpenjemputan', [EditController::class, 'editpenjemputan']);
+    Route::post('/deletepenjemputan', [EditController::class, 'deletepenjemputan']);
     Route::post('/takepenjemputan', [PenjemputanController::class, 'takepenjemputan']);
     Route::get('penjemputan/export/', [BordilController::class, 'exportPenjemputan']) -> name('export-penjemputan');
     Route::post('penjemputan/import/', [BordilController::class, 'importPenjemputan']) -> name('import-penjemputan');

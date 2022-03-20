@@ -459,16 +459,9 @@
 
             <form action="/editpenjemputan" method="post" class="text-center">
                 @csrf
-                <input type="hidden" name="member_id" id="Idinput">
+                <input type="hidden" name="id" id="Idinput">
                 <div class="flex flex-row">
                     <div class="flex-1 w-full mx-5">
-                        <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">Before Member Name</span>
-                            </label>
-                            <input type="text" placeholder="member name"
-                                class="input input-primary input-bordered w-full" id="namasInput" readonly>
-                        </div>
                         <div class="form-control">
                             <label class="label justify-center">
                                 <span class="label-text">Member Name</span>
@@ -476,7 +469,7 @@
                             <div class="input-group">
                                 <input type="hidden" name="member_id" id="memberInput">
                                 <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
-                                    id="namesInput" readonly>
+                                    id="namasInput" readonly name="member_name">
                                 <button class="btn btn-square"
                                     onclick="document.getElementById('fin_member').classList.add('modal-open')"
                                     type="button">Find</button>
@@ -487,7 +480,7 @@
                                 <span class="label-text">Address</span>
                             </label>
                             <input type="text" placeholder="Location name"
-                                class="input input-secondary input-bordered w-full" id="alamatInput" readonly>
+                                class="input input-secondary input-bordered w-full" id="addInput" readonly name="member_address">
                         </div>
                         <div class="form-control">
                             <label class="label justify-center">
@@ -496,21 +489,21 @@
                             <div class="input-group">
                                 <span>+62</span>
                                 <input type="text" placeholder="Phone Number"
-                                    class="input input-accent input-bordered w-full" id="nomorInput" readonly>
+                                    class="input input-accent input-bordered w-full" id="noInput" readonly name="member_phone">
                             </div>
                         </div>
                         <div class="form-control">
                             <label class="label justify-center">
                                 <span class="label-text">New Officer Name</span>
                             </label>
-                            <input type="text" name="penjemputan_name" placeholder="Officer Name" class="input input-secondary input-bordered w-full" id="namiInput">
+                            <input type="text" name="petugas_penjemputan" placeholder="Officer Name" class="input input-secondary input-bordered w-full" id="namiInput">
                         </div>
                         <div class="form-control">
                             <label class="label justify-center">
                                 <span class="label-text">Status</span>
                             </label>
                             <div class="flex-row">
-                                <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
+                                <select name="status" class="select select-bordered w-full" id="sInput">
                                     <option disabled="disabled" selected="selected">Status</option>
                                     <option value="TERCATAT">TERCATAT</option>
                                     <option value="PENJEMPUTAN">PENJEMPUTAN</option>
@@ -554,26 +547,26 @@
     <div class="modal" id="fin_member">
         <div class="modal-box min-w-full">
             <div class="overflow-x-auto">
-                <table class="table w-full" id="membertable">
+                <table class="table w-full" id="memetable">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Member Name</th>
                             <th>Member Address</th>
                             <th>Member Contact</th>
-                            {{-- <th>Gender</th> --}}
+                            <th>Gender</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($penjemputandata as $penjemputan)
+                        @foreach ($memberdata as $member)
                             <tr class="active">
-                                <th>{{ $penjemputan->id }}</th>
-                                <td>{{ $penjemputan->member_name }}</td>
-                                <td>{{ $penjemputan->member_address }}</td>
-                                <td>{{ $penjemputan->member_phone }}</td>
-                                {{-- <td>{{ $member->member_gender }}</td> --}}
-                                <td><button class="btn btn-ghost" onclick="takemember(this,0)">Pick</button></td>
+                                <th>{{ $member->id }}</th>
+                                <td>{{ $member->member_name }}</td>
+                                <td>{{ $member->member_address }}</td>
+                                <td>{{ $member->member_phone }}</td>
+                                <td>{{ $member->member_gender }}</td>
+                                <td><button class="btn btn-ghost" onclick="takepenjemputan(this,0)">Pick</button></td>
                             </tr>
                         @endforeach
                     </tbody>

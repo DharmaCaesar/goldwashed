@@ -16,6 +16,7 @@ use App\Exports\MembershipExport;
 use App\Exports\PackageExport;
 use App\Imports\MembersImport;
 use App\Imports\PackageImport;
+use App\Models\penjemputan;
 use Illuminate\Support\Facades\Storage;
 
 class BordilController extends Controller
@@ -96,6 +97,31 @@ class BordilController extends Controller
         $user -> username = $data ['username'];
         $user -> password = Hash::make($data ['password']);
         if($user -> save()){
+            return redirect() -> back();
+        } else {
+            return redirect() -> back();
+        }
+    }
+
+    public function createpenjemputan(Request $request){
+        $data = $request -> validate([
+            'petugas_penjemputan' => ['required'],
+            'status' => ['required'],
+            'member_id' => ['required'],
+            'member_name' => ['required'],
+            'member_address' => ['required'],
+            'member_phone' => ['required'],
+        ]);
+
+        $data ['member_phone'] = '+' . $data ['member_phone'];
+        $penjemputan = new penjemputan();
+        $penjemputan -> petugas_penjemputan = $data['petugas_penjemputan'];
+        $penjemputan -> status = $data ['status'];
+        $penjemputan -> member_id = $data ['member_id'];
+        $penjemputan -> member_name = $data ['member_name'];
+        $penjemputan -> member_address = $data ['member_address'];
+        $penjemputan -> member_phone = $data ['member_phone'];
+        if($penjemputan -> save()){
             return redirect() -> back();
         } else {
             return redirect() -> back();

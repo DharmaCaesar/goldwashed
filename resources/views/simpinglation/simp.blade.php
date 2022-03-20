@@ -76,7 +76,7 @@
                         <span class="label-text">Status</span>
                     </label>
                     <div class="flex-row">
-                        <select class="select select-bordered w-full" id="statusInput">
+                        <select class="select select-bordered w-full" id="statusInput" onchange="jomblo()">
                             <option disabled="disabled" selected="selected">Status</option>
                             <option value="Single">Single</option>
                             <option value="Couple">Couple</option>

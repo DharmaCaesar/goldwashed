@@ -94,8 +94,8 @@
                             <td>{{ $penjemputan->member_name }}</td>
                             <td>{{ $penjemputan->member_address }}</td>
                             <td>{{ $penjemputan->member_phone }}</td>
-                            <td>{{ $penjemputan->penjemputan_name}}</td>
-                            <td>{{ $penjemputan->penjemputan_status }}</td>
+                            <td>{{ $penjemputan->petugas_penjemputan}}</td>
+                            <td>{{ $penjemputan->status }}</td>
                             <td><button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button></td>
                         </tr>
                     @endforeach
@@ -118,7 +118,7 @@
                         <div class="input-group">
                             <input type="hidden" name="member_id" id="membersInput">
                             <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
-                                id="namesInput" readonly>
+                                id="namesInput" readonly name="member_name">
                             <button class="btn btn-square"
                                 onclick="document.getElementById('fin_member').classList.add('modal-open')"
                                 type="button">Find</button>
@@ -129,7 +129,7 @@
                             <span class="label-text">Address</span>
                         </label>
                         <input type="text" placeholder="Location name"
-                            class="input input-secondary input-bordered w-full" id="alamatInput" readonly>
+                            class="input input-secondary input-bordered w-full" id="alamatInput" readonly name="member_address">
                     </div>
                     <div class="form-control">
                         <label class="label justify-center">
@@ -138,7 +138,7 @@
                         <div class="input-group">
                             <span>+62</span>
                             <input type="text" placeholder="Phone Number"
-                                class="input input-accent input-bordered w-full" id="nomorInput" readonly>
+                                class="input input-accent input-bordered w-full" id="nomorInput" readonly name="member_phone">
                         </div>
                     </div>
 
@@ -146,7 +146,7 @@
                         <label class="label justify-center">
                             <span class="label-text">Officer Name</span>
                         </label>
-                        <input type="text" name="penjemputan_name" placeholder="Officer name"
+                        <input type="text" name="petugas_penjemputan" placeholder="Officer name"
                             class="input input-primary input-bordered w-full" id="namiInput">
                     </div>
                     <div class="form-control">
@@ -154,7 +154,7 @@
                             <span class="label-text">Status</span>
                         </label>
                         <div class="flex-row">
-                            <select name="penjemputan_status" class="select select-bordered w-full" id="statusInput">
+                            <select name="status" class="select select-bordered w-full" id="statusInput">
                                 <option disabled="disabled" selected="selected">Status</option>
                                 <option value="TERCATAT">TERCATAT</option>
                                 <option value="PENJEMPUTAN">PENJEMPUTAN</option>

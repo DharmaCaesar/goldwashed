@@ -24,6 +24,7 @@ let default_item = JSON.parse(localStorage.getItem('simppData'))
 
 if (localStorage.getItem('simppData')){ 
 updateTable(default_item)
+ftotal()
 }
 
 function calcuAge(works){
@@ -107,6 +108,15 @@ function submit_simulation() {
         ftotal()
 
         insertToStorage()
+}
+
+function jomblo(){
+    if(document.getElementById('statusInput').value == 'Single'){
+        document.getElementById('sonInput').value = 0
+        document.getElementById('sonInput').disabled = true
+    } else {
+        document.getElementById('sonInput').disabled = false
+    }
 }
 
 function ftotal(){

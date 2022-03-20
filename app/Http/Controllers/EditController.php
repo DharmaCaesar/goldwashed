@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
+use App\Models\penjemputan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -210,4 +211,46 @@ public function deleteuser(Request $request){
     }
 }
 // BAGIAN AKHIR user
+
+// BAGIAN AWAL PENJEMPUTAN
+public function editpenjemputan(Request $request)
+    {
+        $data = $request -> validate([
+            'id' => ['required'],
+            'petugas_penjemputan' => ['required'],
+            'status' => ['required'],
+            'member_id' => ['required'],
+            'member_name' => ['required'],
+            'member_address' => ['required'],
+            'member_phone' => ['required']
+        ]);
+
+        $data ['member_phone'] = '+' . $data ['member_phone'];
+        $penjemputan = penjemputan::find($data['id']);
+        $penjemputan -> petugas_penjemputan = $data['petugas_penjemputan'];
+        $penjemputan -> status = $data ['status'];
+        $penjemputan -> member_id = $data ['member_id'];
+        $penjemputan -> member_name = $data ['member_name'];
+        $penjemputan -> member_address = $data ['member_address'];
+        $penjemputan -> member_phone = $data ['member_phone'];
+        if($penjemputan -> update()){
+            return redirect() -> back();
+        } else {
+            return redirect() -> back();
+        }
+    }
+
+public function delete(Request $request){
+    $data = $request -> validate([
+        'member_id' => ['required']
+    ]);
+
+    $member = penjemputan::find($data['member_id']);
+    if($member -> delete()){
+        return redirect() -> back() -> with('success', 'Deleting was completed, there is nothing no to worry');
+    } else {
+        return redirect() -> back() -> with('failure', 'There has problem to deleting the data!!!');
+    }
+}
+// BAGIAN AKHIR PENJEMPUTAN
 }
