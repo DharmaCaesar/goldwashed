@@ -55,8 +55,8 @@
             </div>
             <div class="flex-1">
                 <div class="btn-group inline-block">
-                    <a href="{{ route('export-package') }}" class="btn fa fa-file-excel">Export</a>
-                    <form action="{{ route('import-package') }}" enctype="multipart/form-data" class="inline-block"
+                    <a href="{{ route('export-penjemputan') }}" class="btn fa fa-file-excel">Export</a>
+                    <form action="{{ route('import-penjemputan') }}" enctype="multipart/form-data" class="inline-block"
                         id="importForm" method="POST">
                         @csrf
                         <button type="button" class="btn rounded-l-none" id="imbtn"

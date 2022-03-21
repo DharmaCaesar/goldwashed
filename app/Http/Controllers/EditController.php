@@ -240,7 +240,7 @@ public function editpenjemputan(Request $request)
         }
     }
 
-public function delete(Request $request){
+public function deletepenjemputan(Request $request){
     $data = $request -> validate([
         'member_id' => ['required']
     ]);

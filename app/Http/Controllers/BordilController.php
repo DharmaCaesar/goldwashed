@@ -14,8 +14,10 @@ use Maatwebsite\Excel\ExcelServiceProvider;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MembershipExport;
 use App\Exports\PackageExport;
+use App\Exports\PenjemputanExport;
 use App\Imports\MembersImport;
 use App\Imports\PackageImport;
+use App\Imports\PenjemputanImport;
 use App\Models\penjemputan;
 use Illuminate\Support\Facades\Storage;
 
@@ -138,6 +140,11 @@ class BordilController extends Controller
         $date = date('Y-m-d');
         return Excel::download(new PackageExport, $date.' Package.xlsx');
     }
+
+    public function exportPenjemputan(){
+        $date = date('Y-m-d');
+        return Excel::download(new PenjemputanExport, $date.' Penjemputan.xlsx');
+    }
     // END OF EXPORT
 
     // IMPORT
@@ -168,6 +175,22 @@ class BordilController extends Controller
             $filename = $file -> getClientOriginalName();
             $file -> move('import', $filename);
             Excel::import(new PackageImport, public_path('import/'.$filename));
+            Storage::delete(public_path('import/'.$filename));
+            return redirect() -> back();
+         }
+    }
+
+    public function importPenjemputan(Request $request){
+        $request -> validate([
+            'file' => ['required', 'mimes:csv,xlsx,xls']
+        ]);
+
+        $file = $request -> file('file');
+
+        if($file != null){
+            $filename = $file -> getClientOriginalName();
+            $file -> move('import', $filename);
+            Excel::import(new PenjemputanImport, public_path('import/'.$filename));
             Storage::delete(public_path('import/'.$filename));
             return redirect() -> back();
          }

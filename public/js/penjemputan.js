@@ -33,12 +33,18 @@ $('#penjemputanTable').DataTable({
          },
          data: {id:id},
          success: function(response){
-             document.getElementById('membersInput').value=response.response.id
-             document.getElementById('namesInput').value=response.response.member_name
-             document.getElementById('alamatInput').value=response.response.member_address
-             document.getElementById('nomorInput').value=response.response.member_phone
-            //  document.getElementById('genderInput').value=response.response.member_gender
-             document.getElementById('fin_member').classList.remove('modal-open')
+            // CREATE FORM
+            document.getElementById('membersInput').value=response.response.id
+            document.getElementById('namesInput').value=response.response.member_name
+            document.getElementById('alamatInput').value=response.response.member_address
+            document.getElementById('nomorInput').value=response.response.member_phone
+            
+            // EDIT FORM
+            document.getElementById('memberInput').value=response.response.id
+            document.getElementById('namasInput').value=response.response.member_name
+            document.getElementById('addInput').value=response.response.member_address
+            document.getElementById('noInput').value=response.response.member_phone
+            document.getElementById('fin_member').classList.remove('modal-open')
          }
      })
  }
