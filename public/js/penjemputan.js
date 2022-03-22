@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", function(){
         if(document.getElementById("penjemputan-view").classList.contains("hidden")){
             document.getElementById("view-btn").classList.add("btn-active")
             document.getElementById("create-btn").classList.remove("btn-active")
-            // document.getElementById("log-btn").classList.remove("btn-active")
+            document.getElementById("log-btn").classList.remove("btn-active")
             document.getElementById("penjemputan-view").classList.remove("hidden")
             document.getElementById("penjemputan-create").classList.add("hidden")
-            // document.getElementById("penjemputan-log").classList.add("hidden")
+            document.getElementById("penjemputan-log").classList.add("hidden")
         }
     })
 
@@ -67,10 +67,22 @@ document.addEventListener("DOMContentLoaded", function(){
         if(document.getElementById("penjemputan-create").classList.contains("hidden")){
             document.getElementById("create-btn").classList.add("btn-active")
             document.getElementById("view-btn").classList.remove("btn-active")
-            // document.getElementById("log-btn").classList.remove("btn-active")
+            document.getElementById("log-btn").classList.remove("btn-active")
             document.getElementById("penjemputan-view").classList.add("hidden")
             document.getElementById("penjemputan-create").classList.remove("hidden")
-            // document.getElementById("penjemputan-log").classList.add("hidden")
+            document.getElementById("penjemputan-log").classList.add("hidden")
+        }
+    })
+
+    document.getElementById("log-btn").addEventListener("click", function(e){
+        e.preventDefault()
+        if(document.getElementById("penjemputan-log").classList.contains("hidden")){
+            document.getElementById("log-btn").classList.add("btn-active")
+            document.getElementById("view-btn").classList.remove("btn-active")
+            document.getElementById("create-btn").classList.remove("btn-active")
+            document.getElementById("penjemputan-view").classList.add("hidden")
+            document.getElementById("penjemputan-create").classList.add("hidden")
+            document.getElementById("penjemputan-log").classList.remove("hidden")
         }
     })
 })

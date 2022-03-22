@@ -46,6 +46,8 @@ function submit_simulation() {
     let daob = new Date(date).getFullYear()
     let curdat = new Date()
 
+    console.log(name)
+
     
         document.getElementById('idInput').value = ''
         document.getElementById('nameInput').value = ''
@@ -245,8 +247,9 @@ function updateTable(arr) {
     insertToStorage()
 }
 
-function sort(arr) {
-    if(document.getElementById('fInput').value == 'ASC'){
+// insertion sort
+function sort(arr) { 
+if(document.getElementById('fInput').value == 'ASC'){
     let i, j, id, value
     for (i = 1; i < arr.length; i++) {
         value = arr[i]

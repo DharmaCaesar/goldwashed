@@ -84,7 +84,7 @@
                     </li>
                     <li>
                         <a href="/simpp" class="btn btn-ghost btn-md rounded-btn">
-                            Simulation Employee Salary
+                            Employee Salary
                         </a> 
                     </li>
                 </ul>

@@ -27,6 +27,7 @@ function sift_table(table, filter){
     }
 }
 
+// linear/sequential search
 function search(search, table) {
     let record, success;
     let search_value = search.value.toUpperCase()

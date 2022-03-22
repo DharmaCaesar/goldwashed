@@ -51,6 +51,7 @@
                 <div class="btn-group inline-block">
                     <button class="btn btn-active" id="view-btn">View</button>
                     <button class="btn" id="create-btn">Create</button>
+                    <button class="btn" id="log-btn">Logs</button>
                 </div>
             </div>
             <div class="flex-1">
@@ -170,7 +171,7 @@
     {{-- BAGIAN AKHIR CREATE --}}
 
     {{-- BAGIAN AWAL LOG --}}
-    {{-- <div id="penjemputan-log" class="hidden">
+    <div id="penjemputan-log" class="hidden">
         <div class="overflow-x-auto">
             <table class="table w-full text-center">
                 <thead>
@@ -194,7 +195,7 @@
                 </tbody>
             </table>
         </div>
-    </div> --}}
+    </div>
     {{-- BAGIAN AKHIR LOG --}}
 @endsection
 

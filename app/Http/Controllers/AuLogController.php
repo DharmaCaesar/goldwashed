@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuLogController extends Controller
 {
+    /*
+        
+    */
     public function login(Request $request){
         $data = $request -> validate([
             'username' => ['required'],

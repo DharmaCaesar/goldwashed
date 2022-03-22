@@ -161,7 +161,8 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::get('/penjemputan', function(){
         $penjemputandata = penjemputan::all();
         $memberdata = Members::all();
-        return view('dashboard.penjemputan', ['penjemputandata' => $penjemputandata, 'memberdata' => $memberdata, 'page' => 'penjemputan']);
+        $logsdata = Logs::where('models', 'penjemputan') -> get();
+        return view('dashboard.penjemputan', ['penjemputandata' => $penjemputandata, 'memberdata' => $memberdata, 'page' => 'penjemputan', 'logsdata' => $logsdata]);
     }) -> name('penjemputan');
     Route::post('/createpenjemputan', [BordilController::class, 'createpenjemputan']);
     Route::post('/catch-penjemputan', [PenjemputanController::class, 'catchpenjemputan']);
