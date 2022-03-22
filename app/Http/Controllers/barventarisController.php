@@ -8,12 +8,18 @@ use Illuminate\Http\Request;
 
 class barventarisController extends Controller
 {
+    /**
+     * Menampilkan halaman utama untuk Barang Invetaris (Barventaris) 
+     */
     public function index(){
         $barventarisData = ModelsBarventaris::all();
 
         return view('dashboard.barventaris', ['page' => 'barventaris', 'barventarisData' => $barventarisData ]);
     }
 
+    /**
+     * 
+     */
     public function fetch(Request $request){
         if($request -> ajax()){
             $validatedData = $request -> validate([

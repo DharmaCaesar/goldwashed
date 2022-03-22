@@ -24,6 +24,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 class PackageExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements FromCollection, WithHeadings, WithEvents, WithCustomValueBinder
 {
     /**
+     * Mengembalikan koleksi dari Packages dengan select tertetu
     * @return \Illuminate\Support\Collection
     */
     public function collection()
@@ -31,6 +32,10 @@ class PackageExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder imp
         return Packages::where('outlet_id', Auth::user()->outlet_id)->get();
     }
 
+    /**
+     * Mengembalikan headings untuk disimpan kedalam export
+     * @return array
+     */
     public function headings(): array
     {
         return [
@@ -44,6 +49,11 @@ class PackageExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder imp
         ];
     }
 
+    /**
+     * Format banyaknya Column dan Rows dengan AfterSheet tertentu
+     * @param AfterSheet $event
+     * @return array
+     */
     public function registerEvents(): array
     {
         return [

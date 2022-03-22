@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuLogController extends Controller
 {
-    /*
-        
-    */
+    /**
+     * Function yang dipanggil dengan request Login melalui Post dan mengatur sesi masuk sesuai pengguna tertentu 
+     * @param Request $request
+     * @return \illuminate\Http\RedirectResponse
+     */
     public function login(Request $request){
         $data = $request -> validate([
             'username' => ['required'],
@@ -26,6 +28,11 @@ class AuLogController extends Controller
         ]);
     }
 
+    /**
+     * Function yang dipanggil dengan request Logout melalui Get untuk menghilangkan sesi dan Logout lalu buat ulang token
+     * @param Request $request
+     * @return \illuminate\Http\RedirectResponse
+     */
     public function logout(Request $request){
         Auth::logout();
 

@@ -23,6 +23,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 class MembershipExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements FromCollection, WithHeadings, WithEvents, WithCustomValueBinder
 {
     /**
+     * Mengembalikan koleksi dari Members dengan select tertetu
      * @return \Illuminate\Support\Collection
      */
     public function collection()
@@ -30,6 +31,10 @@ class MembershipExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder 
         return Members::all();
     }
 
+    /**
+     * Mengembalikan headings untuk disimpan kedalam export
+     * @return array
+     */
     public function headings(): array
     {
         return [
@@ -43,6 +48,11 @@ class MembershipExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder 
         ];
     }
 
+    /**
+     * Format banyaknya Column dan Rows dengan AfterSheet tertentu
+     * @param AfterSheet $event
+     * @return array
+     */
     public function registerEvents(): array
     {
         return [

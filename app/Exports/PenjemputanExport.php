@@ -23,6 +23,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 class PenjemputanExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements FromCollection, WithHeadings, WithEvents, WithCustomValueBinder
 {
     /**
+    * Mengembalikan koleksi dari Penjemputan dengan select tertentu
     * @return \Illuminate\Support\Collection
     */
     public function collection()
@@ -30,6 +31,10 @@ class PenjemputanExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder
         return penjemputan::all();
     }
 
+    /**
+     * Mengembalikan headings untuk disimpan kedalam export
+     * @return array
+     */
     public function headings(): array
     {
         return [
@@ -45,6 +50,11 @@ class PenjemputanExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder
         ];
     }
 
+    /**
+     * Format banyaknya Column dan Rows dengan AfterSheet tertentu
+     * @param AfterSheet $event
+     * @return array
+     */
     public function registerEvents(): array
     {
         return [
