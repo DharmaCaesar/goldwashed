@@ -87,6 +87,11 @@
                             Employee Salary
                         </a> 
                     </li>
+                    <li>
+                        <a href="/transaksi" class="btn btn-ghost btn-md rounded-btn">
+                            Inventory Transaction
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

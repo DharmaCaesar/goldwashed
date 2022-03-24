@@ -130,6 +130,10 @@ class BordilController extends Controller
         }
     }
 
+    public function createtransaksi(){
+        return view('dashboard.transaksi', ['page' => 'transaksi']);
+    }
+
     // EXPORT
     public function exportMember(){
         $date = date('Y-m-d');
