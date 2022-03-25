@@ -4,6 +4,7 @@ use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\barventarisController;
 use App\Http\Controllers\BordilController;
 use App\Http\Controllers\CalculateController;
+use App\Http\Controllers\databController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PenjemputanController;
@@ -173,6 +174,8 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('penjemputan/import/', [BordilController::class, 'importPenjemputan']) -> name('import-penjemputan');
 
     Route::get('/transaksi', [BordilController::class, 'createtransaksi']) -> name('transaksi');
+
+    Route::get('/datab', [databController::class, 'index']) -> name('datab');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

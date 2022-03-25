@@ -57,6 +57,9 @@
                             <li>
                                 <a href="/penjemputan">Pick-Up</a>
                             </li>
+                            <li>
+                                <a href="/datab">Item Data</a>
+                            </li>
                             {{-- <li>
                         <a href="/report">Report</a>
                     </li> --}}
