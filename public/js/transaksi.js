@@ -62,13 +62,14 @@ function inputtrans() {
         qtyElement.innerText = qty
         priceElement.innerText = price
 
-        if(Number(priceInput) >= 50000){
-            discElement.innerText = Number(priceInput)*(15/100)
+        
+        totalElement.innerText = Number(packprice())*Number(qty.value)
+        
+        if(Number(totalElement.innerText) >= 50000){
+            discElement.innerText = Number(totalElement.innerText)*(15/100)
         } else {
             discElement.innerText = 0
         }
-        
-        totalElement.innerText = Number(packprice())*Number(qty.value)
 
         typeElement.innerText = cash.checked ? "E-MONEY" : "CASH"
 
@@ -109,22 +110,22 @@ function changePack(entity) {
     calcuQty(document.getElementById('qtyInput'))
 }
 
-function calcuQty(entity) {
-    const package = document.getElementById('packInput')
-    let price = 0
+// function calcuQty(entity) {
+//     const package = document.getElementById('packInput')
+//     let price = 0
 
-    if (package.value == 'DEGEN') {
-        price = detergent
-    } else if (package.value == 'PARFUM') {
-        price = parfume
-    } else if (package.value == 'DETU') {
-        price = shoes
-    }
+//     if (package.value == 'DEGEN') {
+//         price = detergent
+//     } else if (package.value == 'PARFUM') {
+//         price = parfume
+//     } else if (package.value == 'DETU') {
+//         price = shoes
+//     }
 
-    const qty = entity.value
+//     const qty = entity.value
 
-    document.getElementById('priceInput').innerText = Number(price)*Number(qty)
-}
+//     document.getElementById('priceInput').innerText = Number(price)*Number(qty)
+// }
 
 function insertToStorage() {
     let tmp_arr = []

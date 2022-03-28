@@ -80,7 +80,7 @@
                         <span class="label-text">QTY</span>
                     </label>
                     <div class="flex-row">
-                        <input type="number" name="qty" placeholder="" class="input input-secondary input-bordered w-full" id="qtyInput" onchange="calcuQty(this)">
+                        <input type="number" name="qty" placeholder="" class="input input-secondary input-bordered w-full" id="qtyInput" >
                     </div>
                 </div>
                 <button class="btn btn-outline my-10" type="button" onclick="inputtrans()">Input</button>
