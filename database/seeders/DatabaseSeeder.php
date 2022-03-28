@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         User::create([
             'name' => 'Dr.Huston Butt',
-            'username' => 'BIG-PP',
+            'username' => 'But',
             'password' => Hash::make('gal'),
             'outlet_id' => 1,
             'role' => 'OWNER'
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Bonk',
-            'username' => 'Horny',
+            'username' => 'Hani',
             'password' => Hash::make('gal'),
             'outlet_id' => 1,
             'role' => 'ADMIN'
@@ -47,5 +47,5 @@ class DatabaseSeeder extends Seeder
         \App\Models\TransactionDetails::factory(27)->create();
     }
 
-    
+
 }

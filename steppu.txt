@@ -1,0 +1,24 @@
+1. Download and Install XAMPP (version is 8.14) (https://www.apachefriends.org/download.html)
+2. Download and Install Composer (click Composer-Setup.exe in Download page) (https://getcomposer.org/download/)
+3. Download and Install NodeJS (16.14.2 LTS) (https://nodejs.org/en/)
+4. Download and Install Git-SCM (https://git-scm.com/)
+5. Go to Environment Variables (search for it, and go click Environment Variables, then edit PATH in the system (bottom) and user block (top).) (make sure that the directory to XAMPP/PHP is there, example: C:\xampp\php) (save)
+6. Restart Windows 
+7. Open Git-bash/CMD/Terminal and install Laravel with
+(composer global require laravel/installer)
+8. Make a folder that will contain all laravel project anywhere (like Laravelpro) and go in the folder with cd commands.
+9. Clone your github project by doing
+(git clone https://github.com/user_name/github_repostitory_name.git)
+10. Wait until the download finishes then move into the folder with another cd command
+11. Do another command that makes sure it is the latest version:
+(git pull)
+11. Do the necessary installation commands {
+	First step: npm i
+	Second step: composer i
+	Third step: cp .env.example .env
+	Fourth Step: php artisan key:generate
+	The Step before Fifth Step: Edit the .env file and change the DATABASE NAME and create the database first before doing the next step
+	Fifth Step: php artisan migrate:fresh --seed
+	(if this has error, don't forget to turn on XAMPP)
+}
+12. npm run watch AND php artisan serve
