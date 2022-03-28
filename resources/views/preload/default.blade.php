@@ -20,13 +20,13 @@
         @yield('container')
     </div>
 
-    
+
     <script src="{{ asset("js/app.js") }}"></script>
-    
+
     <script src="{{ asset("js/grubbywash.js") }}"></script>
-    
+
     <script type="text/javascript" src="{{ asset('datatables/datatables.min.js') }}"></script>
-    
+
     @if($page == 'outlets')
     <script src="{{ asset("js/outlet.js") }}"></script>
     @endif
@@ -45,7 +45,7 @@
 
     @if($page == 'transaction')
     <script src="{{ asset("js/transaction.js") }}"></script>
-    
+
     <script src="{{ asset("js/calculate.js") }}"></script>
     @endif
 

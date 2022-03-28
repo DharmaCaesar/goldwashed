@@ -47,5 +47,5 @@ class DatabaseSeeder extends Seeder
         \App\Models\TransactionDetails::factory(27)->create();
     }
 
-    
+
 }
