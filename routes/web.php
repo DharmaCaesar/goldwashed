@@ -172,6 +172,7 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/takepenjemputan', [PenjemputanController::class, 'takepenjemputan']);
     Route::get('penjemputan/export/', [BordilController::class, 'exportPenjemputan']) -> name('export-penjemputan');
     Route::post('penjemputan/import/', [BordilController::class, 'importPenjemputan']) -> name('import-penjemputan');
+    Route::post('/update-status', [PenjemputanController::class, 'updateStatus']);
 
     Route::get('/transaksi', [BordilController::class, 'createtransaksi']) -> name('transaksi');
 

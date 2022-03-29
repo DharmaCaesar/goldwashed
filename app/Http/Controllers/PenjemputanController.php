@@ -86,6 +86,9 @@ class PenjemputanController extends Controller
             
     }
 
+    /**
+     * Mengambil data penjemputan berdasarkan id
+     */
     public function takepenjemputan(Request $request){
         if($request -> ajax()){
             $data = $request -> validate([
@@ -97,6 +100,9 @@ class PenjemputanController extends Controller
         }
     }
 
+    /*
+    *   Mengambil data member berdasarkan id
+    */
     public function catchpenjemputan(Request $request){
         if($request -> ajax()){
             $data = $request -> validate([
@@ -104,6 +110,32 @@ class PenjemputanController extends Controller
             ]);
             $member = Members::find($data['id']);
             return response() -> json(['response' => $member]);
+        }
+    }
+
+    /**
+     * Menampilkan data dari resource.
+     * Menerima Id dan Status, lalu meng-update status sebuah data dengan mencari id dari resource, lalu menampilkan success melalui JSON
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function updateStatus(Request $request)
+    {
+        if($request->ajax()){
+            $validateData = $request->validate([
+                'id' => 'required|numeric',
+                'status' => 'required|string'
+            ]);
+
+            $penjemputan = penjemputan::find($validateData['id']);
+            $penjemputan->status = $validateData['status'];
+
+            if($penjemputan->update()){
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Status berhasil diubah'
+                ]);
+            }
         }
     }
 }

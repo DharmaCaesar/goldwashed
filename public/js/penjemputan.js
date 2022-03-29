@@ -87,6 +87,25 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })
 
+const updatestatus = (entity) => {
+    const row = entity.parentElement.parentElement
+    const id = row.querySelectorAll('th')[0].innerText
+    const status = entity.value
+
+    $.ajax({
+        type: 'POST',
+        url: '/update-status',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {id:id, status:status},
+        success: function(response){
+            console.log(response.success)
+        }
+    })
+}
+
 function editpenjemputan(entity){
     let tableedit = entity.parentElement.parentElement
     let id = tableedit.querySelectorAll('th')[0].innerText

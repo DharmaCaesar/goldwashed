@@ -44,9 +44,9 @@ function inputtrans() {
         tr.appendChild(idElement)
         tr.appendChild(buyElement)
         tr.appendChild(packElement)
+        tr.appendChild(priceElement)
         tr.appendChild(qtyElement)
         tr.appendChild(discElement)
-        tr.appendChild(priceElement)
         tr.appendChild(totalElement)
         tr.appendChild(typeElement)
         // tr.appendChild(cashElement)
@@ -59,19 +59,18 @@ function inputtrans() {
         idElement.innerText = id
         buyElement.innerText = buy
         packElement.innerText = pack
-        qtyElement.innerText = qty
         priceElement.innerText = price
-
-        
-        totalElement.innerText = Number(packprice())*Number(qty.value)
+        qtyElement.innerText = qty
         
         if(Number(totalElement.innerText) >= 50000){
             discElement.innerText = Number(totalElement.innerText)*(15/100)
         } else {
             discElement.innerText = 0
         }
-
-        typeElement.innerText = cash.checked ? "E-MONEY" : "CASH"
+        
+        totalElement.innerText = Number(packprice())*Number(qty.value)
+        
+        typeElement.innerText = cash.checked ?  "CASH" : "E-MONEY"
 
         // cashElement.innerText = cash
         // eElement.innerText = ecash
@@ -107,7 +106,7 @@ function changePack(entity) {
         document.getElementById('priceInput').innerText = shoes
     }
 
-    calcuQty(document.getElementById('qtyInput'))
+    // calcuQty(document.getElementById('qtyInput'))
 }
 
 // function calcuQty(entity) {
@@ -156,50 +155,59 @@ function insertToStorage() {
     localStorage.setItem('transaksiData', JSON.stringify([...tmp_arr]))
 }
 
-// function updateTable(arr) {
-//     const table = document.getElementById('transaksiTable')
-//     let tbody = document.createElement('tbody')
-//     tbody.id = 'transaksiBody'
+function updateTable(arr) {
+    const table = document.getElementById('transaksiTable')
+    let tbody = document.createElement('tbody')
+    tbody.id = 'transaksiBody'
 
-//     table.removeChild(table.getElementsByTagName('tbody')[0])
-//     table.appendChild(tbody)
+    table.removeChild(table.getElementsByTagName('tbody')[0])
+    table.appendChild(tbody)
 
-//     arr.forEach(arr => {
-//         let tr = document.createElement('tr')
-//         let id = document.createElement('td')
-//         let name = document.createElement('td')
-//         let gender = document.createElement('td')
-//         let status = document.createElement('td')
-//         let son = document.createElement('td')
-//         let date = document.createElement('td')
-//         let gaji = document.createElement('td')
-//         let t = document.createElement('td')
-//         let total = document.createElement('td')
+    arr.forEach(arr => {
+        let tr = document.createElement('tr')
+        let idElement = document.createElement('td')
+        let buyElement = document.createElement('td')
+        let packElement = document.createElement('td')
+        let priceElement = document.createElement('td')
+        let qtyElement = document.createElement('td')
+        let discElement = document.createElement('td')
+        let totalElement = document.createElement('td')
+        let typeElement = document.createElement('td')
+        let cashElement = document.createElement('td')
+        let eElement = document.createElement('td')
 
-//         tbody.appendChild(tr)
-//         tr.appendChild(id)
-//         tr.appendChild(name)
-//         tr.appendChild(gender)
-//         tr.appendChild(status)
-//         tr.appendChild(son)
-//         tr.appendChild(date)
-//         tr.appendChild(gaji)
-//         tr.appendChild(t)
-//         tr.appendChild(total)
+        tbody.appendChild(tr)
+        tr.appendChild(idElement)
+        tr.appendChild(buyElement)
+        tr.appendChild(packElement)
+        tr.appendChild(priceElement)
+        tr.appendChild(qtyElement)
+        tr.appendChild(discElement)
+        tr.appendChild(totalElement)
+        tr.appendChild(typeElement)
 
-//         id.innerText = arr['id']
-//         name.innerText = arr['name']
-//         gender.innerText = arr['gender']
-//         status.innerText = arr['status']
-//         son.innerText = arr['son']
-//         date.innerText = arr['date']
-//         gaji.innerText = arr['gaji']
-//         t.innerText = arr['t']
-//         total.innerText = arr['total']
-//     });
+        idElement.innerText = arr['id']
+        buyElement.innerText = arr['buy']
+        packElement.innerText = arr['pack']
+        priceElement.innerText = arr['price']
+        qtyElement.innerText = arr['qty']
+        discElement.innerText = arr['disc']
+        totalElement.innerText = arr['total']
+        typeElement.innerText = arr['type']
 
-//     insertToStorage()
-// }
+        totalElement.innerText = Number(packprice())*Number(qty.value)
+        
+        if(Number(totalElement.innerText) >= 50000){
+            discElement.innerText = Number(totalElement.innerText)*(15/100)
+        } else {
+            discElement.innerText = 0
+        }
+
+        typeElement.innerText = cash.checked ?  "CASH" : "E-MONEY"
+    });
+
+    insertToStorage()
+}
 
 // insertion sort
 function sort(arr) { 

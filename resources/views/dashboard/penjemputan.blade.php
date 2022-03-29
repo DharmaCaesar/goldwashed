@@ -98,11 +98,10 @@
                             <td>{{ $penjemputan->petugas_penjemputan}}</td>
                             {{-- <td>{{ $penjemputan->status }}</td> --}}
                             <td>
-                                <select name="status" class="select select-bordered w-full" id="statusInput">
-                                    <option disabled="disabled" selected="selected">Status</option>
-                                    <option value="TERCATAT">TERCATAT</option>
-                                    <option value="PENJEMPUTAN">PENJEMPUTAN</option>
-                                    <option value="SELESAI">SELESAI</option>
+                                <select class="select select-bordered w-full" onchange="updatestatus(this)" value="{{ $penjemputan->status }}">
+                                    <option value="TERCATAT" @if ($penjemputan->status == 'TERCATAT') selected @endif>TERCATAT</option>
+                                    <option value="PENJEMPUTAN" @if ($penjemputan->status == 'PENJEMPUTAN') selected @endif>PENJEMPUTAN</option>
+                                    <option value="SELESAI" @if ($penjemputan->status == 'SELESAI') selected @endif>SELESAI</option>
                                 </select>
                             </td>
                             <td><button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button></td>

@@ -52,6 +52,7 @@
     @endif
     {{-- BAGIAN AKHIR NOTIF --}}
 
+    {{-- BAGIAN AWAL CREATE --}}
     <div id="transaksi-create" class="text-center border-4 my-2">
         <div class="flex flex-row">
             <div class="flex-1 mx-5">
