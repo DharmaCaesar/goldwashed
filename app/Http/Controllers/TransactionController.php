@@ -116,6 +116,8 @@ class TransactionController extends Controller
                 }
             }
 
+            // dd($validatedData['date']);
+
             if ($validatedData['date'] > now()->toDateString()) {
                 $isTimeQualified = true;
             } else {

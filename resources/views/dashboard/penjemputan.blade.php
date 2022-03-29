@@ -96,7 +96,15 @@
                             <td>{{ $penjemputan->member_address }}</td>
                             <td>{{ $penjemputan->member_phone }}</td>
                             <td>{{ $penjemputan->petugas_penjemputan}}</td>
-                            <td>{{ $penjemputan->status }}</td>
+                            {{-- <td>{{ $penjemputan->status }}</td> --}}
+                            <td>
+                                <select name="status" class="select select-bordered w-full" id="statusInput">
+                                    <option disabled="disabled" selected="selected">Status</option>
+                                    <option value="TERCATAT">TERCATAT</option>
+                                    <option value="PENJEMPUTAN">PENJEMPUTAN</option>
+                                    <option value="SELESAI">SELESAI</option>
+                                </select>
+                            </td>
                             <td><button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button></td>
                         </tr>
                     @endforeach

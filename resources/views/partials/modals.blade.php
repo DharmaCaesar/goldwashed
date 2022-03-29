@@ -435,7 +435,7 @@
                 <input type="hidden" name="barventaris_delete" id="barventaris_delete">
                 <div class="flex flex-row text-center justify-center">
                     <div class="flex-1 justify-center">
-                        <div class="modal-action my-4 text-center">
+                        <div class="modal-action my-4 justify-center">
                             <button type="button" class="btn btn-outline my-10 mx-2"
                                 onclick="document.getElementById('deletebarventarisModal').classList.remove('modal-open')">Cancel</button>
                             <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>

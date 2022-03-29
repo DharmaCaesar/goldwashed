@@ -133,13 +133,13 @@
                         <th><span class="normal-case">$</span> <span id="fee">{{ $transaction -> transaction_paid_extra }}</span></th>
                         <th></th>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th></th>
                         <th></th>
                         <th>Subtotal</th>
                         <th><span class="normal-case">$</span> <span id="total"></span></th>
                         <th id="totalqty">0</th>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <th></th>
                         <th>Discount</th>
