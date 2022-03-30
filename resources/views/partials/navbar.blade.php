@@ -95,6 +95,11 @@
                             Inventory Transaction
                         </a>
                     </li>
+                    <li>
+                        <a href="/aksesoris" class="btn btn-ghost btn-md rounded-btn">
+                            Transaction
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

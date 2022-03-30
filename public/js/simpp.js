@@ -46,15 +46,7 @@ function submit_simulation() {
     let daob = new Date(date).getFullYear()
     let curdat = new Date()
 
-    console.log(name)
-
-    
-        document.getElementById('idInput').value = ''
-        document.getElementById('nameInput').value = ''
-        document.getElementById('genderInput').value = ''
-        document.getElementById('statusInput').value = ''
-        document.getElementById('sonInput').value = ''
-        document.getElementById('dateInput').value = ''
+    // console.log(name)
 
         let tr = document.createElement('tr')
         let idElement = document.createElement('td')

@@ -53,6 +53,10 @@ Route::get('/simpp', function(){
     return view('simpinglation.simp', ['page' => 'simpp']);
 }) -> name('simpp');
 
+Route::get('/aksesoris', function(){
+    return view('dashboard.aksesoris', ['page' => 'aksesoris']);
+}) -> name('aksesoris');
+
 Route::get('/logout', [AuLogController::class,'logout']);
 
 });
