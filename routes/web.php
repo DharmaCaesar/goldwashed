@@ -181,6 +181,14 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::get('/transaksi', [BordilController::class, 'createtransaksi']) -> name('transaksi');
 
     Route::get('/datab', [databController::class, 'index']) -> name('datab');
+    Route::post('/update-status', [databController::class, 'status']) -> name('update-status');
+    Route::post('/editdatab', [databController::class, 'edit']) -> name('editdatab');
+    Route::post('/deletedatab', [databController::class, 'delete']) -> name('deletedatab');
+    Route::post('/createdatab', [databController::class, 'store']) -> name('createdatab');
+    Route::post('/updatedatab', [databController::class, 'update']) -> name('updatedatab');
+    Route::post('/destroydatab', [databController::class, 'destroy']) -> name('destroydatab');
+    Route::get('datab/export/', [BordilController::class, 'exportDatab']) -> name('export-datab');
+    Route::get('datab/import/', [BordilController::class, 'importDatab']) -> name('import-datab');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

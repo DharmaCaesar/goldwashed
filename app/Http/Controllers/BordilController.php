@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DatabExport;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
@@ -15,6 +16,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MembershipExport;
 use App\Exports\PackageExport;
 use App\Exports\PenjemputanExport;
+use App\Imports\DatabImport;
 use App\Imports\MembersImport;
 use App\Imports\PackageImport;
 use App\Imports\PenjemputanImport;
@@ -149,6 +151,11 @@ class BordilController extends Controller
         $date = date('Y-m-d');
         return Excel::download(new PenjemputanExport, $date.' Penjemputan.xlsx');
     }
+
+    public function exportdatab(){
+        $date = date('Y-m-d');
+        return Excel::download(new DatabExport, $date.' DataBarang.xlsx');
+    }
     // END OF EXPORT
 
     // IMPORT
@@ -195,6 +202,22 @@ class BordilController extends Controller
             $filename = $file -> getClientOriginalName();
             $file -> move('import', $filename);
             Excel::import(new PenjemputanImport, public_path('import/'.$filename));
+            Storage::delete(public_path('import/'.$filename));
+            return redirect() -> back();
+         }
+    }
+
+    public function importDatab(Request $request){
+        $request -> validate([
+            'file' => ['required', 'mimes:csv,xlsx,xls']
+        ]);
+
+        $file = $request -> file('file');
+
+        if($file != null){
+            $filename = $file -> getClientOriginalName();
+            $file -> move('import', $filename);
+            Excel::import(new DatabImport, public_path('import/'.$filename));
             Storage::delete(public_path('import/'.$filename));
             return redirect() -> back();
          }

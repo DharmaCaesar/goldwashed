@@ -65,19 +65,19 @@
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Goods</span>
+                        <span class="label-text">Barang Dibeli</span>
                     </label>
                     <div class="flex-row">
                         <select class="select select-bordered w-full" id="pakInput" name="goods">
-                            <option disabled="disabled" selected="selected">Goods</option>
-                            <option value="KEYCHAIN">KEY CHAIN</option>
-                            <option value="HAIRTIE">HAIR TIE</option>
+                            <option disabled="disabled" selected="selected">Barang</option>
+                            <option value="GANTUNGANKUNCI">GANTUNGAN KUNCI</option>
+                            <option value="IKATRAMBUT">IKAT RAMBUT</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">QTY</span>
+                        <span class="label-text">Jumlah barang</span>
                     </label>
                     <div class="flex-row">
                         <input type="number" name="qty" placeholder="" class="input input-secondary input-bordered w-full" id="QtyInput" >
@@ -89,26 +89,26 @@
             <div class="flex-1 mx-5">
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Buy Date</span>
+                        <span class="label-text">Tanggal beli</span>
                     </label>
                     <input type="date" name="bdate" placeholder=""
                         class="date-input input-secondary input-bordered w-full text-black" id="paidInput">
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Goods Paid</span>
+                        <span class="label-text">Warna</span>
                     </label>
                     <div class="flex-row">
                         <select class="select select-bordered w-full" name="color" id="coInput">
-                            <option disabled="disabled" selected="selected">Colors</option>
-                            <option value="YELLOW">YELLOW</option>
-                            <option value="RED">RED</option>
+                            <option disabled="disabled" selected="selected">Warna</option>
+                            <option value="KUNING">KUNING</option>
+                            <option value="MERAH">MERAH</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Buyer Name</span>
+                        <span class="label-text">Nama Pembeli</span>
                     </label>
                     <input type="text" placeholder="buyer name" name="buna"
                         class="input input-primary input-bordered w-full" id="nemInput">
@@ -160,62 +160,19 @@
                     <thead>
                         <tr>
                             <th>#Id</th>
-                            <th>Buy Paid</th>
-                            <th>Goods</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Qty</th>
-                            <th>Buyer Name</th>
-                            <th>Disc</th>
-                            <th>Total</th>
+                            <th>Tanggal Beli</th>
+                            <th>Barang</th>
+                            <th>Warna</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Nama Pembeli</th>
+                            <th>Diskon</th>
+                            <th>Total Harga</th>
                         </tr>
                     </thead>
 
                     <tbody id="aksesorisBody">
-                        <tr>
-                            <td>1</td>
-                            <td>2022-01-13</td>
-                            <td>Key Chain</td>
-                            <td>Yellow</td>
-                            <td>5000</td>
-                            <td>5</td>
-                            <td></td>
-                            <td>0</td>
-                            <td>25000</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2022-01-13</td>
-                            <td>Hair Tie</td>
-                            <td>Red</td>
-                            <td>2500</td>
-                            <td>10</td>
-                            <td></td>
-                            <td>0</td>
-                            <td>25000</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>2022-01-13</td>
-                            <td>Key Chain</td>
-                            <td>Yellow</td>
-                            <td>5000</td>
-                            <td>5</td>
-                            <td></td>
-                            <td>0</td>
-                            <td>25000</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>2022-01-13</td>
-                            <td>Hair Tie</td>
-                            <td>Red</td>
-                            <td>2500</td>
-                            <td>10</td>
-                            <td></td>
-                            <td>0</td>
-                            <td>25000</td>
-                        </tr>
+                        
                     </tbody>
 
                     <tfoot>

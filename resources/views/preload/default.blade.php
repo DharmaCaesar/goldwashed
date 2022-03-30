@@ -75,6 +75,10 @@
         <script src="{{ asset('js/transaksi.js') }}"></script>
     @endif
 
+    @if ($page == 'datab')
+        <script src="{{ asset('js/item.js') }}"></script>
+    @endif
+
     @if ($page == 'aksesoris')
         <script src="{{ asset('js/aksesoris.js') }}"></script>
     @endif

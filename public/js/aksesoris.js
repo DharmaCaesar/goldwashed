@@ -1,10 +1,12 @@
 const key = 5000
 const hair = 2500
 
-let default_item = JSON.parse(localStorage.getItem('aksesorisData'))
+const default_item = JSON.parse(localStorage.getItem('aksesorisData'))
+console.log(default_item)
 
 if (localStorage.getItem('aksesorisData')){ 
 updateTable(default_item)
+console.log(default_item)
 // ftotal()
 }
 
@@ -54,6 +56,8 @@ function inputtrans() {
 
         if(Number(totalElement.innerText) >= 30000){
             discElement.innerText = Number(totalElement.innerText)*(20/100)
+        } else if (Number(qtyElement.innerText) >= 10){
+            discElement.innerText = Number(totalElement.innerText)*(20/100)
         } else {
             discElement.innerText = 0
         }
@@ -70,9 +74,9 @@ function packprice(){
     const pack = document.getElementById('pakInput')
     let price = 0
     
-    if(pack.value == "KEYCHAIN"){
+    if(pack.value == "GANTUNGANKUNCI"){
         price = key
-    } else if(pack.value == "HAIRTIE") {
+    } else if(pack.value == "IKATRAMBUT") {
         price = hair
     } 
     
@@ -135,7 +139,7 @@ function updateTable(arr) {
     let tbody = document.createElement('tbody')
     tbody.id = 'aksesorisBody'
 
-    table.removeChild(table.getElementsByTagName('tbody')[0])
+    table.removeChild(document.getElementById('aksesorisTable').getElementsByTagName('tbody')[0])
     table.appendChild(tbody)
 
     arr.forEach(arr => {

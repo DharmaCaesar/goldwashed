@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\datab;
+use App\Exports\ItemExport;
+use App\Imports\ItemImport;
+use App\Models\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
-class databController extends Controller
+class ItemController extends Controller
 {
     /**
-     * 
+     * Return a view to the user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(){
-        $datab = datab::all();
-        return view('dashboard.data', [
-            'page' => 'datab',
-            'databdata' => $datab
+    public function index()
+    {
+        $items = Items::all();
+        return view('items.index', [
+            'page_name' => 'Items',
+            'itemData' => $items
         ]);
     }
 
@@ -31,10 +37,10 @@ class databController extends Controller
                 'item_status' => 'required|string'
             ]);
 
-            $datab = datab::find($validatedData['id']);
-            $datab->item_status = $validatedData['item_status'];
+            $item = Items::find($validatedData['id']);
+            $item->item_status = $validatedData['item_status'];
 
-            if ($datab->update()) {
+            if ($item->update()) {
                 return response()->json(['success' => 'Status changed successfully.']);
             }
         }
@@ -56,9 +62,9 @@ class databController extends Controller
             'paydate' => 'required'
         ]);
 
-        $datab = datab::create($validatedData);
+        $item = Items::create($validatedData);
 
-        if ($datab) {
+        if ($item) {
             return redirect()->back()->with('success', 'Item created successfully');
         }
     }
@@ -75,9 +81,9 @@ class databController extends Controller
                 'id' => 'required|numeric'
             ]);
 
-            $datab = datab::find($validatedData['id']);
+            $item = Items::find($validatedData['id']);
 
-            return response()->json($datab);
+            return response()->json($item);
         }
     }
 
@@ -98,15 +104,15 @@ class databController extends Controller
             'paydate' => 'required'
         ]);
 
-        $datab = datab::find($validatedData['id']);
-        $datab->item_name = $validatedData['item_name'];
-        $datab->item_quantity = $validatedData['item_quantity'];
-        $datab->item_price = $validatedData['item_price'];
-        $datab->item_supplier = $validatedData['item_supplier'];
-        $datab->item_status = $validatedData['item_status'];
-        $datab->paydate = $validatedData['paydate'];
+        $item = Items::find($validatedData['id']);
+        $item->item_name = $validatedData['item_name'];
+        $item->item_quantity = $validatedData['item_quantity'];
+        $item->item_price = $validatedData['item_price'];
+        $item->item_supplier = $validatedData['item_supplier'];
+        $item->item_status = $validatedData['item_status'];
+        $item->paydate = $validatedData['paydate'];
 
-        if ($datab->update()) {
+        if ($item->update()) {
             return redirect()->back();
         }
     }
@@ -123,9 +129,9 @@ class databController extends Controller
                 'id' => 'required'
             ]);
 
-            $datab = datab::find($validatedData['id']);
+            $item = Items::find($validatedData['id']);
 
-            return response()->json($datab);
+            return response()->json($item);
         }
     }
 
@@ -140,10 +146,44 @@ class databController extends Controller
             'id' => 'required'
         ]);
 
-        $datab = datab::find($validatedData['id']);
+        $item = Items::find($validatedData['id']);
 
-        if ($datab->delete()) {
+        if ($item->delete()) {
             return redirect()->back();
+        }
+    }
+
+    /**
+     * On GET request from an anchor in the blade, return a downloaded file in the form of xlsx format with the data from the database
+     */
+    public function export()
+    {
+        return Excel::download(new ItemExport, date('Y-m-d H:i:s') . '_items.xlsx');
+    }
+
+    /**
+     * On POST request from a form in the import modal, validate the file data received, if exists, then get the file name,
+     * and move it inside a folder within the public with the intended filename, then import the data from the file into the database.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'mimes:xls,xlsx']
+        ]);
+
+        $file = $request->file('file');
+
+        if ($file != null) {
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('import'), $fileName);
+
+            Excel::import(new ItemImport, public_path('import/' . $fileName));
+
+            Storage::delete('import/' . $fileName);
+
+            return redirect()->back()->with('success', 'Items imported successfully');
         }
     }
 }

@@ -591,59 +591,86 @@
     <div id="datab-create" class="hidden">
         <form action="/createdatab" method="post" class="text-center">
             @csrf
-            <div class="flex flex-row justify-center">
-                <div class="flex-1 w-full mx-5 max-w-lg">
+            <div class="flex flex-row">
+                <div class="flex-1 mx-4 w-full">
                     <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Product Name</span>
+                        <label class="label">
+                            <span class="label-text">Waktu beli</span>
                         </label>
+
                         <div class="input-group">
-                            <input type="hidden" name="pname" id="pInput">
-                            <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
-                                id="namesInput" readonly name="member_name">
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Address</span>
-                        </label>
-                        <input type="text" placeholder="Location name"
-                            class="input input-secondary input-bordered w-full" id="alamatInput" readonly name="member_address">
-                    </div>
-                    <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Contact number</span>
-                        </label>
-                        <div class="input-group">
-                            <span>+62</span>
-                            <input type="text" placeholder="Phone Number"
-                                class="input input-accent input-bordered w-full" id="nomorInput" readonly name="member_phone">
+                            <input type="datetime-local" name="paydate" class="date-input input-bordered w-full"
+                                id="dateTimeInput" required>
                         </div>
                     </div>
 
                     <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Officer Name</span>
+                        <label class="label">
+                            <span class="label-text">Status Barang</span>
                         </label>
-                        <input type="text" name="petugas_datab" placeholder="Officer name"
-                            class="input input-primary input-bordered w-full" id="namiInput">
-                    </div>
-                    <div class="form-control">
-                        <label class="label justify-center">
-                            <span class="label-text">Status</span>
-                        </label>
+
                         <div class="flex-row">
-                            <select name="status" class="select select-bordered w-full" id="statusInput">
-                                <option disabled="disabled" selected="selected">Status</option>
-                                <option value="TERCATAT">TERCATAT</option>
-                                <option value="PENJEMPUTAN">PENJEMPUTAN</option>
-                                <option value="SELESAI">SELESAI</option>
+                            <select name="item_status" id="statusInput" class="select select-bordered w-full">
+                                <option value="DIAJUKAN">DIAJUKAN BELI</option>
+                                <option value="HABIS">HABIS</option>
+                                <option value="TERSEDIA">TERSEDIA</option>
                             </select>
                         </div>
                     </div>
                 </div>
+
+                <div class="flex-1 mx-4 w-full">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Supplier Supplier</span>
+                        </label>
+
+                        <div class="flex-row">
+                            <input type="text" name="item_supplier" id="supplierInput"
+                                class="input input-bordered w-full" maxlength="100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Nama Barang</span>
+                        </label>
+
+                        <div class="flex-row">
+                            <input type="text" name="item_name" id="nameInput" class="input input-bordered w-full"
+                                maxlength="100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Qty</span>
+                        </label>
+
+                        <div class="flex-row">
+                            <input type="number" name="item_quantity" id="quantityInput"
+                                class="input input-bordered w-full" required>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Harga</span>
+                        </label>
+
+                        <div class="input-group">
+                            <span>Rp. </span>
+                            <input type="number" name="item_price" id="priceInput" class="input input-bordered w-full"
+                                required>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-outline my-10">Create</button>
+
+            <button type="submit" class="btn btn-primary my-10 mx-2">Create</button>
+
+            <button type="button" class="btn btn-primary my-10 mx-2"
+                onclick="document.getElementById('datab-create').classList.remove('modal-open')">Cancel</button>
         </form>
     </div>
     {{-- BAGIAN AKHIR CREATE --}}
@@ -651,68 +678,91 @@
     {{-- BAGIAN AWAL EDIT --}}
     <div id="edit_datab" class="modal">
         <div class="modal-box min-w-full text-center">
-            <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
-                Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
+            <p>Mengubah data barang yang inginkan .</p>
 
             <form action="/editdatab" method="post" class="text-center">
                 @csrf
                 <input type="hidden" name="id" id="Idinput">
                 <div class="flex flex-row">
-                    <div class="flex-1 w-full mx-5">
+                    <div class="flex-1 mx-4 w-full">
                         <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">Member Name</span>
+                            <label class="label">
+                                <span class="label-text">Waktu beli</span>
                             </label>
+    
                             <div class="input-group">
-                                <input type="hidden" name="member_id" id="memberInput">
-                                <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
-                                    id="namasInput" readonly name="member_name">
-                                <button class="btn btn-square"
-                                    onclick="document.getElementById('fin_member').classList.add('modal-open')"
-                                    type="button">Find</button>
+                                <input type="datetime-local" name="paydate" class="date-input input-bordered w-full"
+                                    id="dateTimeInput" required>
                             </div>
                         </div>
+    
                         <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">Address</span>
+                            <label class="label">
+                                <span class="label-text">Status Barang</span>
                             </label>
-                            <input type="text" placeholder="Location name"
-                                class="input input-secondary input-bordered w-full" id="addInput" readonly name="member_address">
-                        </div>
-                        <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">Contact number</span>
-                            </label>
-                            <div class="input-group">
-                                <span>+62</span>
-                                <input type="text" placeholder="Phone Number"
-                                    class="input input-accent input-bordered w-full" id="noInput" readonly name="member_phone">
-                            </div>
-                        </div>
-                        <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">New Officer Name</span>
-                            </label>
-                            <input type="text" name="petugas_penjemputan" placeholder="Officer Name" class="input input-secondary input-bordered w-full" id="namiInput">
-                        </div>
-                        <div class="form-control">
-                            <label class="label justify-center">
-                                <span class="label-text">Status</span>
-                            </label>
+    
                             <div class="flex-row">
-                                <select name="status" class="select select-bordered w-full" id="sInput">
-                                    <option disabled="disabled" selected="selected">Status</option>
-                                    <option value="TERCATAT">TERCATAT</option>
-                                    <option value="PENJEMPUTAN">PENJEMPUTAN</option>
-                                    <option value="SELESAI">SELESAI</option>
+                                <select name="item_status" id="statusInput" class="select select-bordered w-full">
+                                    <option value="DIAJUKAN">DIAJUKAN BELI</option>
+                                    <option value="HABIS">HABIS</option>
+                                    <option value="TERSEDIA">TERSEDIA</option>
                                 </select>
                             </div>
                         </div>
                     </div>
+    
+                    <div class="flex-1 mx-4 w-full">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Supplier Supplier</span>
+                            </label>
+    
+                            <div class="flex-row">
+                                <input type="text" name="item_supplier" id="supplierInput"
+                                    class="input input-bordered w-full" maxlength="100" required>
+                            </div>
+                        </div>
+    
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Nama Barang</span>
+                            </label>
+    
+                            <div class="flex-row">
+                                <input type="text" name="item_name" id="nameInput" class="input input-bordered w-full"
+                                    maxlength="100" required>
+                            </div>
+                        </div>
+    
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Qty</span>
+                            </label>
+    
+                            <div class="flex-row">
+                                <input type="number" name="item_quantity" id="quantityInput"
+                                    class="input input-bordered w-full" required>
+                            </div>
+                        </div>
+    
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Harga</span>
+                            </label>
+    
+                            <div class="input-group">
+                                <span>Rp. </span>
+                                <input type="number" name="item_price" id="priceInput" class="input input-bordered w-full"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
-                <button type="button" class="btn btn-outline my-10 mx-2"
-                    onclick="document.getElementById('edit_datab').classList.remove('modal-open')">Cancel</button>
+    
+                <button type="submit" class="btn btn-primary my-10 mx-2">Create</button>
+    
+                <button type="button" class="btn btn-primary my-10 mx-2"
+                    onclick="document.getElementById('datab-create').classList.remove('modal-open')">Cancel</button>
             </form>
 
         </div>
@@ -722,15 +772,20 @@
     {{-- BAGIAN AWAL DELETE --}}
     <div id="delete_datab" class="modal">
         <div class="modal-box min-w-full text-center">
-            <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
-                Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
-
             <form action="/deletedatab" method="post" class="text-center">
                 @csrf
-                <input type="hidden" name="member_id" id="delId">
-                <button type="button" class="btn btn-outline my-10 mx-2"
-                    onclick="document.getElementById('delete_datab').classList.remove('modal-open')">Cancel</button>
-                <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
+                <input type="hidden" name="id" id="deleteIdInput">
+
+            <div class="flex flex-row">
+                <div class="flex-1">
+                    <p class="text-lg font-bold">Apa anda yakin ingin menghapus data ?</p>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary my-10 mx-2">Delete Item</button>
+
+            <button type="button" class="btn btn-primary my-10 mx-2"
+                onclick="document.getElementById('delete_datab').classList.remove('modal-open')">Cancel</button>
             </form>
         </div>
     </div>

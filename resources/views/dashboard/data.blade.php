@@ -46,29 +46,27 @@
 
     {{-- BAGIAN AWAL TAB --}}
     <div class="text-center my-5">
-        <div class="flex flex-row">
-            <div class="flex-1">
-                <div class="btn-group inline-block">
-                    <button class="btn btn-active" id="view-btn">View</button>
-                    <button class="btn" id="create-btn">Create</button>
-                    {{-- <button class="btn" id="log-btn">Logs</button> --}}
+            <div class="flex flex-row m-4">
+                <div class="flex-1">
+                    <div class="btn-group inline-block">
+                    <button class="btn btn-primary btn-sm mr-2" id="addDataBtn" onclick="openModal('datab-create')">Add Data</button>
+                            <a href="{{ route('export-datab') }}" class="btn fa fa-file-excel">Export</a>
+                            <form action="{{ route('import-datab') }}" enctype="multipart/form-datab" class="inline-block"
+                                id="importForm" method="POST">
+                                @csrf
+                                <button type="button" class="btn rounded-l-none" id="imbtn"
+                                    onclick="document.getElementById('impor').click()">
+                                    Import
+                                </button>
+                                <input type="file" name="file" id="impor" class="hidden"
+                                    onchange="document.getElementById('importForm').submit()">
+                            </form>
+                        </div>
+                    {{-- <a href="{{ route('export_item') }}" class="btn btn-info btn-sm mx-2"> Export </a>
+                    <button class="btn btn-warning btn-sm mx-2"
+                        onclick="document.getElementById('importModal').classList.add('modal-open')"> Import </button> --}}
                 </div>
             </div>
-            {{-- <div class="flex-1">
-                <div class="btn-group inline-block">
-                    <a href="{{ route('export-datab') }}" class="btn fa fa-file-excel">Export</a>
-                    <form action="{{ route('import-datab') }}" enctype="multipart/form-datab" class="inline-block"
-                        id="importForm" method="POST">
-                        @csrf
-                        <button type="button" class="btn rounded-l-none" id="imbtn"
-                            onclick="document.getElementById('impor').click()">
-                            Import
-                        </button>
-                        <input type="file" name="file" id="impor" class="hidden"
-                            onchange="document.getElementById('importForm').submit()">
-                    </form>
-                </div>
-            </div> --}}
         </div>
     </div>
     {{-- BAGIAN AKHIR TAB --}}
@@ -99,7 +97,16 @@
                             <td>{{ $datab->price }}</td>
                             <td>{{ $datab->buydate }}</td>
                             <td>{{ $datab->supply }}</td>
-                            <td>{{ $datab->status }}</td>
+                            <td>
+                                <select class="select select-bordered w-full" onchange="updateStatus(this)"
+                                    value="{{ $datab->status }}">
+                                    <option value="DIAJUKAN" @if ($datab->status === 'DIAJUKAN') selected @endif>DIAJUKAN BELI
+                                    </option>
+                                    <option value="HABIS" @if ($datab->status === 'HABIS') selected @endif>HABIS</option>
+                                    <option value="TERSEDIA" @if ($datab->status === 'TERSEDIA') selected @endif>TERSEDIA
+                                    </option>
+                                </select>
+                            </td>
                             <td>{{ $datab->update_at }}</td>
                             <td><button class="btn btn-ghost" onclick="editdatab(this)">Edit</button>
                                 ||
