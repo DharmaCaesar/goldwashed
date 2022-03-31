@@ -56,16 +56,18 @@ class AbsenController extends Controller
         $validatedData = $request->validate([
             'nama_karyawan' => 'required|max:100',
             'tanggal_masuk' => 'required|date',
-            'status' => 'required'
+            'waktu_masuk_kerja' => 'required',
+            'status' => 'required',
+            'waktu_akhir_kerja' => 'required'
         ]);
 
-        $validatedData['waktu_masuk_kerja']=now();
-        $validatedData['waktu_akhir_kerja']=now();
+        // $validatedData['waktu_masuk_kerja']=now();
+        // $validatedData['waktu_akhir_kerja']=now();
 
         $absen = absen::create($validatedData);
 
         if ($absen) {
-            return redirect()->back()->with('success', 'Item created successfully');
+            return redirect()->back()->with('success', 'Data berhasil di tambahkan');
         }
     }
 

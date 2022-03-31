@@ -55,10 +55,10 @@
 
         <div class="flex flex-row m-4">
             <div class="flex-1">
-                <button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button>
-                {{-- <a href="{{ route('export_absen') }}" class="btn btn-info btn-sm mx-2"> Export </a>
+                <button class="btn btn-ghost" id="addDataBtn">+Tambah Data</button>
+                <a href="{{ route('export_absen') }}" class="btn btn-info btn-sm mx-2"> Export </a>
                 <button class="btn btn-warning btn-sm mx-2"
-                    onclick="document.getElementById('importModal').classList.add('modal-open')"> Import </button> --}}
+                    onclick="document.getElementById('importModal').classList.add('modal-open')"> Import </button>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@
                             <td>{{ $absen->tanggal_masuk }}</td>
                             <td>{{ $absen->waktu_masuk_kerja }}</td>
                             <td>
-                                <select class="select select-bordered w-full" onchange="updatestatus(this)" value="{{ $absen->status }}">
+                                <select class="select select-bordered w-full" onchange="updateStatus(this)" value="{{ $absen->status }}">
                                     <option value="MASUK" @if ($absen->status == 'MASUK') selected @endif>MASUK</option>
                                     <option value="SAKIT" @if ($absen->status == 'SAKIT') selected @endif>SAKIT</option>
                                     <option value="CUTI" @if ($absen->status == 'CUTI') selected @endif>CUTI</option>
@@ -95,10 +95,9 @@
                             </td>
                             <td>{{ $absen->waktu_akhir_kerja}} <button class="btn btn-outline">selesai</button></td>
                             <td>
-                                <button class="btn btn-ghost" onclick="editpenjemputan(this)">Edit</button>
+                                <button class="btn btn-info btn-sm" onclick="updateRow(this)">Edit</button>
                                 ||
-                                <button type="button" class="btn btn-outline my-10 mx-2 hover:bg-red-900"
-                    onclick="document.getElementById('delete_absen').classList.add('modal-open'); document.getElementById('edit_absen').classList.remove('modal-open')">Delete</button>
+                                <button class="btn btn-error btn-sm" onclick="deleteRow(this)">Delete</button>
                             </td>
                         </tr>
                     @endforeach
