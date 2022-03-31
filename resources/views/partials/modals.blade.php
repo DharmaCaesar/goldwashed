@@ -584,6 +584,100 @@
 {{-- BAGIAN AKHIR TAKE ID_MEMBER --}}
 {{-- BAGIAN AKHIR PENJEMPUTAN --}}
 
+{{-- BAGIAN AWAL ABSEN --}}
+@if ($page == 'absen')
+    {{-- BAGIAN AWAL EDIT --}}
+    <div id="edit_absen" class="modal">
+        <div class="modal-box min-w-full text-center">
+            <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
+                Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
+
+            <form action="/editabsen" method="post" class="text-center">
+                @csrf
+                <input type="hidden" name="id" id="Idinput">
+                <div class="flex flex-row">
+                    <div class="flex-1 w-full mx-5">
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">Member Name</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="hidden" name="member_id" id="memberInput">
+                                <input type="text" placeholder="Search…" class="input input-bordered w-full rounded-r-lg"
+                                    id="namasInput" readonly name="member_name">
+                                <button class="btn btn-square"
+                                    onclick="document.getElementById('fin_member').classList.add('modal-open')"
+                                    type="button">Find</button>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">Address</span>
+                            </label>
+                            <input type="text" placeholder="Location name"
+                                class="input input-secondary input-bordered w-full" id="addInput" readonly name="member_address">
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">Contact number</span>
+                            </label>
+                            <div class="input-group">
+                                <span>+62</span>
+                                <input type="text" placeholder="Phone Number"
+                                    class="input input-accent input-bordered w-full" id="noInput" readonly name="member_phone">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">New Officer Name</span>
+                            </label>
+                            <input type="text" name="petugas_absen" placeholder="Officer Name" class="input input-secondary input-bordered w-full" id="namiInput">
+                        </div>
+                        <div class="form-control">
+                            <label class="label justify-center">
+                                <span class="label-text">Status</span>
+                            </label>
+                            <div class="flex-row">
+                                <select name="status" class="select select-bordered w-full" id="sInput">
+                                    <option disabled="disabled" selected="selected">Status</option>
+                                    <option value="TERCATAT">TERCATAT</option>
+                                    <option value="PENJEMPUTAN">PENJEMPUTAN</option>
+                                    <option value="SELESAI">SELESAI</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
+                <button type="button" class="btn btn-outline my-10 mx-2"
+                    onclick="document.getElementById('edit_absen').classList.remove('modal-open')">Cancel</button>
+                <button type="button" class="btn btn-outline my-10 mx-2 hover:bg-red-900"
+                    onclick="document.getElementById('delete_absen').classList.add('modal-open'); document.getElementById('edit_absen').classList.remove('modal-open')">Delete</button>
+            </form>
+
+        </div>
+    </div>
+    {{-- BAGIAN AKHIR EDIT --}}
+
+    {{-- BAGIAN AWAL DELETE --}}
+    <div id="delete_absen" class="modal">
+        <div class="modal-box min-w-full text-center">
+            <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
+                Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
+
+            <form action="/deleteabsen" method="post" class="text-center">
+                @csrf
+                <input type="hidden" name="member_id" id="delId">
+                <button type="button" class="btn btn-outline my-10 mx-2"
+                    onclick="document.getElementById('delete_absen').classList.remove('modal-open')">Cancel</button>
+                <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{-- BAGIAN AKHIR DELETE --}}
+@endif
+{{-- BAGIAN AKHIR ABSEN --}}
+
 {{-- BAGIAN AWAL datab --}}
 @if ($page == 'datab')
 

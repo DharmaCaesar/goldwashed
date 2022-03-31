@@ -83,6 +83,10 @@
         <script src="{{ asset('js/aksesoris.js') }}"></script>
     @endif
 
+    @if ($page == 'absen')
+        <script src="{{ asset('js/absen.js') }}"></script>
+    @endif
+
     @if ($page == 'report')
     <script src="{{ asset('socket.io/dist/socket.io.min.js') }}"></script>
     <script src="{{ asset('js/report.js') }}"></script>

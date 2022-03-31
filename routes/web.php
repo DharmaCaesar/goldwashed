@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\AuLogController;
 use App\Http\Controllers\barventarisController;
 use App\Http\Controllers\BordilController;
@@ -189,6 +190,16 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
     Route::post('/destroydatab', [databController::class, 'destroy']) -> name('destroydatab');
     Route::get('datab/export/', [BordilController::class, 'exportDatab']) -> name('export-datab');
     Route::get('datab/import/', [BordilController::class, 'importDatab']) -> name('import-datab');
+
+    Route::get('/absen', [AbsenController::class, 'index']) -> name('absen');
+    Route::post('/createabsen', [AbsenController::class, 'store']) -> name('createabsen');
+    Route::post('/editabsen', [AbsenController::class, 'edit']) -> name('editabsen');
+    Route::post('/updateabsen', [AbsenController::class, 'update']) -> name('updateabsen');
+    Route::post('/update-status', [AbsenController::class, 'status']) -> name('update-status');
+    Route::post('/deleteabsen', [AbsenController::class, 'delete']) -> name('deleteabsen');
+    Route::post('/destroyabsen', [AbsenController::class, 'destroy']) -> name('destroyabsen');
+    Route::get('absen/export/', [AbsenController::class, 'exportAbsen']) -> name('export_absen');
+    Route::get('absen/import/', [AbsenController::class, 'importAbsen']) -> name('import_absen');
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});
