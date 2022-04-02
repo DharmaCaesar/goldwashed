@@ -120,7 +120,7 @@
     {{-- BAGIAN AKHIR CREATE --}}
 
     {{-- BAGIAN AWAL TAB --}}
-    {{-- <div class="text-center my-5 flex flex-row">
+    <div class="text-center my-5 flex flex-row">
         <div class="flex-1">
             <div class="form-control">
                 <label class="label">
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- BAGIAN AKHIR TAB --}}
 
     {{-- BAGIAN AWAL TABEL --}}

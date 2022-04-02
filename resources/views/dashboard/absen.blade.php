@@ -67,7 +67,7 @@
     {{-- BAGIAN AWAL TABEL --}}
     <div id="absen-view">
         <div class="overflow-x-auto p-2">
-            <table class="table w-full py-2" id="absenTable">
+            <table class="table w-full py-2 text-center" id="absenTable">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -93,7 +93,15 @@
                                     <option value="CUTI" @if ($absen->status == 'CUTI') selected @endif>CUTI</option>
                                 </select>
                             </td>
-                            <td>{{ $absen->waktu_akhir_kerja}} <button class="btn btn-outline">selesai</button></td>
+                            <td class="text-center">
+                                @if ($absen->status == 'MASUK')
+                                    <button class="btn btn-outline" >selesai</button>
+                                @endif
+
+                                @if ($absen->status == 'SAKIT' || $absen->status == 'CUTI')
+                                    {{ $absen->waktu_akhir_kerja }}
+                                @endif
+                            </td>
                             <td>
                                 <button class="btn btn-info btn-sm" onclick="updateRow(this)">Edit</button>
                                 ||

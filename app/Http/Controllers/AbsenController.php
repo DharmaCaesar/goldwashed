@@ -61,6 +61,13 @@ class AbsenController extends Controller
             'waktu_akhir_kerja' => 'required'
         ]);
 
+        if($validatedData['status'] == 'MASUK') {
+            $validatedData['waktu_akhir_kerja'] = '00:00:00';
+        } else {
+            $validatedData['waktu_masuk_kerja'] = '00:00:00';
+            $validatedData['waktu_akhir_kerja'] = '00:00:00';
+        }
+
         // $validatedData['waktu_masuk_kerja']=now();
         // $validatedData['waktu_akhir_kerja']=now();
 

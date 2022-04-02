@@ -46,6 +46,23 @@ const updateStatus = (entity) => {
     })
 }
 
+const selesaiBtn = (entity) => {
+    const row = entity.parentElement.parentElement
+    const id = row.getElementsByTagName('td')[0].innerText
+
+    $.ajax({
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/selesai',
+        data: { id: id },
+        success: function (response) {
+            notify(response.success)
+        }
+    })
+}
+
 const updateRow = (entity) => {
     const row = entity.parentElement.parentElement
     const id = row.getElementsByTagName('td')[0].getElementsByTagName('span')[1].innerText

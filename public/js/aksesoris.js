@@ -6,7 +6,6 @@ console.log(default_item)
 
 if (localStorage.getItem('aksesorisData')){ 
 updateTable(default_item)
-console.log(default_item)
 // ftotal()
 }
 
@@ -130,6 +129,7 @@ function insertToStorage() {
             'total': Number(total),
         })
     }
+    console.log('tmp_arr', tmp_arr)
 
     localStorage.setItem('aksesorisData', JSON.stringify([...tmp_arr]))
 }
@@ -154,7 +154,7 @@ function updateTable(arr) {
         let discElement = document.createElement('td')
         let totalElement = document.createElement('td')
 
-        table.appendChild(tr)
+        tbody.appendChild(tr)
         tr.appendChild(idElement)
         tr.appendChild(paidElement)
         tr.appendChild(packElement)
@@ -183,35 +183,6 @@ function updateTable(arr) {
 }
 
 function get_id() {
-    // let tmp_arr = []
-    // let tbody = document.getElementById('aksesorisBody')
-
-    // for (i = 0; i < tbody.children.length; i++) {
-        // const id = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[0].innerText
-        // const paid = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[1].innerText
-        // const pack = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[2].innerText
-        // const color = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[3].innerText
-        // const price = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[4].innerText
-        // const qty = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[5].innerText
-        // const name = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[6].innerText
-        // const disc = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[7].innerText
-        // const total = table.getElementsByTagName('tr')[i].getElementsByTagName('td')[8].innerText
-        
-        // tmp_arr.push({
-        //     'id': Number(id),
-        //     'paid': paid,
-        //     'pack': pack,
-        //     'color': color,
-        //     'price': Number(price),
-        //     'qty': Number(qty),
-        //     'name': name,
-        //     'disc': Number(disc),
-        //     'total': Number(total),
-        // })
-    // }
-
-    // return tmp_arr
-
     return JSON.parse(localStorage.getItem('aksesorisData'))
 }
 

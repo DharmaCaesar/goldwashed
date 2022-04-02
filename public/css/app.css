@@ -3788,14 +3788,14 @@ body[dir="rtl"] .checkbox:checked,
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.m-5 {
+  margin: 1.25rem;
+}
 .m-4 {
   margin: 1rem;
 }
 .m-2 {
   margin: 0.5rem;
-}
-.m-5 {
-  margin: 1.25rem;
 }
 .my-2 {
   margin-top: 0.5rem;
@@ -3805,6 +3805,10 @@ body[dir="rtl"] .checkbox:checked,
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -3812,10 +3816,6 @@ body[dir="rtl"] .checkbox:checked,
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 .mx-10 {
   margin-left: 2.5rem;
