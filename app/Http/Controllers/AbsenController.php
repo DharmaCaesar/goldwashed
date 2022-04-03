@@ -46,6 +46,21 @@ class AbsenController extends Controller
         }
     }
 
+    public function selesai(Request $request)
+    {
+        if ($request->ajax()) {
+            $validatedData = $request->validate([
+                'id' => 'required|numeric'
+            ]);
+
+            $absen = absen::find($validatedData['id']);
+
+            if ($absen->update()) {
+                return response()->json(['success' => 'Status changed successfully.']);
+            }
+        }
+    }
+
     /**
      * On POST request from a form, validate the data received and create a new item, if successful, return with a success.
      * @param Request $request

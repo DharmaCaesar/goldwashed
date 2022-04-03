@@ -39,9 +39,14 @@ const updateStatus = (entity) => {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         url: '/update-status',
-        data: { id: id, item_status: status },
+        data: { id: id, status: status },
         success: function (response) {
-            notify(response.success)
+            // notify(response.success)
+            if(status == 'CUTI' || status == 'SAKIT'){
+                row.getElementsByTagName('td')[5].innerHTML = '00:00:00'
+            } else {
+                row.getElementsByTagName('td')[5].innerHTML = '<button class="btn btn-outline" >selesai</button>'
+            }
         }
     })
 }
@@ -58,7 +63,8 @@ const selesaiBtn = (entity) => {
         url: '/selesai',
         data: { id: id },
         success: function (response) {
-            notify(response.success)
+            // notify(response.success)
+            row.getElementsByTagName('td')[5].innerHTML = response.waktu_akhir_kerja
         }
     })
 }

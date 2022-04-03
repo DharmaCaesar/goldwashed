@@ -82,7 +82,7 @@
                 <tbody>
                     @foreach ($absendata as $absen)
                         <tr class="active">
-                            <th>{{ $absen->id }}</th>
+                            <td>{{ $absen->id }}</td>
                             <td>{{ $absen->nama_karyawan }}</td>
                             <td>{{ $absen->tanggal_masuk }}</td>
                             <td>{{ $absen->waktu_masuk_kerja }}</td>
