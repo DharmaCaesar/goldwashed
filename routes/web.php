@@ -193,13 +193,15 @@ Route::middleware(['auth.basic', 'role:ADMIN,CASHIER']) -> group(function(){
 
     Route::get('/absen', [AbsenController::class, 'index']) -> name('absen');
     Route::post('/createabsen', [AbsenController::class, 'store']) -> name('createabsen');
-    Route::post('/editabsen', [AbsenController::class, 'edit']) -> name('editabsen');
+    Route::post('/editabsen', [AbsenController::class, 'edit']) -> name('edit_absen');
     Route::post('/updateabsen', [AbsenController::class, 'update']) -> name('updateabsen');
     Route::post('/update-status', [AbsenController::class, 'status']) -> name('update-status');
-    Route::post('/deleteabsen', [AbsenController::class, 'delete']) -> name('deleteabsen');
+    Route::post('/deleteabsen', [AbsenController::class, 'delete']) -> name('delete_absen');
     Route::post('/destroyabsen', [AbsenController::class, 'destroy']) -> name('destroyabsen');
-    Route::get('absen/export/', [AbsenController::class, 'exportAbsen']) -> name('export_absen');
-    Route::get('absen/import/', [AbsenController::class, 'importAbsen']) -> name('import_absen');
+    Route::get('absen/export/', [AbsenController::class, 'export']) -> name('export_absen');
+    Route::post('absen/import/', [AbsenController::class, 'import']) -> name('import_absen');
+    Route::post('/selesaiBtn', [AbsenController::class, 'selesai']) -> name('selesaiBtn');
+
 });
 
 Route::middleware(['auth.basic', 'role:CASHIER']) -> group(function(){});

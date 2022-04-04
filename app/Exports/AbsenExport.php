@@ -32,8 +32,8 @@ class AbsenExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder imple
             'Nama Karyawan',
             'Tanggal Masuk',
             'Waktu Masuk Kerja',
-            'Status',
             'Waktu Keluar Kerja',
+            'Status',
             'Created At',
             'Updated At'
         ];

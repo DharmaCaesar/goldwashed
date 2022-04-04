@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\absen;
 use App\Models\Members;
 use App\Models\Outlets;
 use App\Models\Packages;
 use App\Models\penjemputan;
 use App\Models\User;
+use App\Observers\AbsenObserver;
 use App\Observers\MembersObserver;
 use App\Observers\OutletsObserver;
 use App\Observers\PackagesObserver;
@@ -42,5 +44,6 @@ class EventServiceProvider extends ServiceProvider
         Members::observe(MembersObserver::class);
         User::observe(UsersObserver::class);
         penjemputan::observe(PenjemputanObserver::class);
+        absen::observe(AbsenObserver::class);
     }
 }

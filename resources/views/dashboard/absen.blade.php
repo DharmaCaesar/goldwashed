@@ -1,6 +1,31 @@
 @extends('preload.default')
 
 @section('container')
+    {{-- BAGIAN AWAL IMPORT --}}
+    <div id="importModal" class="modal">
+        <div class="modal-box text-center">
+            <p>Menambahkan data absen ke table</p>
+    
+            <form action="{{ route('import_absen') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="flex flex-row m-4">
+                    <div class="flex-1">
+                        <input type="file" name="file" class="input input-bordered p-1">
+                    </div>
+                </div>
+                <div class="flex flex-row m-4">
+                    <div class="flex-1">
+                        <button type="submit" class="btn btn-primary btn-sm mx-2">Import</button>
+                        <button type="button" class="btn btn-primary btn-sm mx-2"
+                            onclick="document.getElementById('importModal').classList.remove('modal-open')">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {{-- BAGIAN AKHIR IMPORT --}}
+
     @include('partials.modals')
     @include('partials.navbar')
 
@@ -95,7 +120,7 @@
                             </td>
                             <td class="text-center">
                                 @if ($absen->status == 'MASUK')
-                                    <button class="btn btn-outline" >selesai</button>
+                                    <button class="btn btn-outline" onclick="selesaiBtn(this)">selesai</button>
                                 @endif
 
                                 @if ($absen->status == 'SAKIT' || $absen->status == 'CUTI')

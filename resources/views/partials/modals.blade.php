@@ -632,8 +632,8 @@
                             </label>
 
                             <div class="flex-row">
-                                <input type="date" name="tanggal_masuk" id="tamaInput" class="date-input input-secondary input-bordered w-full"
-                                    required>
+                                <input type="date" name="tanggal_masuk" id="tamaInput"
+                                    class="date-input input-secondary input-bordered w-full" required>
                             </div>
                         </div>
 
@@ -643,8 +643,8 @@
                             </label>
 
                             <div class="flex-row">
-                                <input type="time" name="waktu_masuk_kerja" id="wamaInput" class="time-input input-bordered w-full"
-                                    required>
+                                <input type="time" name="waktu_masuk_kerja" id="wamaInput"
+                                    class="time-input input-bordered w-full" required>
                             </div>
                         </div>
 
@@ -654,8 +654,8 @@
                             </label>
 
                             <div class="flex-row">
-                                <input type="time" name="waktu_akhir_kerja" id="wasekeInput" class="time-input input-bordered w-full"
-                                    required>
+                                <input type="time" name="waktu_akhir_kerja" id="wasekeInput"
+                                    class="time-input input-bordered w-full" required>
                             </div>
                         </div>
                     </div>
@@ -676,110 +676,104 @@
             <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo eaque.
                 Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
 
-            <form action="/editabsen" method="post" class="text-center">
+            <form action="/updateabsen" method="post" class="text-center">
                 @csrf
                 <input type="hidden" name="id" id="Idinput">
-                <div id="addModal" class="modal">
-                    <div class="modal-box min-w-full text-center">
-                        <p>Add items to modal</p>
+                <div class="flex flex-row">
+                    <div class="flex-1 mx-4 w-full">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Nama Karyawan</span>
+                            </label>
 
-                        <form action="/createabsen" method="post">
-                            @csrf
-
-                            <div class="flex flex-row">
-                                <div class="flex-1 mx-4 w-full">
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Nama Karyawan</span>
-                                        </label>
-
-                                        <div class="input-group">
-                                            <input type="text" name="nakar" class="date-input input-bordered w-full"
-                                                id="nakarInput" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Status</span>
-                                        </label>
-
-                                        <div class="flex-row">
-                                            <select name="item_status" id="statusInput"
-                                                class="select select-bordered w-full">
-                                                <option value="MASUK">MASUK</option>
-                                                <option value="SAKIT">SAKIT</option>
-                                                <option value="CUTI">CUTI</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="flex-1 mx-4 w-full">
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Tanggal Masuk</span>
-                                        </label>
-
-                                        <div class="flex-row">
-                                            <input type="date" name="tama" id="tamaInput"
-                                                class="input input-bordered w-full" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Waktu Masuk</span>
-                                        </label>
-
-                                        <div class="flex-row">
-                                            <input type="time" name="wama" id="wamaInput"
-                                                class="input input-bordered w-full" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Waktu Selesai Kerja</span>
-                                        </label>
-
-                                        <div class="flex-row">
-                                            <input type="time" name="waseke" id="wasekeInput"
-                                                class="input input-bordered w-full" required>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="input-group">
+                                <input type="text" name="nakar" class="date-input input-bordered w-full"
+                                    id="NakarInput" required>
                             </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Status</span>
+                            </label>
 
-                            <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
+                            <div class="flex-row">
+                                <select name="status" id="SInput" class="select select-bordered w-full">
+                                    <option value="MASUK">MASUK</option>
+                                    <option value="SAKIT">SAKIT</option>
+                                    <option value="CUTI">CUTI</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-                            <button type="button" class="btn btn-primary my-10 mx-2"
-                                onclick="document.getElementById('addModal').classList.remove('modal-open')">Cancel
-                            </button>
-                        </form>
+                    <div class="flex-1 mx-4 w-full">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Tanggal Masuk</span>
+                            </label>
+
+                            <div class="flex-row">
+                                <input type="date" name="tama" id="TInput" class="date-input input-bordered w-full"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Waktu Masuk</span>
+                            </label>
+
+                            <div class="flex-row">
+                                <input type="time" name="wama" id="WInput" class="date-input input-bordered w-full"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Waktu Selesai Kerja</span>
+                            </label>
+
+                            <div class="flex-row">
+                                <input type="time" name="waseke" id="WasekeInput" class="date-input input-bordered w-full"
+                                    required>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {{-- BAGIAN AKHIR EDIT --}}
 
-                {{-- BAGIAN AWAL DELETE --}}
-                {{-- <div id="delete_absen" class="modal">
-                    <div class="modal-box min-w-full text-center">
-                        <p>Enim dolorem dolorum omnis atque necessitatibus. Consequatur aut adipisci qui iusto illo
-                            eaque.
-                            Consequatur repudiandae et. Nulla ea quasi eligendi. Saepe velit autem minima.</p>
+                <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-info">Edit</button>
 
-                        <form action="/deleteabsen" method="post" class="text-center">
-                            @csrf
-                            <input type="hidden" name="member_id" id="delId">
-                            <button type="button" class="btn btn-outline my-10 mx-2"
-                                onclick="document.getElementById('delete_absen').classList.remove('modal-open')">Cancel</button>
-                            <button type="submit" class="btn btn-outline my-10 mx-2 hover:bg-red-900">Delete</button>
-                        </form>
-                    </div>
-                </div> --}}
-                {{-- BAGIAN AKHIR DELETE --}}
+                <button type="button" class="btn btn-primary my-10 mx-2"
+                    onclick="document.getElementById('edit_absen').classList.remove('modal-open')">Cancel
+                </button>
             </form>
         </div>
     </div>
+    {{-- BAGIAN AKHIR EDIT --}}
+
+    {{-- BAGIAN AWAL DELETE --}}
+    <div id="deleteModal" class="modal">
+        <div class="modal-box text-center">
+            <form action="/destroyabsen" method="post">
+                @csrf
+    
+                <input type="hidden" name="id" id="deleteIdInput">
+    
+                <div class="flex flex-row">
+                    <div class="flex-1">
+                        <p class="text-lg font-bold">Anda yakin ingin menghapus data ini?</p>
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn btn-primary my-10 mx-2">Delete</button>
+    
+                <button type="button" class="btn btn-primary my-10 mx-2"
+                    onclick="document.getElementById('deleteModal').classList.remove('modal-open')">Cancel</button>
+            </form>
+        </div>
+    </div>
+    {{-- BAGIAN AKHIR DELETE --}}
 @endif
 {{-- BAGIAN AKHIR ABSEN --}}
 

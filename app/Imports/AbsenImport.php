@@ -30,8 +30,8 @@ class AbsenImport implements ToModel, WithStartRow
             'nama_karyawan' => $row[1],
             'tanggal_masuk' => $row[2],
             'waktu_masuk_kerja' => $row[3],
-            'status' => $row[4],
-            'waktu_akhir_kerja' => $row[5]
+            'waktu_akhir_kerja' => $row[4],
+            'status' => $row[5]
         ]);
     }
 }

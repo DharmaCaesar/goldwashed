@@ -39,6 +39,10 @@ class AbsenController extends Controller
 
             $absen = absen::find($validatedData['id']);
             $absen->status = $validatedData['status'];
+            if($validatedData['status'] == 'CUTI' || $validatedData['status'] == 'SAKIT'){
+                $absen -> waktu_akhir_kerja = '00:00:00';
+                $absen -> waktu_masuk_kerja = '00:00:00';
+            }
 
             if ($absen->update()) {
                 return response()->json(['success' => 'Status changed successfully.']);
@@ -54,9 +58,10 @@ class AbsenController extends Controller
             ]);
 
             $absen = absen::find($validatedData['id']);
+            $absen -> waktu_akhir_kerja = date('H:i:s');
 
             if ($absen->update()) {
-                return response()->json(['success' => 'Status changed successfully.']);
+                return response()->json(['success' => 'Status changed successfully.', 'waktu_akhir_kerja' => $absen->waktu_akhir_kerja]);
             }
         }
     }
@@ -119,19 +124,27 @@ class AbsenController extends Controller
     public function update(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_karyawan' => 'required|max:100',
-            'tanggal_masuk' => 'required|date',
-            'waktu_masuk_kerja' => 'required|time',
+            'id' => 'required|numeric',
+            'nakar' => 'required|max:100',
+            'tama' => 'required|date',
+            'wama' => 'required',
             'status' => 'required',
-            'waktu_akhir_kerja' => 'required|time'
+            'waseke' => 'required'
         ]);
 
+        if($validatedData['status'] == 'MASUK') {
+            $validatedData['waseke'] = '00:00:00';
+        } else {
+            $validatedData['wama'] = '00:00:00';
+            $validatedData['waseke'] = '00:00:00';
+        }
+
         $absen = absen::find($validatedData['id']);
-        $absen->nama_karyawan = $validatedData['nama_karyawan'];
-        $absen->tanggal_masuk = $validatedData['tanggal_masuk'];
-        $absen->waktu_masuk_kerja = $validatedData['waktu_masuk_kerja'];
+        $absen->nama_karyawan = $validatedData['nakar'];
+        $absen->tanggal_masuk = $validatedData['tama'];
+        $absen->waktu_masuk_kerja = $validatedData['wama'];
         $absen->status = $validatedData['status'];
-        $absen->waktu_akhir_kerja = $validatedData['waktu_akhir_kerja'];
+        $absen->waktu_akhir_kerja = $validatedData['waseke'];
 
         if ($absen->update()) {
             return redirect()->back();
