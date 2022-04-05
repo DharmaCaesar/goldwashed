@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class AbsenController extends Controller
 {
     /**
-     * Return a view to the user
+     * Mengembalikan view kepada user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -25,7 +25,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On request from an AJAX, update the selected column and row then return a success to the user with JSON.
+     * Request dari AJAX ini akan mengupdate kolom dan baris yang dipilih, kemudian akan mengembalikan sukses kepada user dengan JSON.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -50,6 +50,11 @@ class AbsenController extends Controller
         }
     }
 
+    /**
+     * Request dari AJAX ini akan mengupdate kolom dan baris yang dipilih, kemudian akan mengembalikan sukses kepada user dengan JSON.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function selesai(Request $request)
     {
         if ($request->ajax()) {
@@ -67,7 +72,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On POST request from a form, validate the data received and create a new item, if successful, return with a success.
+     * Pada request POST dari form, validasi data yang diterima dan membuat item baru, jika berhasil, kembalikan dengan sukses.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -99,7 +104,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On AJAX request upon opening an edit modal, receive a request with id parameter, validate, then return the data to the user
+     * Request AJAX saat membuka modal edit, menerima request dengan parameter id, validasi, kemudian mengembalikan data kepada user
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -117,7 +122,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On POST request from an edit modal, validate the data received and update the item, if successful, return with a success.
+     * Pada request POST dari modal edit, validasi data yang diterima dan mengupdate item, jika berhasil, kembalikan dengan sukses.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -152,7 +157,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On AJAX request upon opening a delete modal, receive a request with id parameter, validate, then return the data to the user
+     * Request AJAX saat membuka modal delete, menerima request dengan parameter id, validasi, kemudian mengembalikan data kepada user
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -170,7 +175,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On POST request from a delete modal, validate the data received and delete the item, if successful, return with a success.
+     * Pada request POST dari modal delete, validasi data yang diterima dan menghapus item, jika berhasil, kembalikan dengan sukses.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -188,7 +193,8 @@ class AbsenController extends Controller
     }
 
     /**
-     * On GET request from an anchor in the blade, return a downloaded file in the form of xlsx format with the data from the database
+     * Pada request GET dari anchor di blade, kembalikan file yang didownload dalam bentuk xlsx dengan data dari database
+     * @return \Maatwebsite\Excel\Facades\Excel
      */
     public function export()
     {
@@ -196,8 +202,7 @@ class AbsenController extends Controller
     }
 
     /**
-     * On POST request from a form in the import modal, validate the file data received, if exists, then get the file name,
-     * and move it inside a folder within the public with the intended filename, then import the data from the file into the database.
+     * Pada request POST dari form di modal import, validasi data file yang diterima, jika ada, maka ambil nama file, dan pindahkan file tersebut ke dalam folder public dengan nama file yang dituju, kemudian impor data dari file ke database.
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
