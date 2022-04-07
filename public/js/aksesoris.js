@@ -154,7 +154,7 @@ function updateTable(arr) {
         let discElement = document.createElement('td')
         let totalElement = document.createElement('td')
 
-        table.appendChild(tr)
+        tbody.appendChild(tr)
         tr.appendChild(idElement)
         tr.appendChild(paidElement)
         tr.appendChild(packElement)
